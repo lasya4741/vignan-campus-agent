@@ -1,0 +1,19 @@
+-- Seed template: routes
+-- Purpose: Deterministic step-by-step navigation paths between campus locations.
+-- Note: Real campus records will be imported separately from verified source material.
+
+-- Example Structure:
+-- INSERT INTO routes (id, start_location_id, destination_location_id, steps, estimated_minutes, source_id, confidence)
+-- VALUES (
+--     gen_random_uuid(),
+--     '00000000-0000-0000-0000-000000000001', -- start_location_id
+--     '00000000-0000-0000-0000-000000000002', -- destination_location_id
+--     '[
+--         {"step": 1, "instruction": "Enter through Main Gate"},
+--         {"step": 2, "instruction": "Walk straight along the central avenue for 100 meters"},
+--         {"step": 3, "instruction": "Turn left towards A-Block entrance"}
+--     ]'::jsonb,
+--     3.5,
+--     NULL,
+--     'high'
+-- );

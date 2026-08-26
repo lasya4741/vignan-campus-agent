@@ -1,0 +1,168 @@
+[
+  {
+    "id": "23942acf-bde6-5239-a722-5860d1c098e3",
+    "name": "N Block",
+    "location_type": "building",
+    "block": "N Block",
+    "description": "N Block Academic Building (6 floors and 1 basement)",
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "4111aaad-6300-5ee7-b356-8ce945efcfb5",
+    "name": "U Block",
+    "location_type": "building",
+    "block": "U Block",
+    "description": "U Block Academic Building (4 floors including ground)",
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "5938fabf-6853-5338-8aab-1d6b9d7a5f0b",
+    "name": "H Block",
+    "location_type": "building",
+    "block": "H Block",
+    "description": "H Block Academic Building (4 floors)",
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "5f5bcd56-4222-5616-8a51-7e22028e0adf",
+    "name": "A Block",
+    "location_type": "building",
+    "block": "A Block",
+    "description": "A Block Academic & Administrative Building",
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "8f8a8295-d241-5ed0-93cb-4ca8a914ca39",
+    "name": "Pharmacy Block",
+    "location_type": "building",
+    "block": "Pharmacy Block",
+    "description": "Pharmacy Block building and laboratories",
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "4c359ebc-b890-53be-9836-faded5587aef",
+    "name": "Textile Block",
+    "location_type": "building",
+    "block": "Textile Block",
+    "description": "Textile Engineering Block",
+    "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "f79a6da5-77b1-5c7e-935c-73458cb5068b",
+    "name": "Main Gate",
+    "location_type": "gate",
+    "block": "Campus Entrance",
+    "description": "Main campus gate and vehicle entrance",
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "a2b1cd45-6a21-5ae5-adb6-941b51f1ef0f",
+    "name": "Room No. 301",
+    "location_type": "room",
+    "block": "N Block",
+    "floor": "3rd Floor",
+    "room": "301",
+    "parent_location_id": "23942acf-bde6-5239-a722-5860d1c098e3",
+    "description": "Social Media Coordinators Meeting Room & Faculty Seating",
+    "source_id": "d4b84cb3-61d4-5026-a86f-a892a845ba43",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "65dae146-7670-5b41-a8f0-bc08c03b6ef6",
+    "name": "Room No. 310",
+    "location_type": "room",
+    "block": "N Block",
+    "floor": "3rd Floor",
+    "room": "310",
+    "parent_location_id": "23942acf-bde6-5239-a722-5860d1c098e3",
+    "description": "Magazine Committee Meeting Room & Faculty Seating",
+    "source_id": "d4b84cb3-61d4-5026-a86f-a892a845ba43",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "eb7d25d4-c658-5be5-a4ff-387a53de5fc4",
+    "name": "Room No. 409",
+    "location_type": "room",
+    "block": "N Block",
+    "floor": "4th Floor",
+    "room": "409",
+    "parent_location_id": "23942acf-bde6-5239-a722-5860d1c098e3",
+    "description": "BoSA, BoA, BoE, T&P CSE Meeting Room & Faculty Seating",
+    "source_id": "5dec730c-6055-5707-858c-8f181364efc1",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "dd8360e3-e768-5ac4-a5d4-81fbd4e00c41",
+    "name": "Finance Office (A Block 1st Floor)",
+    "location_type": "office",
+    "block": "A Block",
+    "floor": "1st Floor",
+    "parent_location_id": "5f5bcd56-4222-5616-8a51-7e22028e0adf",
+    "description": "University Finance & Fee Payment Office on A Block 1st Floor",
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "f9983937-c6c1-568f-90ef-7bc220315d69",
+    "name": "Software Departments (A Block 2nd Floor)",
+    "location_type": "department",
+    "block": "A Block",
+    "floor": "2nd Floor",
+    "parent_location_id": "5f5bcd56-4222-5616-8a51-7e22028e0adf",
+    "description": "Software-related departments and labs on A Block 2nd Floor",
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "9df39aa2-a09c-51d1-b91a-91992925cddc",
+    "name": "Mathematics & Science Faculty (A Block 3rd Floor)",
+    "location_type": "department",
+    "block": "A Block",
+    "floor": "3rd Floor",
+    "parent_location_id": "5f5bcd56-4222-5616-8a51-7e22028e0adf",
+    "description": "Mathematics and basic science faculty rooms on A Block 3rd Floor",
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "a476676a-528c-5ffe-a210-d27e9e99e07d",
+    "name": "First Year HOD Cabin (A Block)",
+    "location_type": "office",
+    "block": "A Block",
+    "parent_location_id": "5f5bcd56-4222-5616-8a51-7e22028e0adf",
+    "description": "First-year HOD office cabin located in A Block",
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "cac24b99-199b-598d-987d-da96a526d975",
+    "name": "Transport Office (Main Gate)",
+    "location_type": "office",
+    "block": "Main Gate Area",
+    "description": "Transport Office located on the left side of the main entrance when viewed from outside the gate; used for bus pass collection and transport inquiries",
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  }
+]

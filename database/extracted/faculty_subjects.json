@@ -1,0 +1,1334 @@
+[
+  {
+    "faculty_id": "a4da4a7f-efbd-5784-a7f5-b68ea43182df",
+    "subject_id": "12056492-2a33-548b-a894-361d10622312",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "a4da4a7f-efbd-5784-a7f5-b68ea43182df",
+    "subject_id": "26c7b541-b484-56b6-ba85-f940d3fbf6c5",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "a4da4a7f-efbd-5784-a7f5-b68ea43182df",
+    "subject_id": "15b900c7-1687-5ebd-9abf-4530d367ab53",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "a4da4a7f-efbd-5784-a7f5-b68ea43182df",
+    "subject_id": "410e2e10-fc50-50c7-8f0f-e406de96484b",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "a2d4ab4f-dfa8-5c94-831e-9e704066290d",
+    "subject_id": "1180d19b-0c5c-5607-b192-e5c389f33d97",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "a2d4ab4f-dfa8-5c94-831e-9e704066290d",
+    "subject_id": "7af54d85-dd90-527d-8902-b686ab1be34c",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "a2d4ab4f-dfa8-5c94-831e-9e704066290d",
+    "subject_id": "9a830b58-f140-5a63-a9d6-c056ff0fbfd0",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "a2d4ab4f-dfa8-5c94-831e-9e704066290d",
+    "subject_id": "4a15ffe9-02f3-58b1-9fc2-61d1a3d6ea4e",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "a2d4ab4f-dfa8-5c94-831e-9e704066290d",
+    "subject_id": "6a468b87-3b94-5612-81f4-7171a73ae21c",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "a2d4ab4f-dfa8-5c94-831e-9e704066290d",
+    "subject_id": "9bdaf522-9661-5ee3-b236-5b5a186b145a",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "a2d4ab4f-dfa8-5c94-831e-9e704066290d",
+    "subject_id": "cb4645a6-9aec-506d-ae8f-3488df7e9e56",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "f26e24b3-395d-5a83-a18c-eb91f41f75a9",
+    "subject_id": "d056936e-bdf5-5ba3-9cd6-5ff9466e6fef",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "fa1b3df6-6851-5eff-9fd2-ff0eda5587f8",
+    "subject_id": "54c5c948-3755-5c0a-9789-fb50b52e0497",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "33b44e12-9613-5c0e-b793-05bbd5f208bb",
+    "subject_id": "81288b1b-8fb8-52d4-a13b-540fef1f8b45",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "bca8e2c9-051b-5f1d-b0b0-83879b3000a6",
+    "subject_id": "a01bb5d3-b507-5e19-b6b6-368a05de8f5d",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "2847685c-7195-5c39-82a9-ccf6042e0dda",
+    "subject_id": "cf2337e3-1440-51cf-a90b-889e332c45be",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "2847685c-7195-5c39-82a9-ccf6042e0dda",
+    "subject_id": "8756e475-1475-5bf3-800a-455e74b2b774",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "2847685c-7195-5c39-82a9-ccf6042e0dda",
+    "subject_id": "5f4297fc-cc26-52fa-aba4-235fafdf0fb4",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "a919f4ec-adbb-5389-93da-433e419514c9",
+    "subject_id": "9d026b30-a73c-52bf-afb9-9f9156fd2467",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e71809c7-4682-5d46-a628-742464d01485",
+    "subject_id": "26e1970b-fc29-5dc9-9398-c7f16351d90c",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e71809c7-4682-5d46-a628-742464d01485",
+    "subject_id": "95e6d5d0-ec99-5fc5-b023-deea8185fa49",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e71809c7-4682-5d46-a628-742464d01485",
+    "subject_id": "26c7b541-b484-56b6-ba85-f940d3fbf6c5",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e71809c7-4682-5d46-a628-742464d01485",
+    "subject_id": "b120c6cc-a06a-54a9-9eef-0e4a56680780",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e71809c7-4682-5d46-a628-742464d01485",
+    "subject_id": "8282b171-612e-50cf-bc88-50ade3f69892",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e71809c7-4682-5d46-a628-742464d01485",
+    "subject_id": "a5695c81-ebba-5688-a3d8-da55c1a33814",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e71809c7-4682-5d46-a628-742464d01485",
+    "subject_id": "c28d879f-df99-5841-88b0-a0410d247834",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e71809c7-4682-5d46-a628-742464d01485",
+    "subject_id": "879444c2-c066-5812-8929-212605329fa0",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b261ac93-c13f-57aa-bc3f-343239b609cd",
+    "subject_id": "20a2dbb5-2a99-535f-bb01-d941d9592b06",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "f36c3530-3666-5d9e-904d-aad81a5f65a3",
+    "subject_id": "0070124a-598b-5950-9a80-f4284a765253",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "083d7e95-1cb2-585d-aa64-306240619947",
+    "subject_id": "8756e475-1475-5bf3-800a-455e74b2b774",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "083d7e95-1cb2-585d-aa64-306240619947",
+    "subject_id": "dc00afb0-6b48-5d6e-978c-61577a2033e6",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "083d7e95-1cb2-585d-aa64-306240619947",
+    "subject_id": "72e11eee-a9e5-599b-83cc-cbad4fd43f31",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "083d7e95-1cb2-585d-aa64-306240619947",
+    "subject_id": "a8295139-c7a7-55b4-aac6-8ffd3a5c32a5",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "030c861c-6207-54cc-852a-273978f3c83d",
+    "subject_id": "639609ea-4b9d-5de5-bbd9-2fb2116efcd3",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "030c861c-6207-54cc-852a-273978f3c83d",
+    "subject_id": "52ea3dca-6e05-5e4e-9a8e-9c69ad50583d",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "030c861c-6207-54cc-852a-273978f3c83d",
+    "subject_id": "ddaabe69-da58-5caf-9849-be68e7ce2f09",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "d4beb7ec-4b71-5515-8abc-b3eb9e27f796",
+    "subject_id": "76ffa0d6-11df-5ef6-b702-1baeacd2fc86",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "d4beb7ec-4b71-5515-8abc-b3eb9e27f796",
+    "subject_id": "34707d27-3bc4-5a6f-a61d-ce54b2747903",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "d4beb7ec-4b71-5515-8abc-b3eb9e27f796",
+    "subject_id": "3ca641b5-a816-52a0-ae4e-8015a0048fa3",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "45430bd1-0b50-587c-b72a-e608140a04fd",
+    "subject_id": "c7e7786d-466d-5307-bb62-533c28e7b0d5",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "94a6773a-00fd-529f-9872-d118dd3e61aa",
+    "subject_id": "40d2ce0c-b608-580a-913c-5477bc06c366",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "94a6773a-00fd-529f-9872-d118dd3e61aa",
+    "subject_id": "e898c701-0aec-5fd3-b568-a37dc9c158e6",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "3c96c864-5854-5c6a-8812-e67cd7b3b63b",
+    "subject_id": "179f539a-2287-543d-b1d6-1f4f0a636d1f",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e1c7225f-c8ae-5241-a421-4b60ae0c434e",
+    "subject_id": "6ae728de-5106-5033-ae56-1b71a0a67f9a",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e1c7225f-c8ae-5241-a421-4b60ae0c434e",
+    "subject_id": "99d88877-a8f2-58da-bbaa-45c108180d71",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e1c7225f-c8ae-5241-a421-4b60ae0c434e",
+    "subject_id": "3a0674d8-470c-5852-90c8-3a8a23cc7e29",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e1c7225f-c8ae-5241-a421-4b60ae0c434e",
+    "subject_id": "bf3651ec-9add-5350-8590-8080faa85a8a",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e8c8688a-b7b7-5259-86fb-400b2684370e",
+    "subject_id": "95e6d5d0-ec99-5fc5-b023-deea8185fa49",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "3249f4e2-27a3-5602-b6ea-d3de7b8b06a6",
+    "subject_id": "9a5022a5-3f89-578e-8347-237916ef8ece",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "3249f4e2-27a3-5602-b6ea-d3de7b8b06a6",
+    "subject_id": "0eeb79c5-3883-52f2-b3f0-966b29ccd18b",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "3249f4e2-27a3-5602-b6ea-d3de7b8b06a6",
+    "subject_id": "3c5db5be-b97c-5fe4-806d-c6f37027a491",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "3249f4e2-27a3-5602-b6ea-d3de7b8b06a6",
+    "subject_id": "8756e475-1475-5bf3-800a-455e74b2b774",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ff4e04d5-4116-552e-8a21-18b20136a063",
+    "subject_id": "f4281451-298e-5151-90d6-0b55c777d90c",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ff4e04d5-4116-552e-8a21-18b20136a063",
+    "subject_id": "c4348b78-248a-5257-ae5c-0b0622aa39f4",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ff4e04d5-4116-552e-8a21-18b20136a063",
+    "subject_id": "55d5332c-0656-5654-aa18-1f1483314c42",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ff4e04d5-4116-552e-8a21-18b20136a063",
+    "subject_id": "95e18ba7-0892-5bab-83e9-c0c2d4b1f088",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ff4e04d5-4116-552e-8a21-18b20136a063",
+    "subject_id": "8fc6afd8-11f0-5bf2-b353-87bdfe7e75fe",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ff4e04d5-4116-552e-8a21-18b20136a063",
+    "subject_id": "62a2269f-0c02-5d47-9d5b-dd760d5fcacc",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ff4e04d5-4116-552e-8a21-18b20136a063",
+    "subject_id": "0522f574-c417-5fde-a0a2-a6a61b3e5a1b",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ff4e04d5-4116-552e-8a21-18b20136a063",
+    "subject_id": "6a468b87-3b94-5612-81f4-7171a73ae21c",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ff4e04d5-4116-552e-8a21-18b20136a063",
+    "subject_id": "df72c5e9-a997-5e83-92f7-d13fcdc34bd0",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ff4e04d5-4116-552e-8a21-18b20136a063",
+    "subject_id": "ed0e36fc-3b05-536f-bf74-2aba97836c2f",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "6173cdd5-d512-5da5-a9bc-72c76dd60db7",
+    "subject_id": "235473e8-8698-5745-8c4b-ed8f924416d7",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "6173cdd5-d512-5da5-a9bc-72c76dd60db7",
+    "subject_id": "95e6d5d0-ec99-5fc5-b023-deea8185fa49",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "6173cdd5-d512-5da5-a9bc-72c76dd60db7",
+    "subject_id": "410e2e10-fc50-50c7-8f0f-e406de96484b",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "6173cdd5-d512-5da5-a9bc-72c76dd60db7",
+    "subject_id": "2c6f809e-b3b0-59f7-b0c5-0f8d69965a03",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "6173cdd5-d512-5da5-a9bc-72c76dd60db7",
+    "subject_id": "c9854a4b-6060-5798-b034-48542c481ea0",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "6173cdd5-d512-5da5-a9bc-72c76dd60db7",
+    "subject_id": "0832c269-4715-5dca-bbfb-a857f7229560",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "4c41cc37-9b8e-5b3e-a346-32f3c761a2bf",
+    "subject_id": "319d06fc-a673-58b5-8cb8-b73daad6e715",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "4c41cc37-9b8e-5b3e-a346-32f3c761a2bf",
+    "subject_id": "0c34dc5c-0e1a-5d63-a3ab-834fcd49d607",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "47087c15-c29f-5ded-8f03-cb44608c5270",
+    "subject_id": "b85912b2-0faf-5ca9-9cf5-e7bc3badd3cc",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "2652d36f-db3e-55c8-8195-aab7861ed7dd",
+    "subject_id": "e69e571a-ee3d-5fb8-ad92-5a931149b555",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "132e5003-8d03-5661-a6fd-851e6897a975",
+    "subject_id": "52ea3dca-6e05-5e4e-9a8e-9c69ad50583d",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "132e5003-8d03-5661-a6fd-851e6897a975",
+    "subject_id": "3855419f-31a0-52b5-8a8e-9feae1ffc7d8",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "132e5003-8d03-5661-a6fd-851e6897a975",
+    "subject_id": "bf770fe1-47fe-511d-9629-8e9461cba3f1",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "68d17611-ccf1-5c1e-ad77-ef37cb4467e8",
+    "subject_id": "805d8fb7-1be0-5e64-b4fc-8b04abbc6a81",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "30d098f0-2bf9-55fc-8a46-729fdaa8ed36",
+    "subject_id": "ab5bd040-e8d5-540b-9f8f-4096d42d3d96",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "30d098f0-2bf9-55fc-8a46-729fdaa8ed36",
+    "subject_id": "29240bf9-71cb-5697-a77d-4897df481fb7",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "30d098f0-2bf9-55fc-8a46-729fdaa8ed36",
+    "subject_id": "61771085-1e10-5f42-b0e1-db4e6b3b2d7a",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "5033ad1f-7187-5eee-8f51-29c97bcb40a3",
+    "subject_id": "b84c7a80-4dc9-5704-ba5d-3f97add214a8",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "5033ad1f-7187-5eee-8f51-29c97bcb40a3",
+    "subject_id": "65e8779e-ffcc-5e6e-a4ab-e0fb82d3945c",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "5033ad1f-7187-5eee-8f51-29c97bcb40a3",
+    "subject_id": "fd1efe57-4fb0-5a0b-a30c-7727bf723334",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "5033ad1f-7187-5eee-8f51-29c97bcb40a3",
+    "subject_id": "ac17fb8b-6fde-59ca-bc6e-b6e17a948790",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "97983619-3459-5f53-85d7-c6a97a1db82d",
+    "subject_id": "65dbe76b-a5a6-5143-bd5d-ea9dccbef39d",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "f70105de-9777-5702-9678-58c092b6ef15",
+    "subject_id": "68cb93c1-fb2b-5fe9-9c78-ec7b4acda4ce",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "58e7fb63-3883-5ef7-9b69-52d97f361c5c",
+    "subject_id": "60b72cbf-8272-5f57-8394-9cdce87de23b",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "c3bc2450-6489-5018-89ea-c9b67e7d4707",
+    "subject_id": "a792f994-5088-5c9e-a23a-4c27965c7c60",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "c3bc2450-6489-5018-89ea-c9b67e7d4707",
+    "subject_id": "5bf8c032-4a53-5e3a-b24b-9871ba565612",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "7b409016-1f32-5908-89d9-3a6c4fa4d394",
+    "subject_id": "1f0c91e7-763c-5596-aa78-a0a8b2a27a3d",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e5421a3c-c0dd-525a-8af6-94fb998b69b9",
+    "subject_id": "f185d5fc-01f0-5cc9-a3fb-b6339f636fc8",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e5421a3c-c0dd-525a-8af6-94fb998b69b9",
+    "subject_id": "cf2dd540-cc3d-5071-b8d0-ae5e2965a15b",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e5421a3c-c0dd-525a-8af6-94fb998b69b9",
+    "subject_id": "8756e475-1475-5bf3-800a-455e74b2b774",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e5421a3c-c0dd-525a-8af6-94fb998b69b9",
+    "subject_id": "26c7b541-b484-56b6-ba85-f940d3fbf6c5",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e5421a3c-c0dd-525a-8af6-94fb998b69b9",
+    "subject_id": "07534af5-9de5-5f6b-b173-263554fc6e45",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e5421a3c-c0dd-525a-8af6-94fb998b69b9",
+    "subject_id": "cb4590c9-bccf-5863-a0a3-f1ff75c58f5a",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "d4b7aa16-ad11-5fc0-9f6d-dead502c30b6",
+    "subject_id": "179f539a-2287-543d-b1d6-1f4f0a636d1f",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "d4b7aa16-ad11-5fc0-9f6d-dead502c30b6",
+    "subject_id": "3c5db5be-b97c-5fe4-806d-c6f37027a491",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "d4b7aa16-ad11-5fc0-9f6d-dead502c30b6",
+    "subject_id": "95ba89ce-fbbb-503e-9451-3db5ffd9f835",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "a3129f54-9476-5e99-b30a-c5dc9f0c2fa5",
+    "subject_id": "3c5db5be-b97c-5fe4-806d-c6f37027a491",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "a3129f54-9476-5e99-b30a-c5dc9f0c2fa5",
+    "subject_id": "cd074ae8-3628-5e36-82a6-4005c6161c0f",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "a3129f54-9476-5e99-b30a-c5dc9f0c2fa5",
+    "subject_id": "0eeb79c5-3883-52f2-b3f0-966b29ccd18b",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "a3129f54-9476-5e99-b30a-c5dc9f0c2fa5",
+    "subject_id": "8756e475-1475-5bf3-800a-455e74b2b774",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "a3129f54-9476-5e99-b30a-c5dc9f0c2fa5",
+    "subject_id": "f185d5fc-01f0-5cc9-a3fb-b6339f636fc8",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "cc9a356a-6666-5fb8-afcd-06078d7abfcb",
+    "subject_id": "5f4297fc-cc26-52fa-aba4-235fafdf0fb4",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "cc9a356a-6666-5fb8-afcd-06078d7abfcb",
+    "subject_id": "8756e475-1475-5bf3-800a-455e74b2b774",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ed2600c5-709f-5737-8d5e-715e42ce5b4c",
+    "subject_id": "179f539a-2287-543d-b1d6-1f4f0a636d1f",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ed2600c5-709f-5737-8d5e-715e42ce5b4c",
+    "subject_id": "63cb49c1-a52e-5640-bb4d-38fbb5831e1c",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "fd7b30eb-e3e8-5cb4-92d0-0c717d341b96",
+    "subject_id": "95e6d5d0-ec99-5fc5-b023-deea8185fa49",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "fd7b30eb-e3e8-5cb4-92d0-0c717d341b96",
+    "subject_id": "410e2e10-fc50-50c7-8f0f-e406de96484b",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "fd7b30eb-e3e8-5cb4-92d0-0c717d341b96",
+    "subject_id": "f185d5fc-01f0-5cc9-a3fb-b6339f636fc8",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "fd7b30eb-e3e8-5cb4-92d0-0c717d341b96",
+    "subject_id": "8756e475-1475-5bf3-800a-455e74b2b774",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "fd7b30eb-e3e8-5cb4-92d0-0c717d341b96",
+    "subject_id": "179f539a-2287-543d-b1d6-1f4f0a636d1f",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ba612200-215e-55fa-aa84-9fb675431818",
+    "subject_id": "ce3085e1-33e0-5161-aea0-d9c523b6cd9e",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ba612200-215e-55fa-aa84-9fb675431818",
+    "subject_id": "26c7b541-b484-56b6-ba85-f940d3fbf6c5",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ba612200-215e-55fa-aa84-9fb675431818",
+    "subject_id": "7df104ce-a4be-57f5-9efd-5945e99232ef",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ba612200-215e-55fa-aa84-9fb675431818",
+    "subject_id": "65e8779e-ffcc-5e6e-a4ab-e0fb82d3945c",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ba612200-215e-55fa-aa84-9fb675431818",
+    "subject_id": "95ba89ce-fbbb-503e-9451-3db5ffd9f835",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ba612200-215e-55fa-aa84-9fb675431818",
+    "subject_id": "e76ab9b5-a8bc-535e-8fd7-63c75cf80ca0",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ba612200-215e-55fa-aa84-9fb675431818",
+    "subject_id": "37cf7de2-486b-5704-a5d7-6d173d24caad",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "23885b46-9294-583d-80e7-9b43a6b8d44d",
+    "subject_id": "00fbc20f-0dc9-57f5-8d2b-7b9e85b3458a",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "c96c6ad8-850c-59ca-a04e-f64325f6ab4a",
+    "subject_id": "cc1d6d45-faed-54c4-8ab2-d4df86efee8b",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b853d91e-50d0-57e1-953e-bcbec803ae5a",
+    "subject_id": "26c7b541-b484-56b6-ba85-f940d3fbf6c5",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b853d91e-50d0-57e1-953e-bcbec803ae5a",
+    "subject_id": "12056492-2a33-548b-a894-361d10622312",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "f19af4ab-fe17-5f3d-8ea9-c55298530c3c",
+    "subject_id": "e069b544-e78d-5bc1-b4b8-a24fcd35a350",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "c44f8383-4264-53a5-9762-575cb865b5ac",
+    "subject_id": "696c0c7f-fa59-5f00-8476-6fd991446afe",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "fc6c1dd7-e0e3-57f0-a6db-1fd72552cb4f",
+    "subject_id": "911c92c9-2c28-5241-8102-9d2e83c84de5",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b2258a34-91e1-545e-8db3-51d3cf8f4190",
+    "subject_id": "a0a22b70-17fb-5f9d-a69f-a027fd0e42c9",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "635a8fdc-fc50-57fb-bd6a-9a9dcfbcf4ee",
+    "subject_id": "a977aa2d-a978-5cc2-bfad-b3b5969b8cbb",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "635a8fdc-fc50-57fb-bd6a-9a9dcfbcf4ee",
+    "subject_id": "65c14f68-fdf0-59c3-836c-049c7a96cfdd",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "635a8fdc-fc50-57fb-bd6a-9a9dcfbcf4ee",
+    "subject_id": "8a2d14ba-6f92-5f55-aa8c-c4ab19a98b77",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "635a8fdc-fc50-57fb-bd6a-9a9dcfbcf4ee",
+    "subject_id": "cd074ae8-3628-5e36-82a6-4005c6161c0f",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "635a8fdc-fc50-57fb-bd6a-9a9dcfbcf4ee",
+    "subject_id": "3c5db5be-b97c-5fe4-806d-c6f37027a491",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "635a8fdc-fc50-57fb-bd6a-9a9dcfbcf4ee",
+    "subject_id": "879444c2-c066-5812-8929-212605329fa0",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "635a8fdc-fc50-57fb-bd6a-9a9dcfbcf4ee",
+    "subject_id": "294d2659-e6b6-5ce3-a224-4b4a9360afa9",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "635a8fdc-fc50-57fb-bd6a-9a9dcfbcf4ee",
+    "subject_id": "2c6f809e-b3b0-59f7-b0c5-0f8d69965a03",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "635a8fdc-fc50-57fb-bd6a-9a9dcfbcf4ee",
+    "subject_id": "179f539a-2287-543d-b1d6-1f4f0a636d1f",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "635a8fdc-fc50-57fb-bd6a-9a9dcfbcf4ee",
+    "subject_id": "42c72364-7f89-540d-96de-d46e9b2d4f8e",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "635a8fdc-fc50-57fb-bd6a-9a9dcfbcf4ee",
+    "subject_id": "896ea1c6-1107-5f75-a650-83afd00e3d91",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "28774638-1582-556c-a637-5e26442500b2",
+    "subject_id": "41e2aa04-8856-5787-aa4d-d0a4a014bf31",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ffe480c1-1bd7-53d9-aa49-3207f2e17a9c",
+    "subject_id": "bee41b6f-df56-5100-a619-4133aa6012b1",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ea1c8cb3-8030-5a15-8004-fa8691714332",
+    "subject_id": "48f30a40-2435-506a-aca6-96073cc2fca9",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "78d09fa5-562c-5ac3-aeec-20659522a6a2",
+    "subject_id": "ce3085e1-33e0-5161-aea0-d9c523b6cd9e",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "78d09fa5-562c-5ac3-aeec-20659522a6a2",
+    "subject_id": "26c7b541-b484-56b6-ba85-f940d3fbf6c5",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "78d09fa5-562c-5ac3-aeec-20659522a6a2",
+    "subject_id": "c35a2e4d-0b09-5898-a749-529cba7a5dfa",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "78d09fa5-562c-5ac3-aeec-20659522a6a2",
+    "subject_id": "499bae9a-7e49-5a7c-8129-021a5fd251fc",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "0eed6434-6821-5843-a9fd-7d2b2a68d87a",
+    "subject_id": "67d51569-9035-5670-a86f-8b4c65158f53",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "0eed6434-6821-5843-a9fd-7d2b2a68d87a",
+    "subject_id": "0e180172-702a-5715-883b-0915d5e88478",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "0eed6434-6821-5843-a9fd-7d2b2a68d87a",
+    "subject_id": "cfd3d35b-d63d-5e49-8502-32180d8006a1",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "0eed6434-6821-5843-a9fd-7d2b2a68d87a",
+    "subject_id": "82cc7361-7ad8-5dc9-82ff-b51083a17635",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "0eed6434-6821-5843-a9fd-7d2b2a68d87a",
+    "subject_id": "e6c24bec-91d7-5ebb-9aad-572f6a832c6e",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "0eed6434-6821-5843-a9fd-7d2b2a68d87a",
+    "subject_id": "382fe2e6-6c47-5bbe-94d1-8b9ee2e756bb",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "4c611a3c-b564-549d-864e-31d29e6951db",
+    "subject_id": "6d502f24-a649-53b9-8f04-fa5d98104bf7",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "4c611a3c-b564-549d-864e-31d29e6951db",
+    "subject_id": "42c72364-7f89-540d-96de-d46e9b2d4f8e",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "4c611a3c-b564-549d-864e-31d29e6951db",
+    "subject_id": "179f539a-2287-543d-b1d6-1f4f0a636d1f",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "4c611a3c-b564-549d-864e-31d29e6951db",
+    "subject_id": "2c6f809e-b3b0-59f7-b0c5-0f8d69965a03",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "4c611a3c-b564-549d-864e-31d29e6951db",
+    "subject_id": "a06cd763-0713-580c-beb5-d7327fc48dcb",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "2ec4ba3b-57c6-5e52-9e79-57d6e338c8c0",
+    "subject_id": "3c5db5be-b97c-5fe4-806d-c6f37027a491",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "2ec4ba3b-57c6-5e52-9e79-57d6e338c8c0",
+    "subject_id": "e56c4c1f-77bb-5fd9-840f-68934623174b",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "583ddb40-9d5b-5d49-8da5-cda4a2c29dd6",
+    "subject_id": "6042a3d6-22d7-51db-adc9-604ad882758c",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "6521a61e-c7a3-5c5e-88e6-c1ff947b5c64",
+    "subject_id": "41e93d30-1a1c-59f9-b2e4-04da7934ee45",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "940ea646-62ed-5867-a58c-53a2a6961f28",
+    "subject_id": "8756e475-1475-5bf3-800a-455e74b2b774",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "940ea646-62ed-5867-a58c-53a2a6961f28",
+    "subject_id": "f185d5fc-01f0-5cc9-a3fb-b6339f636fc8",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "940ea646-62ed-5867-a58c-53a2a6961f28",
+    "subject_id": "1c8781f5-29e3-5fe4-9e30-042c2f882896",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "940ea646-62ed-5867-a58c-53a2a6961f28",
+    "subject_id": "5ab0f018-6ceb-5a53-9936-77f39ecd2416",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "940ea646-62ed-5867-a58c-53a2a6961f28",
+    "subject_id": "25f34555-c8fb-5576-97a1-7510146fc688",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ff2fb42b-020a-5897-95fa-3ca48f3485a7",
+    "subject_id": "b1f62e8c-b69c-5ac8-b1e9-141d671250d9",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "df5eff2b-3b4e-55cc-8a66-8dd7712702e8",
+    "subject_id": "d9135efa-9176-5b4c-b6bb-c32056fc8c78",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "8eccce3e-de76-516e-8cb5-1c77414c44b2",
+    "subject_id": "5f4297fc-cc26-52fa-aba4-235fafdf0fb4",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "8eccce3e-de76-516e-8cb5-1c77414c44b2",
+    "subject_id": "410e2e10-fc50-50c7-8f0f-e406de96484b",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "72a0bf3a-907b-5acb-b462-839523a88054",
+    "subject_id": "3c5db5be-b97c-5fe4-806d-c6f37027a491",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "72a0bf3a-907b-5acb-b462-839523a88054",
+    "subject_id": "15b900c7-1687-5ebd-9abf-4530d367ab53",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "72a0bf3a-907b-5acb-b462-839523a88054",
+    "subject_id": "294d2659-e6b6-5ce3-a224-4b4a9360afa9",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "72a0bf3a-907b-5acb-b462-839523a88054",
+    "subject_id": "f185d5fc-01f0-5cc9-a3fb-b6339f636fc8",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ea6070b6-ad81-52ff-b697-ba8fa7860080",
+    "subject_id": "1f4310b6-6307-552b-b56a-82b6487f9cab",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ea6070b6-ad81-52ff-b697-ba8fa7860080",
+    "subject_id": "42f55c62-64be-510f-9761-845f707763c5",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b38ab419-538f-5c1e-9d58-1f4913fd0f86",
+    "subject_id": "805d8fb7-1be0-5e64-b4fc-8b04abbc6a81",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b38ab419-538f-5c1e-9d58-1f4913fd0f86",
+    "subject_id": "99d88877-a8f2-58da-bbaa-45c108180d71",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b38ab419-538f-5c1e-9d58-1f4913fd0f86",
+    "subject_id": "6ae728de-5106-5033-ae56-1b71a0a67f9a",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b38ab419-538f-5c1e-9d58-1f4913fd0f86",
+    "subject_id": "466a7744-f259-50bb-8706-09438be4eac7",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "7afa13e4-8940-5a10-8cf4-8b9686482475",
+    "subject_id": "32e5525a-5549-50c8-9e7d-9111a7c8ab62",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "f672f292-9bd6-5252-9716-82b6b590df57",
+    "subject_id": "eb0c7992-7168-5bf1-8983-948fffa1ec01",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "51f64e5a-2c28-5cfe-9bc3-bdaa75df36c0",
+    "subject_id": "46145573-4859-50cb-b6b0-233a77f05f77",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "51f64e5a-2c28-5cfe-9bc3-bdaa75df36c0",
+    "subject_id": "939b016b-9885-51f4-8d7a-cf1d9e161859",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "51f64e5a-2c28-5cfe-9bc3-bdaa75df36c0",
+    "subject_id": "747f18f7-e7cd-55ba-8723-0ca9dfd27cce",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "51f64e5a-2c28-5cfe-9bc3-bdaa75df36c0",
+    "subject_id": "294d2659-e6b6-5ce3-a224-4b4a9360afa9",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "51f64e5a-2c28-5cfe-9bc3-bdaa75df36c0",
+    "subject_id": "3c5db5be-b97c-5fe4-806d-c6f37027a491",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "51f64e5a-2c28-5cfe-9bc3-bdaa75df36c0",
+    "subject_id": "f748bfe5-c7f5-575d-aa9e-f4af559c554b",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "51f64e5a-2c28-5cfe-9bc3-bdaa75df36c0",
+    "subject_id": "319d06fc-a673-58b5-8cb8-b73daad6e715",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "51f64e5a-2c28-5cfe-9bc3-bdaa75df36c0",
+    "subject_id": "ae0070a0-c656-523c-9122-2742b5fb6d1f",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e635ba86-9888-572c-b112-a03da88bac91",
+    "subject_id": "41e93d30-1a1c-59f9-b2e4-04da7934ee45",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e635ba86-9888-572c-b112-a03da88bac91",
+    "subject_id": "4e37b99c-1244-5754-8712-08e8502a289d",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "e635ba86-9888-572c-b112-a03da88bac91",
+    "subject_id": "d0f656fd-7013-5bc0-8492-ec1f332d09d3",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "1fdfbc8a-2ded-5a5e-8352-7c2e757d80b4",
+    "subject_id": "16b69d6b-043b-5a95-9440-5603c54103da",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "aee4efc7-6477-5f83-a9e5-dc3751cbb5a1",
+    "subject_id": "76ffa0d6-11df-5ef6-b702-1baeacd2fc86",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "aee4efc7-6477-5f83-a9e5-dc3751cbb5a1",
+    "subject_id": "7df104ce-a4be-57f5-9efd-5945e99232ef",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "aee4efc7-6477-5f83-a9e5-dc3751cbb5a1",
+    "subject_id": "00fdf8b5-3470-51ad-b245-8a7fdb4fd894",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "aee4efc7-6477-5f83-a9e5-dc3751cbb5a1",
+    "subject_id": "9df81a8e-49bb-5ad3-ac48-d45aed05990e",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b2f91773-0ae1-51ed-8a5f-e51dbf6fb8b1",
+    "subject_id": "2c6f809e-b3b0-59f7-b0c5-0f8d69965a03",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b2f91773-0ae1-51ed-8a5f-e51dbf6fb8b1",
+    "subject_id": "7df104ce-a4be-57f5-9efd-5945e99232ef",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b2f91773-0ae1-51ed-8a5f-e51dbf6fb8b1",
+    "subject_id": "e76ab9b5-a8bc-535e-8fd7-63c75cf80ca0",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b2f91773-0ae1-51ed-8a5f-e51dbf6fb8b1",
+    "subject_id": "09ba851d-50d2-5613-959c-2f69dba4b010",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b2f91773-0ae1-51ed-8a5f-e51dbf6fb8b1",
+    "subject_id": "ab4c2a77-dc0d-5c71-8b18-338946c6941a",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "f3728d8b-cc2b-5989-8dec-2ff4e0db80bf",
+    "subject_id": "4d9855f5-d332-58db-a27a-27150ef7b9bd",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "96f715af-95d6-51c9-b390-bf04926b4802",
+    "subject_id": "2bf285c8-1e99-5260-84ed-4c7a7b0536d7",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b44fe1e1-98af-5144-ad50-e220f887286a",
+    "subject_id": "f06ed11a-ea01-5b62-9c0a-adc9b87b9c01",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b44fe1e1-98af-5144-ad50-e220f887286a",
+    "subject_id": "0683cd9c-0fad-5e34-9b39-159fd1c61938",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b44fe1e1-98af-5144-ad50-e220f887286a",
+    "subject_id": "8756e475-1475-5bf3-800a-455e74b2b774",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b44fe1e1-98af-5144-ad50-e220f887286a",
+    "subject_id": "29b2ddec-9698-5fb8-a180-390c3d270a10",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b44fe1e1-98af-5144-ad50-e220f887286a",
+    "subject_id": "cf2337e3-1440-51cf-a90b-889e332c45be",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b44fe1e1-98af-5144-ad50-e220f887286a",
+    "subject_id": "dad30020-3909-5488-9afc-16888885cec9",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b44fe1e1-98af-5144-ad50-e220f887286a",
+    "subject_id": "a719e4c9-56d1-50ea-9b5e-eb0997af5edf",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "b44fe1e1-98af-5144-ad50-e220f887286a",
+    "subject_id": "632e44b7-2e48-5bfc-9f0a-cd216c0c2eee",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "d34c7f6d-f773-566e-ba75-740e3dd9f7fe",
+    "subject_id": "179f539a-2287-543d-b1d6-1f4f0a636d1f",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ee6a2c95-5692-5118-9bb7-10d765ab72c3",
+    "subject_id": "179f539a-2287-543d-b1d6-1f4f0a636d1f",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ee6a2c95-5692-5118-9bb7-10d765ab72c3",
+    "subject_id": "ce3085e1-33e0-5161-aea0-d9c523b6cd9e",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ee6a2c95-5692-5118-9bb7-10d765ab72c3",
+    "subject_id": "e76ab9b5-a8bc-535e-8fd7-63c75cf80ca0",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ee6a2c95-5692-5118-9bb7-10d765ab72c3",
+    "subject_id": "26c7b541-b484-56b6-ba85-f940d3fbf6c5",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ee6a2c95-5692-5118-9bb7-10d765ab72c3",
+    "subject_id": "288bd663-ea2d-5997-a5bb-a0f14127da0f",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ee6a2c95-5692-5118-9bb7-10d765ab72c3",
+    "subject_id": "7df104ce-a4be-57f5-9efd-5945e99232ef",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ee6a2c95-5692-5118-9bb7-10d765ab72c3",
+    "subject_id": "47cda892-478b-545a-99c4-1bc9894a42b1",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "ee6a2c95-5692-5118-9bb7-10d765ab72c3",
+    "subject_id": "8ce6131c-870f-5da6-b488-4773554d85a2",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  },
+  {
+    "faculty_id": "38205ab8-cae4-51e6-9373-d6112ea10c44",
+    "subject_id": "26c7b541-b484-56b6-ba85-f940d3fbf6c5",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high"
+  }
+]

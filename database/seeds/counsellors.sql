@@ -1,0 +1,22 @@
+-- Seed template: counsellors
+-- Purpose: Student counsellor allocation by academic year, section, and registration number ranges.
+-- Note: Real campus records will be imported separately from verified source material.
+
+-- Example Structure:
+-- INSERT INTO counsellors (id, academic_year, year, section, counsellor_name, faculty_id, phone, room, registration_range_start, registration_range_end, registration_range_text, source_id, confidence, last_verified)
+-- VALUES (
+--     gen_random_uuid(),
+--     '2025-2026',
+--     2,
+--     'A',
+--     'Faculty Name',
+--     NULL,
+--     NULL,
+--     NULL,
+--     '241FA04001',
+--     '241FA04030',
+--     '241FA04001 to 241FA04030',
+--     NULL,
+--     'high',
+--     now()
+-- );

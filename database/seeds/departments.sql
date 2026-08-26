@@ -1,0 +1,18 @@
+-- Seed template: departments
+-- Purpose: Academic and administrative departments.
+-- Note: Real campus records will be imported separately from verified source material.
+
+-- Example Structure:
+-- INSERT INTO departments (id, name, short_name, description, block, floor_information, hod_faculty_id, source_id, confidence, last_verified)
+-- VALUES (
+--     gen_random_uuid(),
+--     'Computer Science and Engineering',
+--     'CSE',
+--     'Department of Computer Science and Engineering',
+--     NULL,
+--     NULL,
+--     NULL,
+--     NULL,
+--     'needs_verification',
+--     NULL
+-- );

@@ -1,0 +1,17 @@
+-- Seed template: sources
+-- Purpose: Holds provenance data for verified sources (handbooks, portals, department notices).
+-- Note: Real campus records will be imported separately from verified source material.
+
+-- Example Structure:
+-- INSERT INTO sources (id, source_type, source_name, source_url, description, document_name, collected_at, verified_at, notes)
+-- VALUES (
+--     'a0000000-0000-0000-0000-000000000001',
+--     'official_document',
+--     'Vignan University Student Handbook 2025-2026',
+--     NULL,
+--     'Official academic calendar and campus directory handbook',
+--     'student_handbook_2025_26.pdf',
+--     now(),
+--     now(),
+--     'Verified against official registrar release'
+-- );

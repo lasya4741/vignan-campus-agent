@@ -1,0 +1,22 @@
+-- Seed template: locations
+-- Purpose: Physical campus hierarchy (gates, buildings, floors, rooms, facilities).
+-- Note: Real campus records will be imported separately from verified source material.
+-- Important: Room identifiers are preserved exactly as sourced (e.g. '409', not auto-altered).
+
+-- Example Structure:
+-- INSERT INTO locations (id, name, location_type, block, floor, room, description, latitude, longitude, parent_location_id, source_id, confidence, last_verified)
+-- VALUES (
+--     gen_random_uuid(),
+--     'Main Gate',
+--     'gate',
+--     NULL,
+--     NULL,
+--     NULL,
+--     'Primary campus entry gate',
+--     NULL,
+--     NULL,
+--     NULL,
+--     NULL,
+--     'high',
+--     now()
+-- );

@@ -1,0 +1,18 @@
+-- Seed template: live_status
+-- Purpose: Dynamic state for queues, wait times, and availability of campus services.
+-- Note: Real campus records will be imported separately from verified source material.
+
+-- Example Structure:
+-- INSERT INTO live_status (id, service_id, status, queue_length, estimated_wait_minutes, reported_by, report_source, confidence, recorded_at, expires_at)
+-- VALUES (
+--     gen_random_uuid(),
+--     '00000000-0000-0000-0000-000000000001', -- service_id
+--     'available',
+--     2,
+--     5,
+--     'system_init',
+--     'operator',
+--     'high',
+--     now(),
+--     now() + interval '30 minutes'
+-- );

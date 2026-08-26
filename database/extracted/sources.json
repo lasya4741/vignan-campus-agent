@@ -1,0 +1,81 @@
+[
+  {
+    "id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+    "source_type": "department_verified",
+    "source_name": "CSE Department Venue Sheet",
+    "document_name": "department_venues.jpg",
+    "verified_at": "2026-08-26T00:00:00Z",
+    "description": "Department Venues and Building Floor Mappings"
+  },
+  {
+    "id": "1ae726e6-ff0e-5f70-8856-abe4707cb914",
+    "source_type": "department_verified",
+    "source_name": "CSE II Year Counsellor Poster",
+    "document_name": "year2_counsellors.jpg",
+    "verified_at": "2026-08-26T00:00:00Z",
+    "description": "II Year Section-Wise Counsellors and Registration Ranges"
+  },
+  {
+    "id": "c856a00a-5c68-55e5-810c-284065dc3bdc",
+    "source_type": "department_verified",
+    "source_name": "CSE III Year Counsellor Poster",
+    "document_name": "year3_counsellors.jpg",
+    "verified_at": "2026-08-26T00:00:00Z",
+    "description": "III Year Section-Wise Counsellors and Seating Rooms"
+  },
+  {
+    "id": "e1b4da3f-57d4-5f9c-9901-286f5a41c5b9",
+    "source_type": "department_verified",
+    "source_name": "CSE III Year Academic Leads Poster",
+    "document_name": "academic_leads.jpg",
+    "verified_at": "2026-08-26T00:00:00Z",
+    "description": "III Year Academic Leads, Roles and Coordinators"
+  },
+  {
+    "id": "5dec730c-6055-5707-858c-8f181364efc1",
+    "source_type": "department_verified",
+    "source_name": "CSE BoSA BoA BoE T&P Poster",
+    "document_name": "bosa_boa_boe_tp.jpg",
+    "verified_at": "2026-08-26T00:00:00Z",
+    "description": "BoSA, BoA, BoE, and T&P CSE Boards and Room 409 Meeting Info"
+  },
+  {
+    "id": "d4b84cb3-61d4-5026-a86f-a892a845ba43",
+    "source_type": "department_verified",
+    "source_name": "CSE Department Committees Poster",
+    "document_name": "department_committees.jpg",
+    "verified_at": "2026-08-26T00:00:00Z",
+    "description": "Social Media and Magazine Committees & Overall Coordinator"
+  },
+  {
+    "id": "c3023f55-5bab-58c9-a12f-21a945141c66",
+    "source_type": "official_website",
+    "source_name": "VIGNAN University Official Website",
+    "source_url": "https://vignan.ac.in",
+    "verified_at": "2026-08-26T00:00:00Z",
+    "description": "Official institutional portal for VFSTR (Deemed to be University)"
+  },
+  {
+    "id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "source_type": "campus_verified",
+    "source_name": "VIGNAN Project-Owner Campus Observations",
+    "verified_at": "2026-08-26T00:00:00Z",
+    "description": "Project-owner verified on-campus physical locations, offices, canteens, and Xerox facilities"
+  },
+  {
+    "id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "source_type": "official_website",
+    "source_name": "VIGNAN Official Faculty Directory (People Page)",
+    "source_url": "https://vignan.ac.in/newvignan/people.php",
+    "description": "Official university faculty directory with department filter for Computer Science Engineering",
+    "verified_at": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "9b1e3f84-1845-5ec2-9e23-74cf89281a02",
+    "source_type": "official_website",
+    "source_name": "VIGNAN CSE Department Official Portal",
+    "source_url": "https://www.vignan.ac.in/newvignan/departments/depthome.php?deptid=sch3_dept1&deptnm=CSE&school=sch3",
+    "description": "Official CSE department homepage identifying Head of Department Dr. S.V. Phani Kumar",
+    "verified_at": "2026-08-27T00:00:00Z"
+  }
+]

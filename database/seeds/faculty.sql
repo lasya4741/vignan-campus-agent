@@ -1,0 +1,21 @@
+-- Seed template: faculty
+-- Purpose: Faculty profiles with room, department, contact, and source provenance.
+-- Note: Real campus records will be imported separately from verified source material.
+
+-- Example Structure:
+-- INSERT INTO faculty (id, full_name, designation, department_id, email, phone, room, block, floor, profile_url, source_id, confidence, last_verified)
+-- VALUES (
+--     gen_random_uuid(),
+--     'Verified Faculty Name',
+--     'Professor',
+--     NULL,
+--     NULL,
+--     NULL,
+--     NULL,
+--     NULL,
+--     NULL,
+--     NULL,
+--     NULL,
+--     'high',
+--     now()
+-- );

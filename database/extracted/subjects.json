@@ -1,0 +1,1388 @@
+[
+  {
+    "id": "2c6f809e-b3b0-59f7-b0c5-0f8d69965a03",
+    "name": "Database Management Systems",
+    "code": "22CS201",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "c3023f55-5bab-58c9-a12f-21a945141c66",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "a9e90cee-4c17-59df-aeeb-751cf1f8cec5",
+    "name": "Data Structures & Algorithms",
+    "code": "22CS203",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "c3023f55-5bab-58c9-a12f-21a945141c66",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "410e2e10-fc50-50c7-8f0f-e406de96484b",
+    "name": "Operating Systems",
+    "code": "22CS207",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "c3023f55-5bab-58c9-a12f-21a945141c66",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "179f539a-2287-543d-b1d6-1f4f0a636d1f",
+    "name": "Computer Networks",
+    "code": "22CS301",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "c3023f55-5bab-58c9-a12f-21a945141c66",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "235473e8-8698-5745-8c4b-ed8f924416d7",
+    "name": "Theory of Computation",
+    "code": "22CS205",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "c3023f55-5bab-58c9-a12f-21a945141c66",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "12056492-2a33-548b-a894-361d10622312",
+    "name": "Data Mining Techniques",
+    "code": "CSDMT",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "26c7b541-b484-56b6-ba85-f940d3fbf6c5",
+    "name": "Machine Learning",
+    "code": "CSML",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "15b900c7-1687-5ebd-9abf-4530d367ab53",
+    "name": "Deep Learning",
+    "code": "CSDL",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "1180d19b-0c5c-5607-b192-e5c389f33d97",
+    "name": "Basics of Electrical Electronics Engineering",
+    "code": "CSBOEE",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "7af54d85-dd90-527d-8902-b686ab1be34c",
+    "name": "Control Systems",
+    "code": "CSCS",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "9a830b58-f140-5a63-a9d6-c056ff0fbfd0",
+    "name": "Digital Electronics",
+    "code": "CSDE",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "4a15ffe9-02f3-58b1-9fc2-61d1a3d6ea4e",
+    "name": "Power System Analysis",
+    "code": "CSPSA",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "6a468b87-3b94-5612-81f4-7171a73ae21c",
+    "name": "Digital Signal Processing",
+    "code": "CSDSP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "9bdaf522-9661-5ee3-b236-5b5a186b145a",
+    "name": "Linear Signal and Systems",
+    "code": "CSLSAS",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "cb4645a6-9aec-506d-ae8f-3488df7e9e56",
+    "name": "Deregulation of Power Systems",
+    "code": "CSDOPS",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "d056936e-bdf5-5ba3-9cd6-5ff9466e6fef",
+    "name": "Design & Analysis of Algorithms, Software Engineering, Cloud Computing, Artificial Intelligence, Software Testing Methodologies, Software Project Management",
+    "code": "CSD&AO",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "54c5c948-3755-5c0a-9789-fb50b52e0497",
+    "name": "Programming in C, Power quality, Power Electronics and Drives",
+    "code": "CSPICP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "81288b1b-8fb8-52d4-a13b-540fef1f8b45",
+    "name": "Data structures, Designa and Analysis of Algorithhms, Cryptography and Network Security, Operating Systems",
+    "code": "CSDSDA",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "a01bb5d3-b507-5e19-b6b6-368a05de8f5d",
+    "name": "22 years of teaching experiance",
+    "code": "CS2YOT",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "cf2337e3-1440-51cf-a90b-889e332c45be",
+    "name": "IOT",
+    "code": "CSI",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "8756e475-1475-5bf3-800a-455e74b2b774",
+    "name": "Programming in C",
+    "code": "CSPIC",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "5f4297fc-cc26-52fa-aba4-235fafdf0fb4",
+    "name": "Digital Image Processing",
+    "code": "CSDIP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "9d026b30-a73c-52bf-afb9-9f9156fd2467",
+    "name": "C Programming, Data Structures, OOPs using C++, OOPs using Java, Python, Compiler Design, Design Analysis and Algorithms, Principles of Programming languages",
+    "code": "CSCPDS",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "26e1970b-fc29-5dc9-9398-c7f16351d90c",
+    "name": "Formal Languages and Automata Theory",
+    "code": "CSFLAA",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "95e6d5d0-ec99-5fc5-b023-deea8185fa49",
+    "name": "Compiler Design",
+    "code": "CSCD",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "b120c6cc-a06a-54a9-9eef-0e4a56680780",
+    "name": "Web Technoligies",
+    "code": "CSWT",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "8282b171-612e-50cf-bc88-50ade3f69892",
+    "name": "Fundamentals of Image Processing",
+    "code": "CSFOIP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "a5695c81-ebba-5688-a3d8-da55c1a33814",
+    "name": "Advanced Data Structures",
+    "code": "CSADS",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "c28d879f-df99-5841-88b0-a0410d247834",
+    "name": "Advanced Unix Programming",
+    "code": "CSAUP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "879444c2-c066-5812-8929-212605329fa0",
+    "name": "C Programming",
+    "code": "CSCP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "20a2dbb5-2a99-535f-bb01-d941d9592b06",
+    "name": "C, C++, DS, Java, DBMS, OOAD, SE, STM, SPM, CNS, WT, DAA , OSWT, UNIX, PID",
+    "code": "CSCCDJ",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "0070124a-598b-5950-9a80-f4284a765253",
+    "name": "Computer Networks,cloud Computing ,arificial inelligence,DBMS,operating Systems,java",
+    "code": "CSCNC,",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "dc00afb0-6b48-5d6e-978c-61577a2033e6",
+    "name": "Database Management Systems(DBMS)",
+    "code": "CSDMS",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "72e11eee-a9e5-599b-83cc-cbad4fd43f31",
+    "name": "Operating Systems(OS)",
+    "code": "CSOS",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "a8295139-c7a7-55b4-aac6-8ffd3a5c32a5",
+    "name": "Data Wrangling and Visualization(DW)",
+    "code": "CSDWAV",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "639609ea-4b9d-5de5-bbd9-2fb2116efcd3",
+    "name": "Front-end Application Development",
+    "code": "CSFAD",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "52ea3dca-6e05-5e4e-9a8e-9c69ad50583d",
+    "name": "Full-Stack Development (MERN)",
+    "code": "CSFD(",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "ddaabe69-da58-5caf-9849-be68e7ce2f09",
+    "name": "Data Wrangling and Visualization",
+    "code": "CSDWAV",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "76ffa0d6-11df-5ef6-b702-1baeacd2fc86",
+    "name": "Data Structure",
+    "code": "CSDS",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "34707d27-3bc4-5a6f-a61d-ce54b2747903",
+    "name": "DAA",
+    "code": "CSD",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "3ca641b5-a816-52a0-ae4e-8015a0048fa3",
+    "name": "ML",
+    "code": "CSM",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "c7e7786d-466d-5307-bb62-533c28e7b0d5",
+    "name": "CNS ,CN,OS,PYTHON PROGRAMMING,MOBILE COMMUNICATIONS",
+    "code": "CSC,PC",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "40d2ce0c-b608-580a-913c-5477bc06c366",
+    "name": "Deep Learning, Data Mining Techniques,",
+    "code": "CSDLDM",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "e898c701-0aec-5fd3-b568-a37dc9c158e6",
+    "name": "Design Thinking, Formal languages, Analysis of Algorithms, Data structures, OOP",
+    "code": "CSDTFL",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "6ae728de-5106-5033-ae56-1b71a0a67f9a",
+    "name": "API Security and Authentication",
+    "code": "CSASAA",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "99d88877-a8f2-58da-bbaa-45c108180d71",
+    "name": "UI/UX Design",
+    "code": "CSUD",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "3a0674d8-470c-5852-90c8-3a8a23cc7e29",
+    "name": "Design Thinking & Engineering Orientation",
+    "code": "CSDT&E",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "bf3651ec-9add-5350-8590-8080faa85a8a",
+    "name": "IT Tools &Cyber Security",
+    "code": "CSIT&S",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "9a5022a5-3f89-578e-8347-237916ef8ece",
+    "name": "Advanced Java Programming",
+    "code": "CSAJP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "0eeb79c5-3883-52f2-b3f0-966b29ccd18b",
+    "name": "OOPS through JAVA",
+    "code": "CSOTJ",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "3c5db5be-b97c-5fe4-806d-c6f37027a491",
+    "name": "Data Structures",
+    "code": "CSDS",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "f4281451-298e-5151-90d6-0b55c777d90c",
+    "name": "Basic electrical electronics Engineering",
+    "code": "CSBEEE",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "c4348b78-248a-5257-ae5c-0b0622aa39f4",
+    "name": "Electromagnetic fields and transmission lines",
+    "code": "CSEFAT",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "55d5332c-0656-5654-aa18-1f1483314c42",
+    "name": "DC Machines",
+    "code": "CSDM",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "95e18ba7-0892-5bab-83e9-c0c2d4b1f088",
+    "name": "AC Machines-I",
+    "code": "CSAM",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "8fc6afd8-11f0-5bf2-b353-87bdfe7e75fe",
+    "name": "Performance of Transmission & Distribution system",
+    "code": "CSPOT&",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "62a2269f-0c02-5d47-9d5b-dd760d5fcacc",
+    "name": "Switch Gear Protection",
+    "code": "CSSGP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "0522f574-c417-5fde-a0a2-a6a61b3e5a1b",
+    "name": "High voltage DC transmission",
+    "code": "CSHVDT",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "df72c5e9-a997-5e83-92f7-d13fcdc34bd0",
+    "name": "Modeling of Dynamical Electrical Machines",
+    "code": "CSMODE",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "ed0e36fc-3b05-536f-bf74-2aba97836c2f",
+    "name": "Advanced Power System Protection",
+    "code": "CSAPSP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "c9854a4b-6060-5798-b034-48542c481ea0",
+    "name": "Data mining and Data warehousing",
+    "code": "CSDMAD",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "0832c269-4715-5dca-bbfb-a857f7229560",
+    "name": "Programming for problem solving using C",
+    "code": "CSPFPS",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "319d06fc-a673-58b5-8cb8-b73daad6e715",
+    "name": "Natural Language Processing",
+    "code": "CSNLP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "0c34dc5c-0e1a-5d63-a3ab-834fcd49d607",
+    "name": "Cyber Security (29/01/2026 - 01/06/2026)",
+    "code": "CSCS(-",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "b85912b2-0faf-5ca9-9cf5-e7bc3badd3cc",
+    "name": "Text Mining, Neural Networks, Machine Learning",
+    "code": "CSTMNN",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "e69e571a-ee3d-5fb8-ad92-5a931149b555",
+    "name": "Programming in C,Data Structures, Design and Analysis of Algorithms",
+    "code": "CSPICS",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "3855419f-31a0-52b5-8a8e-9feae1ffc7d8",
+    "name": "Java Programming",
+    "code": "CSJP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "bf770fe1-47fe-511d-9629-8e9461cba3f1",
+    "name": "Frontend Development",
+    "code": "CSFD",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "805d8fb7-1be0-5e64-b4fc-8b04abbc6a81",
+    "name": "Design Thinking",
+    "code": "CSDT",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "ab5bd040-e8d5-540b-9f8f-4096d42d3d96",
+    "name": "Conduct quality research in power systems and publish findings in reputed journals, books, or electronic media.",
+    "code": "CSCQRI",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "29240bf9-71cb-5697-a77d-4897df481fb7",
+    "name": "A result oriented teaching proficient in developing course materials, including syllabus, lesson plans and exams.",
+    "code": "CSAROT",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "61771085-1e10-5f42-b0e1-db4e6b3b2d7a",
+    "name": "Keep abreast of developments in the field by reading current literature, talking with colleagues, and participating in professional conferences for improving career.",
+    "code": "CSKAOD",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "b84c7a80-4dc9-5704-ba5d-3f97add214a8",
+    "name": "IT Tools and Cybersecurity",
+    "code": "CSITAC",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "65e8779e-ffcc-5e6e-a4ab-e0fb82d3945c",
+    "name": "Web Technology",
+    "code": "CSWT",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "fd1efe57-4fb0-5a0b-a30c-7727bf723334",
+    "name": "Mobile Application Development",
+    "code": "CSMAD",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "ac17fb8b-6fde-59ca-bc6e-b6e17a948790",
+    "name": "Agentic AI",
+    "code": "CSAA",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "65dbe76b-a5a6-5143-bd5d-ea9dccbef39d",
+    "name": "Assistant professor",
+    "code": "CSAP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "68cb93c1-fb2b-5fe9-9c78-ec7b4acda4ce",
+    "name": "Privacy Preserving and Intrusion Detection (22CS406)",
+    "code": "CSPPAI",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "60b72cbf-8272-5f57-8394-9cdce87de23b",
+    "name": "B.Tech, B.Sc courses",
+    "code": "CSBBC",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "a792f994-5088-5c9e-a23a-4c27965c7c60",
+    "name": "Mobine Ad-hoc Networks, Computer Networks, Internet of Things",
+    "code": "CSMANC",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "5bf8c032-4a53-5e3a-b24b-9871ba565612",
+    "name": "Sensors for Engineering Applications",
+    "code": "CSSFEA",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "1f0c91e7-763c-5596-aa78-a0a8b2a27a3d",
+    "name": "C, Java, DBMS, Machine Learning, TOC, COA, DLD",
+    "code": "CSCJDM",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "f185d5fc-01f0-5cc9-a3fb-b6339f636fc8",
+    "name": "Python Programming",
+    "code": "CSPP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "cf2dd540-cc3d-5071-b8d0-ae5e2965a15b",
+    "name": "OOP Through Java",
+    "code": "CSOTJ",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "07534af5-9de5-5f6b-b173-263554fc6e45",
+    "name": "Computer Organization and Architecture",
+    "code": "CSCOAA",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "cb4590c9-bccf-5863-a0a3-f1ff75c58f5a",
+    "name": "Information Security",
+    "code": "CSIS",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "95ba89ce-fbbb-503e-9451-3db5ffd9f835",
+    "name": "DBMS",
+    "code": "CSD",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "cd074ae8-3628-5e36-82a6-4005c6161c0f",
+    "name": "Design and Analysis of Algorithms",
+    "code": "CSDAAO",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "63cb49c1-a52e-5640-bb4d-38fbb5831e1c",
+    "name": "Training and Placements",
+    "code": "CSTAP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "ce3085e1-33e0-5161-aea0-d9c523b6cd9e",
+    "name": "Artificial Intelligence",
+    "code": "CSAI",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "7df104ce-a4be-57f5-9efd-5945e99232ef",
+    "name": "Software Engineering",
+    "code": "CSSE",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "e76ab9b5-a8bc-535e-8fd7-63c75cf80ca0",
+    "name": "Operating System",
+    "code": "CSOS",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "37cf7de2-486b-5704-a5d7-6d173d24caad",
+    "name": "Block Chain Technology",
+    "code": "CSBCT",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "00fbc20f-0dc9-57f5-8d2b-7b9e85b3458a",
+    "name": "16",
+    "code": "CS1",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "cc1d6d45-faed-54c4-8ab2-d4df86efee8b",
+    "name": "IT TOOLS AND CYBER SECURITY, FRONT END APPLICATION DEVELOPMENT, OOP'S THROUGH JAVA, ADVANCED JAVA PROGRAMMING",
+    "code": "CSITAC",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "e069b544-e78d-5bc1-b4b8-a24fcd35a350",
+    "name": "Data Mining,Machine learning,C,Java,Web Technology,Python Programming,ADS,OOPS,BCI,DIPMC,CNS",
+    "code": "CSDMLT",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "696c0c7f-fa59-5f00-8476-6fd991446afe",
+    "name": "Programming language (CoreJava, C, C++ and Python), Computer Network, DBMS and Big Data Analytics etc.",
+    "code": "CSPL(C",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "911c92c9-2c28-5241-8102-9d2e83c84de5",
+    "name": "6",
+    "code": "CS6",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "a0a22b70-17fb-5f9d-a69f-a027fd0e42c9",
+    "name": "CNS",
+    "code": "CSC",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "a977aa2d-a978-5cc2-bfad-b3b5969b8cbb",
+    "name": "Introduction to Artificial Intelligence",
+    "code": "CSITAI",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "65c14f68-fdf0-59c3-836c-049c7a96cfdd",
+    "name": "Data Mining",
+    "code": "CSDM",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "8a2d14ba-6f92-5f55-aa8c-c4ab19a98b77",
+    "name": "Search Engines",
+    "code": "CSSE",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "294d2659-e6b6-5ce3-a224-4b4a9360afa9",
+    "name": "Web Technologies",
+    "code": "CSWT",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "42c72364-7f89-540d-96de-d46e9b2d4f8e",
+    "name": "Mobile Computing",
+    "code": "CSMC",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "896ea1c6-1107-5f75-a650-83afd00e3d91",
+    "name": "Principles of Programming Languages",
+    "code": "CSPOPL",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "41e2aa04-8856-5787-aa4d-d0a4a014bf31",
+    "name": "computer networks, software engineering, data mining, data structures",
+    "code": "CSCNSE",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "bee41b6f-df56-5100-a619-4133aa6012b1",
+    "name": "12 years",
+    "code": "CS1Y",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "48f30a40-2435-506a-aca6-96073cc2fca9",
+    "name": "Programming in C, OOP Through JAVA, Computer Networks, Cryptography and Network Security, Operating Systems,DLD,",
+    "code": "CSPICO",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "c35a2e4d-0b09-5898-a749-529cba7a5dfa",
+    "name": "Data Analytics",
+    "code": "CSDA",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "499bae9a-7e49-5a7c-8129-021a5fd251fc",
+    "name": "Internet of Things",
+    "code": "CSIOT",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "67d51569-9035-5670-a86f-8b4c65158f53",
+    "name": "Material Science  & Metallurgy",
+    "code": "CSMS&M",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "0e180172-702a-5715-883b-0915d5e88478",
+    "name": "CAD/CAM",
+    "code": "CSC",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "cfd3d35b-d63d-5e49-8502-32180d8006a1",
+    "name": "Automation in Manufacturing",
+    "code": "CSAIM",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "82cc7361-7ad8-5dc9-82ff-b51083a17635",
+    "name": "Analysis of Mechanisms & Machines",
+    "code": "CSAOM&",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "e6c24bec-91d7-5ebb-9aad-572f6a832c6e",
+    "name": "3D Prinitng",
+    "code": "CS3P",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "382fe2e6-6c47-5bbe-94d1-8b9ee2e756bb",
+    "name": "Fundamentals of Robotics",
+    "code": "CSFOR",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "6d502f24-a649-53b9-8f04-fa5d98104bf7",
+    "name": "Cloud Computing",
+    "code": "CSCC",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "a06cd763-0713-580c-beb5-d7327fc48dcb",
+    "name": "Emerging Technologies",
+    "code": "CSET",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "e56c4c1f-77bb-5fd9-840f-68934623174b",
+    "name": "Mobile adhoc network",
+    "code": "CSMAN",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "6042a3d6-22d7-51db-adc9-604ad882758c",
+    "name": "ITW,DIP,PP,EDC,CS,AWP,ECA,CAO,CNW,BEEE,DSD,MPMC,SS,DLD,LDIC,DSP,VLSI,SM",
+    "code": "CSI",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "41e93d30-1a1c-59f9-b2e4-04da7934ee45",
+    "name": "Big Data Analytics",
+    "code": "CSBDA",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "1c8781f5-29e3-5fe4-9e30-042c2f882896",
+    "name": "Data Communication Networks",
+    "code": "CSDCN",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "5ab0f018-6ceb-5a53-9936-77f39ecd2416",
+    "name": "Cyber Security",
+    "code": "CSCS",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "25f34555-c8fb-5576-97a1-7510146fc688",
+    "name": "Machine Learning and Deep Learning",
+    "code": "CSMLAD",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "b1f62e8c-b69c-5ac8-b1e9-141d671250d9",
+    "name": "Taught Operating Systems, DBMS, OOPs, Python, Java, C++, Data Structures, Mobile Computing",
+    "code": "CSTOSD",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "d9135efa-9176-5b4c-b6bb-c32056fc8c78",
+    "name": "•\tProblem Solving & Computer Programming (C Language), Data Structures (Using C Language), Database Management Systems (DBMS), Object oriented Programming (JAVA), Python Programming",
+    "code": "CS•PS&",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "1f4310b6-6307-552b-b56a-82b6487f9cab",
+    "name": "Programing in C, IT Workshop and Tools",
+    "code": "CSPICI",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "42f55c62-64be-510f-9761-845f707763c5",
+    "name": "Problem solving through Python",
+    "code": "CSPSTP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "466a7744-f259-50bb-8706-09438be4eac7",
+    "name": "IT Tools & Cybersecurity",
+    "code": "CSIT&C",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "32e5525a-5549-50c8-9e7d-9111a7c8ab62",
+    "name": "Machine Learning, Data Mining Techniques, Digital Image Processing, Biometrics, Data Structure, Python programming",
+    "code": "CSMLDM",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "eb0c7992-7168-5bf1-8983-948fffa1ec01",
+    "name": "Compiler Design, Software Engineering, Operating Systems, Computer Organization & Architecture, Embedded Systems, Distributed Systems, Reat-Time OS, VLSI System Design",
+    "code": "CSCDSE",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "46145573-4859-50cb-b6b0-233a77f05f77",
+    "name": "Python Programing",
+    "code": "CSPP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "939b016b-9885-51f4-8d7a-cf1d9e161859",
+    "name": "C-Programing",
+    "code": "CSC",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "747f18f7-e7cd-55ba-8723-0ca9dfd27cce",
+    "name": "Computer-Ethics",
+    "code": "CSC",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "f748bfe5-c7f5-575d-aa9e-f4af559c554b",
+    "name": "JAVA Programing",
+    "code": "CSJP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "ae0070a0-c656-523c-9122-2742b5fb6d1f",
+    "name": "Text Mining",
+    "code": "CSTM",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "4e37b99c-1244-5754-8712-08e8502a289d",
+    "name": "Cloud Support Associate",
+    "code": "CSCSA",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "d0f656fd-7013-5bc0-8492-ec1f332d09d3",
+    "name": "Computing Ethics",
+    "code": "CSCE",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "16b69d6b-043b-5a95-9440-5603c54103da",
+    "name": "DBMS, TOC, CD",
+    "code": "CSDTC",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "00fdf8b5-3470-51ad-b245-8a7fdb4fd894",
+    "name": "Open Source Web Technology",
+    "code": "CSOSWT",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "9df81a8e-49bb-5ad3-ac48-d45aed05990e",
+    "name": "Artificial Intelleigence",
+    "code": "CSAI",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "09ba851d-50d2-5613-959c-2f69dba4b010",
+    "name": "Digital Logic Design",
+    "code": "CSDLD",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "ab4c2a77-dc0d-5c71-8b18-338946c6941a",
+    "name": "Computer Organization & Architecture",
+    "code": "CSCO&A",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "4d9855f5-d332-58db-a27a-27150ef7b9bd",
+    "name": "FLAT",
+    "code": "CSF",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "2bf285c8-1e99-5260-84ed-4c7a7b0536d7",
+    "name": "C PROGRMMING,PYTHON,JAVA,WEBTECHNOLOGY,OS",
+    "code": "CSCP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "f06ed11a-ea01-5b62-9c0a-adc9b87b9c01",
+    "name": "VLSI Design",
+    "code": "CSVD",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "0683cd9c-0fad-5e34-9b39-159fd1c61938",
+    "name": "Embedded System",
+    "code": "CSES",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "29b2ddec-9698-5fb8-a180-390c3d270a10",
+    "name": "Nano-materials and Nanotechnology",
+    "code": "CSNAN",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "dad30020-3909-5488-9afc-16888885cec9",
+    "name": "Wireless Networks Semiconductor devices",
+    "code": "CSWNSD",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "a719e4c9-56d1-50ea-9b5e-eb0997af5edf",
+    "name": "MEMS",
+    "code": "CSM",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "632e44b7-2e48-5bfc-9f0a-cd216c0c2eee",
+    "name": "Computer Architecture",
+    "code": "CSCA",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "288bd663-ea2d-5997-a5bb-a0f14127da0f",
+    "name": "Mobile adhoc Networks",
+    "code": "CSMAN",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "47cda892-478b-545a-99c4-1bc9894a42b1",
+    "name": "C and Python Programming",
+    "code": "CSCAPP",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  },
+  {
+    "id": "8ce6131c-870f-5da6-b488-4773554d85a2",
+    "name": "Data Science",
+    "code": "CSDS",
+    "department_id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+    "source_id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
+    "confidence": "high",
+    "last_verified": "2026-08-27T00:00:00Z"
+  }
+]

@@ -216,3 +216,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project Specific
+.env
+.env.*
+!.env.example
+scratch/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.log
+

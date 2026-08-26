@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none">
+  <!-- Outer Shield Badge -->
+  <defs>
+    <linearGradient id="shieldGrad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="12" y1="8" x2="36" y2="40" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="50%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="crestGlow" x1="24" y1="6" x2="24" y2="42" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#d97706" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#d97706" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Shield with Soft Shadow -->
+  <path d="M24 4L8 10V22C8 32.5 14.8 42.1 24 44.8C33.2 42.1 40 32.5 40 22V10L24 4Z" fill="url(#shieldGrad)" stroke="#334155" stroke-width="1.5"/>
+  <path d="M24 6L10 11.5V22C10 31.2 16 39.8 24 42.2C32 39.8 38 31.2 38 22V11.5L24 6Z" fill="url(#crestGlow)"/>
+
+  <!-- Academic Torch / Flame of Knowledge -->
+  <path d="M24 10C24 10 21 14 21 16.5C21 18.2 22.3 19.5 24 19.5C25.7 19.5 27 18.2 27 16.5C27 14 24 10 24 10Z" fill="url(#goldGrad)"/>
+  <path d="M24 13C24 13 22.5 15.2 22.5 16.5C22.5 17.3 23.2 18 24 18C24.8 18 25.5 17.3 25.5 16.5C25.5 15.2 24 13 24 13Z" fill="#fef3c7"/>
+
+  <!-- Open Book of Knowledge -->
+  <path d="M16 26.5C18.5 25.5 21.5 25.5 24 27C26.5 25.5 29.5 25.5 32 26.5V34C29.5 33 26.5 33 24 34.5C21.5 33 18.5 33 16 34V26.5Z" fill="#ffffff" fill-opacity="0.95" stroke="url(#goldGrad)" stroke-width="1.2" stroke-linejoin="round"/>
+  <path d="M24 27V34.5" stroke="#94a3b8" stroke-width="1.2"/>
+  
+  <!-- Subtle Laurel Wings -->
+  <path d="M14 20C13 22.5 13 26 14.5 28.5" stroke="url(#goldGrad)" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M34 20C35 22.5 35 26 33.5 28.5" stroke="url(#goldGrad)" stroke-width="1.5" stroke-linecap="round"/>
+
+  <!-- Core Diamond Tech Accent -->
+  <circle cx="24" cy="22" r="1.5" fill="url(#goldGrad)"/>
+</svg>

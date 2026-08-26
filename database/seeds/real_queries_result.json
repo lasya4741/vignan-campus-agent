@@ -1,0 +1,1427 @@
+[
+  {
+    "query_id": 1,
+    "query": "Where is IT?",
+    "direct_tool_result": {
+      "count": 4,
+      "matches": [
+        {
+          "id": "434e1e66-cd49-5d4f-9d6b-3155bff56db0",
+          "name": "Information Technology",
+          "short_name": "IT",
+          "description": "Department of Information Technology",
+          "block": "U Block",
+          "floor_information": "3rd Floor",
+          "hod": {
+            "name": "Dr. Kamepalli Sujatha",
+            "designation": "Professor & Head of Department",
+            "room": null,
+            "email": "hod_it@vignan.ac.in"
+          },
+          "provenance": {
+            "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        },
+        {
+          "id": "a40d1ad9-99c4-5754-8baa-76dc95b83d25",
+          "name": "Food Technology",
+          "short_name": "FOOD TECH",
+          "description": "Department of Food Technology",
+          "block": "H Block",
+          "floor_information": "Ground & 1st Floor",
+          "hod": null,
+          "provenance": {
+            "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        },
+        {
+          "id": "ae1f0a74-b62a-508f-a0ef-e87255244545",
+          "name": "Textile Engineering",
+          "short_name": "TEXTILE",
+          "description": "Department of Textile Technology",
+          "block": "Textile Block",
+          "floor_information": "Textile Block",
+          "hod": null,
+          "provenance": {
+            "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        },
+        {
+          "id": "9d458704-5b17-5651-80ee-84d42d044e6d",
+          "name": "Biotechnology",
+          "short_name": "BIO TECHNOLOGY",
+          "description": "Department of Biotechnology",
+          "block": "U Block",
+          "floor_information": "2nd Floor",
+          "hod": {
+            "name": "Dr. T. C. Venkateswarlu",
+            "designation": "Professor & Head of Department",
+            "room": null,
+            "email": "hod_biotech@vignan.ac.in"
+          },
+          "provenance": {
+            "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        }
+      ],
+      "message": "Found 4 department(s)"
+    },
+    "agent_result": {
+      "answer": "**Information Technology (IT)**\n- **Location**: U Block, 3rd Floor\n- **Description**: Department of Information Technology\n- **Head of Department (HOD)**: Dr. Kamepalli Sujatha (Professor & Head of Department, Email: hod_it@vignan.ac.in)",
+      "tool_used": [
+        "search_department"
+      ],
+      "tool_calls": [
+        {
+          "tool_name": "search_department",
+          "arguments": {
+            "query": "Where is IT?"
+          },
+          "result": {
+            "count": 2,
+            "matches": [
+              {
+                "id": "434e1e66-cd49-5d4f-9d6b-3155bff56db0",
+                "name": "Information Technology",
+                "short_name": "IT",
+                "description": "Department of Information Technology",
+                "block": "U Block",
+                "floor_information": "3rd Floor",
+                "hod": {
+                  "name": "Dr. Kamepalli Sujatha",
+                  "designation": "Professor & Head of Department",
+                  "room": null,
+                  "email": "hod_it@vignan.ac.in"
+                },
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "579baa2a-8be2-5d47-bd02-36fe98e9aed7",
+                "name": "Computer Science & Engineering (Specializations)",
+                "short_name": "CSE {SPECIALIZATIONS}",
+                "description": "CSE Specializations (AI & ML, Cyber Security, Data Science, CSBS)",
+                "block": "N Block",
+                "floor_information": "5,6 Floors",
+                "hod": {
+                  "name": "Dr. Yarlagadda Jyothi",
+                  "designation": "Professor & Head of Department",
+                  "room": null,
+                  "email": "hod_cse@vignan.ac.in"
+                },
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              }
+            ],
+            "message": "Found 2 department(s)"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+          "source_type": null,
+          "source_name": null,
+          "document_name": null,
+          "confidence": "high",
+          "last_verified": "2026-08-26T00:00:00+00:00"
+        }
+      ],
+      "confidence": "high",
+      "requires_clarification": false,
+      "location": {
+        "id": null,
+        "name": "Information Technology",
+        "location_type": null,
+        "block": "U Block",
+        "floor": "3rd Floor",
+        "room": null,
+        "description": "Department of Information Technology",
+        "latitude": null,
+        "longitude": null
+      },
+      "route": null,
+      "live_status": null
+    }
+  },
+  {
+    "query_id": 2,
+    "query": "Who is the HOD of CSE?",
+    "direct_tool_result": {
+      "count": 3,
+      "matches": [
+        {
+          "id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+          "name": "Computer Science & Engineering (Core)",
+          "short_name": "CSE {CORE}",
+          "description": "Department of Computer Science & Engineering (Core)",
+          "block": "N Block",
+          "floor_information": "3,4,5 Floors",
+          "hod": {
+            "name": "Dr. Yarlagadda Jyothi",
+            "designation": "Professor & Head of Department",
+            "room": null,
+            "email": "hod_cse@vignan.ac.in"
+          },
+          "provenance": {
+            "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        },
+        {
+          "id": "579baa2a-8be2-5d47-bd02-36fe98e9aed7",
+          "name": "Computer Science & Engineering (Specializations)",
+          "short_name": "CSE {SPECIALIZATIONS}",
+          "description": "CSE Specializations (AI & ML, Cyber Security, Data Science, CSBS)",
+          "block": "N Block",
+          "floor_information": "5,6 Floors",
+          "hod": {
+            "name": "Dr. Yarlagadda Jyothi",
+            "designation": "Professor & Head of Department",
+            "room": null,
+            "email": "hod_cse@vignan.ac.in"
+          },
+          "provenance": {
+            "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        },
+        {
+          "id": "20f6e286-974c-5e3d-a60b-32f443c4fce2",
+          "name": "Computer Applications",
+          "short_name": "COMPUTER APPLICATIONS",
+          "description": "Department of Computer Applications (MCA/BCA)",
+          "block": "U Block",
+          "floor_information": "4th Floor",
+          "hod": null,
+          "provenance": {
+            "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        }
+      ],
+      "message": "Found 3 department(s)"
+    },
+    "agent_result": {
+      "answer": "**Computer Science & Engineering (Specializations) (CSE {SPECIALIZATIONS})**\n- **Location**: N Block, 5,6 Floors\n- **Description**: CSE Specializations (AI & ML, Cyber Security, Data Science, CSBS)\n- **Head of Department (HOD)**: Dr. Yarlagadda Jyothi (Professor & Head of Department, Email: hod_cse@vignan.ac.in)",
+      "tool_used": [
+        "search_department"
+      ],
+      "tool_calls": [
+        {
+          "tool_name": "search_department",
+          "arguments": {
+            "query": "Who is the HOD of CSE?"
+          },
+          "result": {
+            "count": 18,
+            "matches": [
+              {
+                "id": "579baa2a-8be2-5d47-bd02-36fe98e9aed7",
+                "name": "Computer Science & Engineering (Specializations)",
+                "short_name": "CSE {SPECIALIZATIONS}",
+                "description": "CSE Specializations (AI & ML, Cyber Security, Data Science, CSBS)",
+                "block": "N Block",
+                "floor_information": "5,6 Floors",
+                "hod": {
+                  "name": "Dr. Yarlagadda Jyothi",
+                  "designation": "Professor & Head of Department",
+                  "room": null,
+                  "email": "hod_cse@vignan.ac.in"
+                },
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "3e2d391b-0ad0-57cb-b077-3a9cedf8c117",
+                "name": "Computer Science & Engineering (Core)",
+                "short_name": "CSE {CORE}",
+                "description": "Department of Computer Science & Engineering (Core)",
+                "block": "N Block",
+                "floor_information": "3,4,5 Floors",
+                "hod": {
+                  "name": "Dr. Yarlagadda Jyothi",
+                  "designation": "Professor & Head of Department",
+                  "room": null,
+                  "email": "hod_cse@vignan.ac.in"
+                },
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "01462573-d26c-57ea-ac8d-a07a1d1bd802",
+                "name": "Biomedical Engineering",
+                "short_name": "BIO-MEDICAL",
+                "description": "Department of Biomedical Engineering",
+                "block": "H Block",
+                "floor_information": "3rd Floor",
+                "hod": null,
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "a40d1ad9-99c4-5754-8baa-76dc95b83d25",
+                "name": "Food Technology",
+                "short_name": "FOOD TECH",
+                "description": "Department of Food Technology",
+                "block": "H Block",
+                "floor_information": "Ground & 1st Floor",
+                "hod": null,
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "5001d0b3-03e9-598b-8677-91f89df046d1",
+                "name": "Robotics Engineering",
+                "short_name": "ROBOTICS",
+                "description": "Department of Robotics",
+                "block": "U Block",
+                "floor_information": "Ground Floor",
+                "hod": null,
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "f0e56543-4612-5808-a614-6be494d785fb",
+                "name": "Law",
+                "short_name": "LAW",
+                "description": "School of Law",
+                "block": "U Block",
+                "floor_information": "1st Floor",
+                "hod": null,
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "95330c56-a9b7-573b-ba30-b958cf98bf2f",
+                "name": "Bioinformatics",
+                "short_name": "BIO INFORMATICS",
+                "description": "Department of Bioinformatics",
+                "block": "U Block",
+                "floor_information": "2nd Floor",
+                "hod": null,
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "20f6e286-974c-5e3d-a60b-32f443c4fce2",
+                "name": "Computer Applications",
+                "short_name": "COMPUTER APPLICATIONS",
+                "description": "Department of Computer Applications (MCA/BCA)",
+                "block": "U Block",
+                "floor_information": "4th Floor",
+                "hod": null,
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "ae1f0a74-b62a-508f-a0ef-e87255244545",
+                "name": "Textile Engineering",
+                "short_name": "TEXTILE",
+                "description": "Department of Textile Technology",
+                "block": "Textile Block",
+                "floor_information": "Textile Block",
+                "hod": null,
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "434e1e66-cd49-5d4f-9d6b-3155bff56db0",
+                "name": "Information Technology",
+                "short_name": "IT",
+                "description": "Department of Information Technology",
+                "block": "U Block",
+                "floor_information": "3rd Floor",
+                "hod": {
+                  "name": "Dr. Kamepalli Sujatha",
+                  "designation": "Professor & Head of Department",
+                  "room": null,
+                  "email": "hod_it@vignan.ac.in"
+                },
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "598f5520-dbce-5354-9666-03d85aefdb98",
+                "name": "Electronics & Communication Engineering",
+                "short_name": "ECE",
+                "description": "Department of Electronics & Communication Engineering",
+                "block": "H Block",
+                "floor_information": "2nd Floor",
+                "hod": {
+                  "name": "Dr. T. Pitchaiah",
+                  "designation": "Professor & Head of Department",
+                  "room": null,
+                  "email": "hod_ece@vignan.ac.in"
+                },
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "5f65db16-16f8-599a-87f5-908cb0c43d1a",
+                "name": "Electrical & Electronics Engineering",
+                "short_name": "EEE",
+                "description": "Department of Electrical & Electronics Engineering",
+                "block": "H Block",
+                "floor_information": "1st Floor",
+                "hod": {
+                  "name": "Dr. P.V.S. Shobhan",
+                  "designation": "Professor & Head of Department",
+                  "room": null,
+                  "email": "hod_eee@vignan.ac.in"
+                },
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "616f23e7-69e7-504f-beda-5819f0f561da",
+                "name": "Mechanical Engineering",
+                "short_name": "MECHANICAL",
+                "description": "Department of Mechanical Engineering",
+                "block": "U Block",
+                "floor_information": "Ground Floor",
+                "hod": {
+                  "name": "Dr. T. Ch. Anil Kumar",
+                  "designation": "Professor & Head of Department",
+                  "room": null,
+                  "email": "hod_mech@vignan.ac.in"
+                },
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "23ac7969-65ee-5059-bb67-4587f6bbd9b9",
+                "name": "Civil Engineering",
+                "short_name": "CIVIL",
+                "description": "Department of Civil Engineering",
+                "block": "U Block",
+                "floor_information": "1st Floor",
+                "hod": {
+                  "name": "Dr. P. Sundara Kumar",
+                  "designation": "Professor & Head of Department",
+                  "room": null,
+                  "email": "hod_civil@vignan.ac.in"
+                },
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "9647203a-117c-503f-995e-bbeae0cd70f5",
+                "name": "Chemical Engineering",
+                "short_name": "CHEMICAL",
+                "description": "Department of Chemical Engineering",
+                "block": "H Block",
+                "floor_information": "1st Floor",
+                "hod": {
+                  "name": "Dr. M. Ramesh Naidu",
+                  "designation": "Professor & Head of Department",
+                  "room": null,
+                  "email": "hod_chem@vignan.ac.in"
+                },
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "9d458704-5b17-5651-80ee-84d42d044e6d",
+                "name": "Biotechnology",
+                "short_name": "BIO TECHNOLOGY",
+                "description": "Department of Biotechnology",
+                "block": "U Block",
+                "floor_information": "2nd Floor",
+                "hod": {
+                  "name": "Dr. T. C. Venkateswarlu",
+                  "designation": "Professor & Head of Department",
+                  "room": null,
+                  "email": "hod_biotech@vignan.ac.in"
+                },
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "dadbce7d-8aa9-593f-8b5c-5b521606d882",
+                "name": "Agriculture Engineering",
+                "short_name": "AGRICULTURE",
+                "description": "Department of Agriculture",
+                "block": "N Block",
+                "floor_information": "1,2 Floors",
+                "hod": {
+                  "name": "Dr. N. Narayana Rao",
+                  "designation": "Professor & Head of Department",
+                  "room": null,
+                  "email": "hod_agri@vignan.ac.in"
+                },
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "9bed98d6-eb28-5fda-a207-6c248c3ade4e",
+                "name": "Management Studies",
+                "short_name": "MANAGEMENT STUDIES",
+                "description": "Department of Management Studies",
+                "block": "U Block",
+                "floor_information": "4th Floor",
+                "hod": {
+                  "name": "Dr. Sarita Satpathy",
+                  "designation": "Professor & Head of Department",
+                  "room": null,
+                  "email": "hod_mgmt@vignan.ac.in"
+                },
+                "provenance": {
+                  "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              }
+            ],
+            "message": "Found 18 department(s)"
+          }
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "e1c39b8e-af44-5eb6-8977-b5bc70e12f26",
+          "source_type": null,
+          "source_name": null,
+          "document_name": null,
+          "confidence": "high",
+          "last_verified": "2026-08-26T00:00:00+00:00"
+        }
+      ],
+      "confidence": "high",
+      "requires_clarification": false,
+      "location": {
+        "id": null,
+        "name": "Computer Science & Engineering (Specializations)",
+        "location_type": null,
+        "block": "N Block",
+        "floor": "5,6 Floors",
+        "room": null,
+        "description": "CSE Specializations (AI & ML, Cyber Security, Data Science, CSBS)",
+        "latitude": null,
+        "longitude": null
+      },
+      "route": null,
+      "live_status": null
+    }
+  },
+  {
+    "query_id": 3,
+    "query": "Who is my counsellor?",
+    "direct_tool_result": {
+      "count": 1,
+      "matches": [
+        {
+          "id": "f23ee55f-6a67-591b-be94-6f4c25e28eed",
+          "counsellor_name": "Dr. Md. Oqail Ahmad",
+          "faculty_id": "08c6d263-9147-5417-b38f-38428e8eee5c",
+          "academic_year": "2026-2027",
+          "year": 2,
+          "section": "1",
+          "phone": "8439243408",
+          "room": "NB-410",
+          "block": "N Block",
+          "floor": null,
+          "registration_range_start": "4001",
+          "registration_range_end": "4071",
+          "registration_range_text": "4001 - 4071",
+          "provenance": {
+            "source_id": "1ae726e6-ff0e-5f70-8856-abe4707cb914",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        }
+      ],
+      "query_reg_no": "4005",
+      "message": "Found 1 matching counsellor record(s)."
+    },
+    "agent_result": {
+      "answer": "To find your assigned faculty counsellor, please provide your **student registration number** (e.g., `4005` or `241FA04001`) or your **academic year and section** (e.g., `Year 2, Section 1`).",
+      "tool_used": [
+        "search_counsellor"
+      ],
+      "tool_calls": [],
+      "sources": [],
+      "confidence": "high",
+      "requires_clarification": true,
+      "location": null,
+      "route": null,
+      "live_status": null
+    }
+  },
+  {
+    "query_id": 4,
+    "query": "Who handles placements?",
+    "direct_tool_result": {
+      "count": 6,
+      "matches": [
+        {
+          "id": "68da9563-e987-5719-9321-4dde7b809e8b",
+          "role_name": "T&P-CSE Coordinator",
+          "person_name": "Dr. Balu Narasimharao",
+          "responsibilities": "Campus Recruitment Training, Placements, Certificate Programs, Training Attendance",
+          "office": "T&P-CSE – Training & Placements (CSE)",
+          "room": "409",
+          "block": "N Block",
+          "phone": "9701224847",
+          "email": null,
+          "provenance": {
+            "source_id": "5dec730c-6055-5707-858c-8f181364efc1",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        },
+        {
+          "id": "f273ee90-4397-546f-8b7a-4ee01c0b036c",
+          "role_name": "T&P-CSE Coordinator",
+          "person_name": "Ms. Leelavathi",
+          "responsibilities": "Campus Recruitment Training, Placements, Certificate Programs, Training Attendance",
+          "office": "T&P-CSE – Training & Placements (CSE)",
+          "room": "409",
+          "block": "N Block",
+          "phone": "8919420637",
+          "email": null,
+          "provenance": {
+            "source_id": "5dec730c-6055-5707-858c-8f181364efc1",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        },
+        {
+          "id": "fba6f93e-0b66-521f-b5e3-6f0af5a2e709",
+          "role_name": "Social Media Coordinator",
+          "person_name": "K. Jyotsna",
+          "responsibilities": "Department Website content updates, Instagram, LinkedIn & other social media management, Event coverage, Faculty & Student Achievement promotions, FDPs/Workshops/Guest Lecture publicity, Placement/Internship/Hackathon updates, Content writing & poster design, Brand consistency, Archiving digital media",
+          "office": "CSE Social Media Committee",
+          "room": "301",
+          "block": "N Block",
+          "phone": "7337373032",
+          "email": "jk_cse@vignan.ac.in",
+          "provenance": {
+            "source_id": "d4b84cb3-61d4-5026-a86f-a892a845ba43",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        },
+        {
+          "id": "61f80f26-d03f-5f70-8a61-41a604f8cda8",
+          "role_name": "Social Media Coordinator",
+          "person_name": "Sk. Jani",
+          "responsibilities": "Department Website content updates, Instagram, LinkedIn & other social media management, Event coverage, Faculty & Student Achievement promotions, FDPs/Workshops/Guest Lecture publicity, Placement/Internship/Hackathon updates, Content writing & poster design, Brand consistency, Archiving digital media",
+          "office": "CSE Social Media Committee",
+          "room": "301",
+          "block": "N Block",
+          "phone": "8247840320",
+          "email": "jk_cse@vignan.ac.in",
+          "provenance": {
+            "source_id": "d4b84cb3-61d4-5026-a86f-a892a845ba43",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        },
+        {
+          "id": "6b7ef8cf-bce7-584b-a465-343f14c27364",
+          "role_name": "Office: T&P-CSE – Training & Placements (CSE)",
+          "person_name": "T&P-CSE – Training & Placements (CSE)",
+          "responsibilities": "Campus Recruitment Training, Placements, Certificate Programs, Training Attendance",
+          "office": "T&P-CSE – Training & Placements (CSE)",
+          "room": "409",
+          "block": "N Block",
+          "phone": "9701224847",
+          "email": null,
+          "provenance": {
+            "source_id": null,
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": null
+          }
+        },
+        {
+          "id": "3b233cbf-7dc4-51e9-9126-b43eaaf6f9fb",
+          "role_name": "Office: CSE Social Media Committee",
+          "person_name": "CSE Social Media Committee",
+          "responsibilities": "Department Website content updates, Instagram, LinkedIn & other social media management, Event coverage, Faculty & Student Achievement promotions, FDPs/Workshops/Guest Lecture publicity, Placement/Internship/Hackathon updates, Content writing & poster design, Brand consistency, Archiving digital media",
+          "office": "CSE Social Media Committee",
+          "room": "301",
+          "block": "N Block",
+          "phone": "7337373032",
+          "email": "jk_cse@vignan.ac.in",
+          "provenance": {
+            "source_id": null,
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": null
+          }
+        }
+      ],
+      "message": "Found 6 responsible person/office record(s)."
+    },
+    "agent_result": {
+      "answer": "**T&P-CSE Coordinator**: Dr. Balu Narasimharao\n- **Responsibilities**: Campus Recruitment Training, Placements, Certificate Programs, Training Attendance\n- **Location**: Room 409 (N Block)\n- **Contact**: 9701224847",
+      "tool_used": [
+        "search_responsibility"
+      ],
+      "tool_calls": [
+        {
+          "tool_name": "search_responsibility",
+          "arguments": {
+            "query": "Who handles placements?"
+          },
+          "result": {
+            "count": 8,
+            "matches": [
+              {
+                "id": "68da9563-e987-5719-9321-4dde7b809e8b",
+                "role_name": "T&P-CSE Coordinator",
+                "person_name": "Dr. Balu Narasimharao",
+                "responsibilities": "Campus Recruitment Training, Placements, Certificate Programs, Training Attendance",
+                "office": "T&P-CSE – Training & Placements (CSE)",
+                "room": "409",
+                "block": "N Block",
+                "phone": "9701224847",
+                "email": null,
+                "provenance": {
+                  "source_id": "5dec730c-6055-5707-858c-8f181364efc1",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "f273ee90-4397-546f-8b7a-4ee01c0b036c",
+                "role_name": "T&P-CSE Coordinator",
+                "person_name": "Ms. Leelavathi",
+                "responsibilities": "Campus Recruitment Training, Placements, Certificate Programs, Training Attendance",
+                "office": "T&P-CSE – Training & Placements (CSE)",
+                "room": "409",
+                "block": "N Block",
+                "phone": "8919420637",
+                "email": null,
+                "provenance": {
+                  "source_id": "5dec730c-6055-5707-858c-8f181364efc1",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "c7cfd4c6-fab6-5347-a411-d152baeb27e3",
+                "role_name": "Student Affairs Coordinator",
+                "person_name": "Mr. P. Vijaya Babu",
+                "responsibilities": "Student affairs coordination, student activities and grievance handling",
+                "office": "BoSA – Board of Student Affairs (CSE)",
+                "room": "409",
+                "block": "N Block",
+                "phone": "9985333934",
+                "email": null,
+                "provenance": {
+                  "source_id": "e1b4da3f-57d4-5f9c-9901-286f5a41c5b9",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "e0a88bbc-cd8c-56f7-a727-c17bc8d544ad",
+                "role_name": "Student Affairs Coordinator",
+                "person_name": "Mr. D. Balakotaiah",
+                "responsibilities": "Student affairs coordination, student activities and grievance handling",
+                "office": "BoSA – Board of Student Affairs (CSE)",
+                "room": "409",
+                "block": "N Block",
+                "phone": "9059093829",
+                "email": null,
+                "provenance": {
+                  "source_id": "e1b4da3f-57d4-5f9c-9901-286f5a41c5b9",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "fba6f93e-0b66-521f-b5e3-6f0af5a2e709",
+                "role_name": "Social Media Coordinator",
+                "person_name": "K. Jyotsna",
+                "responsibilities": "Department Website content updates, Instagram, LinkedIn & other social media management, Event coverage, Faculty & Student Achievement promotions, FDPs/Workshops/Guest Lecture publicity, Placement/Internship/Hackathon updates, Content writing & poster design, Brand consistency, Archiving digital media",
+                "office": "CSE Social Media Committee",
+                "room": "301",
+                "block": "N Block",
+                "phone": "7337373032",
+                "email": "jk_cse@vignan.ac.in",
+                "provenance": {
+                  "source_id": "d4b84cb3-61d4-5026-a86f-a892a845ba43",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "61f80f26-d03f-5f70-8a61-41a604f8cda8",
+                "role_name": "Social Media Coordinator",
+                "person_name": "Sk. Jani",
+                "responsibilities": "Department Website content updates, Instagram, LinkedIn & other social media management, Event coverage, Faculty & Student Achievement promotions, FDPs/Workshops/Guest Lecture publicity, Placement/Internship/Hackathon updates, Content writing & poster design, Brand consistency, Archiving digital media",
+                "office": "CSE Social Media Committee",
+                "room": "301",
+                "block": "N Block",
+                "phone": "8247840320",
+                "email": "jk_cse@vignan.ac.in",
+                "provenance": {
+                  "source_id": "d4b84cb3-61d4-5026-a86f-a892a845ba43",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "6b7ef8cf-bce7-584b-a465-343f14c27364",
+                "role_name": "Office: T&P-CSE – Training & Placements (CSE)",
+                "person_name": "T&P-CSE – Training & Placements (CSE)",
+                "responsibilities": "Campus Recruitment Training, Placements, Certificate Programs, Training Attendance",
+                "office": "T&P-CSE – Training & Placements (CSE)",
+                "room": "409",
+                "block": "N Block",
+                "phone": "9701224847",
+                "email": null,
+                "provenance": {
+                  "source_id": null,
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": null
+                }
+              },
+              {
+                "id": "3b233cbf-7dc4-51e9-9126-b43eaaf6f9fb",
+                "role_name": "Office: CSE Social Media Committee",
+                "person_name": "CSE Social Media Committee",
+                "responsibilities": "Department Website content updates, Instagram, LinkedIn & other social media management, Event coverage, Faculty & Student Achievement promotions, FDPs/Workshops/Guest Lecture publicity, Placement/Internship/Hackathon updates, Content writing & poster design, Brand consistency, Archiving digital media",
+                "office": "CSE Social Media Committee",
+                "room": "301",
+                "block": "N Block",
+                "phone": "7337373032",
+                "email": "jk_cse@vignan.ac.in",
+                "provenance": {
+                  "source_id": null,
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": null
+                }
+              }
+            ],
+            "message": "Found 8 responsible person/office record(s)."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "5dec730c-6055-5707-858c-8f181364efc1",
+          "source_type": null,
+          "source_name": null,
+          "document_name": null,
+          "confidence": "high",
+          "last_verified": "2026-08-26T00:00:00+00:00"
+        },
+        {
+          "source_id": "e1b4da3f-57d4-5f9c-9901-286f5a41c5b9",
+          "source_type": null,
+          "source_name": null,
+          "document_name": null,
+          "confidence": "high",
+          "last_verified": "2026-08-26T00:00:00+00:00"
+        },
+        {
+          "source_id": "d4b84cb3-61d4-5026-a86f-a892a845ba43",
+          "source_type": null,
+          "source_name": null,
+          "document_name": null,
+          "confidence": "high",
+          "last_verified": "2026-08-26T00:00:00+00:00"
+        }
+      ],
+      "confidence": "high",
+      "requires_clarification": false,
+      "location": null,
+      "route": null,
+      "live_status": null
+    }
+  },
+  {
+    "query_id": 5,
+    "query": "Where is the Transport Office?",
+    "direct_tool_result": {
+      "count": 1,
+      "matches": [
+        {
+          "id": "1f06066b-ce92-5aab-8e38-817b1b37f6c9",
+          "name": "Transport Office & Bus Pass Counter",
+          "category": "transport",
+          "description": "Transport information, bus route details, bus pass collection and fee inquiries located at Main Gate",
+          "location_id": "cac24b99-199b-598d-987d-da96a526d975",
+          "location": {
+            "name": "Transport Office (Main Gate)",
+            "block": "Main Gate Area",
+            "floor": null,
+            "room": null,
+            "description": "Transport Office located on the left side of the main entrance when viewed from outside the gate; used for bus pass collection and transport inquiries"
+          },
+          "services_offered": [
+            "bus pass collection",
+            "transport information",
+            "route schedules",
+            "bus passes"
+          ],
+          "provenance": {
+            "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        }
+      ],
+      "message": "Found 1 service(s)."
+    },
+    "agent_result": {
+      "answer": "**Transport Office & Bus Pass Counter**\n- **Location**: Transport Office located on the left side of the main entrance when viewed from outside the gate; used for bus pass collection and transport inquiries\n- **Services**: bus pass collection, transport information, route schedules, bus passes",
+      "tool_used": [
+        "search_service"
+      ],
+      "tool_calls": [
+        {
+          "tool_name": "search_service",
+          "arguments": {
+            "query": "transport",
+            "category": "transport"
+          },
+          "result": {
+            "count": 1,
+            "matches": [
+              {
+                "id": "1f06066b-ce92-5aab-8e38-817b1b37f6c9",
+                "name": "Transport Office & Bus Pass Counter",
+                "category": "transport",
+                "description": "Transport information, bus route details, bus pass collection and fee inquiries located at Main Gate",
+                "location_id": "cac24b99-199b-598d-987d-da96a526d975",
+                "location": {
+                  "name": "Transport Office (Main Gate)",
+                  "block": "Main Gate Area",
+                  "floor": null,
+                  "room": null,
+                  "description": "Transport Office located on the left side of the main entrance when viewed from outside the gate; used for bus pass collection and transport inquiries"
+                },
+                "services_offered": [
+                  "bus pass collection",
+                  "transport information",
+                  "route schedules",
+                  "bus passes"
+                ],
+                "provenance": {
+                  "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              }
+            ],
+            "message": "Found 1 service(s)."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+          "source_type": null,
+          "source_name": null,
+          "document_name": null,
+          "confidence": "high",
+          "last_verified": "2026-08-26T00:00:00+00:00"
+        }
+      ],
+      "confidence": "high",
+      "requires_clarification": false,
+      "location": null,
+      "route": null,
+      "live_status": null
+    }
+  },
+  {
+    "query_id": 6,
+    "query": "Where can I Xerox?",
+    "direct_tool_result": {
+      "count": 3,
+      "matches": [
+        {
+          "id": "48460e5e-23f1-51f0-a3d8-7c8c71207289",
+          "name": "Xerox Facility — Beside A Block",
+          "category": "xerox",
+          "description": "Photocopy and printing facility situated beside A Block",
+          "location_id": "5f5bcd56-4222-5616-8a51-7e22028e0adf",
+          "location": {
+            "name": "A Block",
+            "block": "A Block",
+            "floor": null,
+            "room": null,
+            "description": "A Block Academic & Administrative Building"
+          },
+          "services_offered": [
+            "xerox",
+            "photocopy",
+            "black and white printing",
+            "stationery"
+          ],
+          "provenance": {
+            "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        },
+        {
+          "id": "eeccb719-16aa-5b88-8d54-685cd7d42750",
+          "name": "Xerox Facility — A Block Side Lift",
+          "category": "xerox",
+          "description": "Xerox facility on A Block ground floor near the side lift",
+          "location_id": "5f5bcd56-4222-5616-8a51-7e22028e0adf",
+          "location": {
+            "name": "A Block",
+            "block": "A Block",
+            "floor": null,
+            "room": null,
+            "description": "A Block Academic & Administrative Building"
+          },
+          "services_offered": [
+            "xerox",
+            "photocopy",
+            "document printing"
+          ],
+          "provenance": {
+            "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        },
+        {
+          "id": "a936383f-8216-557e-92d1-91e17a7e93f5",
+          "name": "Xerox Facility — Near MHP / Zest Area",
+          "category": "xerox",
+          "description": "Xerox and printing facility situated near/between Zest and MHP area",
+          "location_id": null,
+          "location": null,
+          "services_offered": [
+            "xerox",
+            "photocopy",
+            "color printing",
+            "spiral binding"
+          ],
+          "provenance": {
+            "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        }
+      ],
+      "message": "Found 3 service(s)."
+    },
+    "agent_result": {
+      "answer": "Found 3 verified xerox facility/facilities:\n- **Xerox Facility — A Block Side Lift**: A Block (Services: xerox, photocopy, document printing)\n- **Xerox Facility — Near MHP / Zest Area**: Xerox and printing facility situated near/between Zest and MHP area (Services: xerox, photocopy, color printing, spiral binding)\n- **Xerox Facility — Beside A Block**: A Block (Services: xerox, photocopy, black and white printing, stationery)\n",
+      "tool_used": [
+        "search_service"
+      ],
+      "tool_calls": [
+        {
+          "tool_name": "search_service",
+          "arguments": {
+            "query": "Where can I Xerox?",
+            "category": "xerox"
+          },
+          "result": {
+            "count": 3,
+            "matches": [
+              {
+                "id": "eeccb719-16aa-5b88-8d54-685cd7d42750",
+                "name": "Xerox Facility — A Block Side Lift",
+                "category": "xerox",
+                "description": "Xerox facility on A Block ground floor near the side lift",
+                "location_id": "5f5bcd56-4222-5616-8a51-7e22028e0adf",
+                "location": {
+                  "name": "A Block",
+                  "block": "A Block",
+                  "floor": null,
+                  "room": null,
+                  "description": "A Block Academic & Administrative Building"
+                },
+                "services_offered": [
+                  "xerox",
+                  "photocopy",
+                  "document printing"
+                ],
+                "provenance": {
+                  "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "a936383f-8216-557e-92d1-91e17a7e93f5",
+                "name": "Xerox Facility — Near MHP / Zest Area",
+                "category": "xerox",
+                "description": "Xerox and printing facility situated near/between Zest and MHP area",
+                "location_id": null,
+                "location": null,
+                "services_offered": [
+                  "xerox",
+                  "photocopy",
+                  "color printing",
+                  "spiral binding"
+                ],
+                "provenance": {
+                  "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              },
+              {
+                "id": "48460e5e-23f1-51f0-a3d8-7c8c71207289",
+                "name": "Xerox Facility — Beside A Block",
+                "category": "xerox",
+                "description": "Photocopy and printing facility situated beside A Block",
+                "location_id": "5f5bcd56-4222-5616-8a51-7e22028e0adf",
+                "location": {
+                  "name": "A Block",
+                  "block": "A Block",
+                  "floor": null,
+                  "room": null,
+                  "description": "A Block Academic & Administrative Building"
+                },
+                "services_offered": [
+                  "xerox",
+                  "photocopy",
+                  "black and white printing",
+                  "stationery"
+                ],
+                "provenance": {
+                  "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              }
+            ],
+            "message": "Found 3 service(s)."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+          "source_type": null,
+          "source_name": null,
+          "document_name": null,
+          "confidence": "high",
+          "last_verified": "2026-08-26T00:00:00+00:00"
+        }
+      ],
+      "confidence": "high",
+      "requires_clarification": false,
+      "location": null,
+      "route": null,
+      "live_status": null
+    }
+  },
+  {
+    "query_id": 7,
+    "query": "Where is Finance?",
+    "direct_tool_result": {
+      "count": 1,
+      "matches": [
+        {
+          "id": "dd8360e3-e768-5ac4-a5d4-81fbd4e00c41",
+          "name": "Finance Office (A Block 1st Floor)",
+          "location_type": "office",
+          "block": "A Block",
+          "floor": "1st Floor",
+          "room": null,
+          "description": "University Finance & Fee Payment Office on A Block 1st Floor",
+          "latitude": null,
+          "longitude": null,
+          "parent_location": "A Block",
+          "provenance": {
+            "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+            "source_type": null,
+            "source_name": null,
+            "document_name": null,
+            "confidence": "high",
+            "last_verified": "2026-08-26T00:00:00+00:00"
+          }
+        }
+      ],
+      "message": "Found 1 location record(s)."
+    },
+    "agent_result": {
+      "answer": "**Finance Office (A Block 1st Floor)** (office)\n- **Block**: A Block\n- **Floor**: 1st Floor\n- **Description**: University Finance & Fee Payment Office on A Block 1st Floor",
+      "tool_used": [
+        "get_location"
+      ],
+      "tool_calls": [
+        {
+          "tool_name": "get_location",
+          "arguments": {
+            "query": "Where is Finance?"
+          },
+          "result": {
+            "count": 1,
+            "matches": [
+              {
+                "id": "dd8360e3-e768-5ac4-a5d4-81fbd4e00c41",
+                "name": "Finance Office (A Block 1st Floor)",
+                "location_type": "office",
+                "block": "A Block",
+                "floor": "1st Floor",
+                "room": null,
+                "description": "University Finance & Fee Payment Office on A Block 1st Floor",
+                "latitude": null,
+                "longitude": null,
+                "parent_location": "A Block",
+                "provenance": {
+                  "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+                  "source_type": null,
+                  "source_name": null,
+                  "document_name": null,
+                  "confidence": "high",
+                  "last_verified": "2026-08-26T00:00:00+00:00"
+                }
+              }
+            ],
+            "message": "Found 1 location record(s)."
+          }
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+          "source_type": null,
+          "source_name": null,
+          "document_name": null,
+          "confidence": "high",
+          "last_verified": "2026-08-26T00:00:00+00:00"
+        }
+      ],
+      "confidence": "high",
+      "requires_clarification": false,
+      "location": {
+        "id": null,
+        "name": "Finance Office (A Block 1st Floor)",
+        "location_type": null,
+        "block": "A Block",
+        "floor": "1st Floor",
+        "room": null,
+        "description": "University Finance & Fee Payment Office on A Block 1st Floor",
+        "latitude": null,
+        "longitude": null
+      },
+      "route": null,
+      "live_status": null
+    }
+  }
+]

@@ -1,0 +1,181 @@
+[
+  {
+    "id": "1f06066b-ce92-5aab-8e38-817b1b37f6c9",
+    "name": "Transport Office & Bus Pass Counter",
+    "category": "transport",
+    "description": "Transport information, bus route details, bus pass collection and fee inquiries located at Main Gate",
+    "location_id": "cac24b99-199b-598d-987d-da96a526d975",
+    "services_offered": [
+      "bus pass collection",
+      "transport information",
+      "route schedules",
+      "bus passes"
+    ],
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "48460e5e-23f1-51f0-a3d8-7c8c71207289",
+    "name": "Xerox Facility — Beside A Block",
+    "category": "xerox",
+    "description": "Photocopy and printing facility situated beside A Block",
+    "location_id": "5f5bcd56-4222-5616-8a51-7e22028e0adf",
+    "services_offered": [
+      "xerox",
+      "photocopy",
+      "black and white printing",
+      "stationery"
+    ],
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "eeccb719-16aa-5b88-8d54-685cd7d42750",
+    "name": "Xerox Facility — A Block Side Lift",
+    "category": "xerox",
+    "description": "Xerox facility on A Block ground floor near the side lift",
+    "location_id": "5f5bcd56-4222-5616-8a51-7e22028e0adf",
+    "services_offered": [
+      "xerox",
+      "photocopy",
+      "document printing"
+    ],
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "a936383f-8216-557e-92d1-91e17a7e93f5",
+    "name": "Xerox Facility — Near MHP / Zest Area",
+    "category": "xerox",
+    "description": "Xerox and printing facility situated near/between Zest and MHP area",
+    "location_id": null,
+    "services_offered": [
+      "xerox",
+      "photocopy",
+      "color printing",
+      "spiral binding"
+    ],
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "046c9a4d-a9b7-59ca-8bf4-bc9ae7171083",
+    "name": "H Block Canteen",
+    "category": "canteen",
+    "description": "Canteen facility located at H Block",
+    "location_id": "5938fabf-6853-5338-8aab-1d6b9d7a5f0b",
+    "services_offered": [
+      "breakfast",
+      "lunch",
+      "snacks",
+      "beverages",
+      "tea",
+      "coffee"
+    ],
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "bfef8315-1c50-55df-9d44-480a9f17490b",
+    "name": "H Block Internal Canteen",
+    "category": "canteen",
+    "description": "Internal food stall and refreshments counter inside H Block",
+    "location_id": "5938fabf-6853-5338-8aab-1d6b9d7a5f0b",
+    "services_offered": [
+      "snacks",
+      "refreshments",
+      "juice",
+      "beverages"
+    ],
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "2454818d-8d6d-5ec7-b525-5e8f34651b06",
+    "name": "A Block 3rd Floor Canteen",
+    "category": "canteen",
+    "description": "Refreshments and snacks canteen situated on A Block 3rd Floor",
+    "location_id": "5f5bcd56-4222-5616-8a51-7e22028e0adf",
+    "services_offered": [
+      "tea",
+      "coffee",
+      "snacks",
+      "packaged food"
+    ],
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "5992d1dd-7638-5817-b97a-8f98762c244b",
+    "name": "MHP / Main Canteen",
+    "category": "canteen",
+    "description": "Main campus dining hall and central canteen at MHP",
+    "location_id": null,
+    "services_offered": [
+      "meals",
+      "thali",
+      "breakfast",
+      "fast food",
+      "beverages",
+      "ice cream"
+    ],
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "02a680ef-a162-54d5-862d-cb6c9a6f7041",
+    "name": "Faculty Lunch Area beside H Block",
+    "category": "canteen",
+    "description": "Dedicated faculty dining and lunch area located beside H Block",
+    "location_id": "5938fabf-6853-5338-8aab-1d6b9d7a5f0b",
+    "services_offered": [
+      "faculty lunch",
+      "dining area",
+      "water facility"
+    ],
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "872a7f04-5d70-5f2d-8015-fce8d69573ae",
+    "name": "U Block Side Canteen",
+    "category": "canteen",
+    "description": "Canteen situated at the side of U Block",
+    "location_id": "4111aaad-6300-5ee7-b356-8ce945efcfb5",
+    "services_offered": [
+      "snacks",
+      "tea",
+      "coffee",
+      "cool drinks",
+      "bakery"
+    ],
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
+    "id": "304c1523-249d-536b-99ac-ea76678584ad",
+    "name": "U Block Ground Floor Internal Canteen",
+    "category": "canteen",
+    "description": "Internal food counter situated on the ground floor of U Block",
+    "location_id": "4111aaad-6300-5ee7-b356-8ce945efcfb5",
+    "services_offered": [
+      "quick snacks",
+      "tea",
+      "water",
+      "beverages"
+    ],
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  }
+]

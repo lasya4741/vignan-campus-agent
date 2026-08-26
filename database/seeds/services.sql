@@ -1,0 +1,17 @@
+-- Seed template: services
+-- Purpose: Campus utility services (xerox, printing, stationery, canteen, medical, library, transport, pharmacy).
+-- Note: Real campus records will be imported separately from verified source material.
+
+-- Example Structure:
+-- INSERT INTO services (id, name, category, description, location_id, services_offered, source_id, confidence, last_verified)
+-- VALUES (
+--     gen_random_uuid(),
+--     'Main Campus Xerox & Stationery',
+--     'xerox',
+--     'Photocopying, spiral binding, color printing, lab manual purchases',
+--     NULL,
+--     '["xerox", "printing", "binding", "stationery"]'::jsonb,
+--     NULL,
+--     'high',
+--     now()
+-- );

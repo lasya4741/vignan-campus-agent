@@ -1,0 +1,15 @@
+-- Seed template: subjects
+-- Purpose: Academic courses and subjects taught across departments.
+-- Note: Real campus records will be imported separately from verified source material.
+
+-- Example Structure:
+-- INSERT INTO subjects (id, name, code, department_id, source_id, confidence, last_verified)
+-- VALUES (
+--     gen_random_uuid(),
+--     'Data Structures & Algorithms',
+--     'CS201',
+--     NULL,
+--     NULL,
+--     'high',
+--     now()
+-- );

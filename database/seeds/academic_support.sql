@@ -1,0 +1,20 @@
+-- Seed template: academic_support
+-- Purpose: Responsibility-based support roles (placements, revaluation, grievances, NPTEL, slow learners).
+-- Note: Real campus records will be imported separately from verified source material.
+
+-- Example Structure:
+-- INSERT INTO academic_support (id, role_name, person_name, faculty_id, responsibilities, office_id, room, phone, email, source_id, confidence, last_verified)
+-- VALUES (
+--     gen_random_uuid(),
+--     'Training & Placement Coordinator',
+--     'Coordinator Name',
+--     NULL,
+--     'Coordinates campus placement drives, company visits, and student internship registrations',
+--     NULL,
+--     NULL,
+--     NULL,
+--     NULL,
+--     NULL,
+--     'high',
+--     now()
+-- );

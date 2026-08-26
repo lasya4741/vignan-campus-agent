@@ -1,0 +1,20 @@
+-- Seed template: offices
+-- Purpose: Administrative, departmental, and academic office directory.
+-- Note: Real campus records will be imported separately from verified source material.
+
+-- Example Structure:
+-- INSERT INTO offices (id, name, purpose, room, block, floor, phone, email, description, source_id, confidence, last_verified)
+-- VALUES (
+--     gen_random_uuid(),
+--     'Administrative Office',
+--     'Student fee collection, document verification, and admissions',
+--     NULL,
+--     NULL,
+--     NULL,
+--     NULL,
+--     NULL,
+--     'Main administrative headquarters',
+--     NULL,
+--     'high',
+--     now()
+-- );
