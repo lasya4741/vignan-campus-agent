@@ -62,12 +62,89 @@ class CoordinatorAgent:
     def __init__(self, model_name: Optional[str] = None):
         self.model = model_name or settings.gemini_model
         self.gemini = gemini_service
+        self._session_store: Dict[str, Dict[str, Any]] = {}
+
+    def _get_session_state(
+        self,
+        conversation_id: Optional[str],
+        user: Optional[Dict[str, Any]],
+        session_state: Optional[Dict[str, Any]] = None,
+    ) -> Dict[str, Any]:
+        session_id = conversation_id or (user.get("session_id") if user else None)
+        user_id = (user.get("id") or user.get("email")) if user else None
+
+        # Composite store key ensures session is strictly bound to user identity when available
+        store_key = f"{user_id}::{session_id}" if (user_id and session_id) else (session_id or "anon")
+
+        if session_id:
+            state = self._session_store.setdefault(store_key, {
+                "pending_intent": None,
+                "pending_details": {},
+                "year": None,
+                "section": None,
+                "department": None,
+                "last_timetable_result": None,
+                "last_topic": None,
+                "user_id": user_id,
+            })
+        else:
+            state = {
+                "pending_intent": None,
+                "pending_details": {},
+                "year": None,
+                "section": None,
+                "department": None,
+                "last_timetable_result": None,
+                "last_topic": None,
+                "user_id": user_id,
+            }
+
+        if user:
+            # Detect user identity switch on existing session_id
+            if user_id and state.get("user_id") and state["user_id"] != user_id:
+                state["pending_intent"] = None
+                state["pending_details"] = {}
+                state["year"] = None
+                state["section"] = None
+                state["department"] = None
+                state["last_timetable_result"] = None
+                state["last_topic"] = None
+                state["user_id"] = user_id
+
+            if user.get("year"):
+                try:
+                    new_year = int(user["year"])
+                    if state.get("year") is not None and state["year"] != new_year:
+                        state["last_timetable_result"] = None
+                        state["pending_intent"] = None
+                    state["year"] = new_year
+                except (ValueError, TypeError):
+                    pass
+
+            if user.get("section"):
+                new_sec = str(user["section"]).strip()
+                if state.get("section") is not None and state["section"] != new_sec:
+                    state["last_timetable_result"] = None
+                    state["pending_intent"] = None
+                state["section"] = new_sec
+
+            if user.get("department"):
+                state["department"] = str(user["department"]).strip()
+
+        if session_state:
+            for k, v in session_state.items():
+                if v is not None:
+                    state[k] = v
+
+        return state
 
     def run(
         self,
         message: str,
         history: Optional[List[Dict[str, Any]]] = None,
         user: Optional[Dict[str, Any]] = None,
+        conversation_id: Optional[str] = None,
+        session_state: Optional[Dict[str, Any]] = None,
     ) -> ChatResponse:
         """Synchronous entry point for coordinator agent execution."""
         if not message or not message.strip():
@@ -77,30 +154,35 @@ class CoordinatorAgent:
                 requires_clarification=False,
             )
 
+        state = self._get_session_state(conversation_id, user, session_state)
+
         if gemini_service.is_configured() and types:
             try:
-                return self._run_with_gemini(message, history, user)
+                return self._run_with_gemini(message, history, user, state)
             except Exception as e:
                 logger.error(f"Gemini API invocation failed: {e}. Falling back to deterministic tool router.")
-                return self._run_fallback(message, user)
+                return self._run_fallback(message, user, state)
         else:
             logger.info("Gemini API not configured. Executing query via deterministic tool router.")
-            return self._run_fallback(message, user)
+            return self._run_fallback(message, user, state)
 
     async def process_query(
         self,
         message: str,
         history: Optional[List[Dict[str, Any]]] = None,
         user: Optional[Dict[str, Any]] = None,
+        conversation_id: Optional[str] = None,
+        session_state: Optional[Dict[str, Any]] = None,
     ) -> ChatResponse:
         """Process incoming user query, execute required tool calls, and generate verified response."""
-        return self.run(message, history, user)
+        return self.run(message, history, user, conversation_id, session_state)
 
     def _run_with_gemini(
         self,
         message: str,
         history: Optional[List[Dict[str, Any]]] = None,
         user: Optional[Dict[str, Any]] = None,
+        state: Optional[Dict[str, Any]] = None,
     ) -> ChatResponse:
         """Execute query using Gemini 3.7 with native tool calling."""
         client = gemini_service.client
@@ -123,8 +205,8 @@ class CoordinatorAgent:
             wrapped_tools.append(make_wrapper(func, name))
 
         sys_inst = SYSTEM_INSTRUCTION
-        if user:
-            sys_inst += f"\n\nAUTHENTICATED USER CONTEXT:\n- Name: {user.get('name', 'Student')}\n- Email: {user.get('email', '')}\n- Department: {user.get('department', 'CSE')}\n- Year: {user.get('year', 'Not specified')}\n- Section: {user.get('section', 'Not specified')}"
+        if user or state:
+            sys_inst += f"\n\nAUTHENTICATED USER & SESSION CONTEXT:\n- Name: {user.get('name', 'Student') if user else 'Student'}\n- Department: {state.get('department') or (user.get('department') if user else 'CSE')}\n- Year: {state.get('year') or (user.get('year') if user else 'Not specified')}\n- Section: {state.get('section') or (user.get('section') if user else 'Not specified')}"
 
         chat_contents = []
         if history:
@@ -147,14 +229,18 @@ class CoordinatorAgent:
         )
 
         answer_text = response.text or "I processed your request using the verified VIGNAN database."
-        return self._build_chat_response(answer_text, executed_tools, tool_records)
+        return self._build_chat_response(answer_text, executed_tools, tool_records, session_state=state)
 
     def _run_fallback(
         self,
         message: str,
         user: Optional[Dict[str, Any]] = None,
+        state: Optional[Dict[str, Any]] = None,
     ) -> ChatResponse:
-        """Deterministic offline intent classification and tool execution fallback."""
+        """Deterministic offline intent classification, pending context resumption, and tool execution fallback."""
+        if state is None:
+            state = self._get_session_state(None, user)
+
         tool_records: List[ToolCallRecord] = []
         executed_tools: List[str] = []
         norm_msg = normalize_text(message)
@@ -170,7 +256,112 @@ class CoordinatorAgent:
                 return res
             return None
 
-        intent, details = classify_campus_intent(message, user_context=user)
+        # Extract year and section from message if present
+        yr_m = re.search(r"\b([234])(?:nd|rd|th)?\s*year\b", norm_msg) or re.search(r"\byear\s*([234])\b", norm_msg) or re.search(r"\by([234])\b", norm_msg)
+        sec_m = re.search(r"\bsection\s*([0-9]{1,2})\b", norm_msg) or re.search(r"\bsec\s*([0-9]{1,2})\b", norm_msg) or re.search(r"\bs([0-9]{1,2})\b", norm_msg)
+        dash_m = re.search(r"\b([234])\s*[-–]\s*([0-9]{1,2})\b", norm_msg)
+
+        msg_year = None
+        msg_section = None
+        if dash_m:
+            msg_year = int(dash_m.group(1))
+            msg_section = str(dash_m.group(2))
+        else:
+            if yr_m:
+                try:
+                    msg_year = int(yr_m.group(1))
+                except ValueError:
+                    pass
+            if sec_m:
+                msg_section = str(sec_m.group(1))
+
+        # Check if message is a short context response (answering clarification)
+        is_short_context_answer = False
+        if msg_year or msg_section:
+            clean_text = re.sub(r"\b(?:i'm|in|year|sec|section|3rd|2nd|4th|y|s|[0-9]{1,2})\b", "", norm_msg).strip()
+            if len(clean_text) < 10 and not any(w in norm_msg for w in ["counsellor", "counselor", "mentor", "advisor", "hod", "faculty", "where", "who"]):
+                is_short_context_answer = True
+
+        if msg_year:
+            state["year"] = msg_year
+        if msg_section:
+            state["section"] = msg_section
+
+        # Pending Intent Continuation
+        pending_intent = state.get("pending_intent")
+        if pending_intent and is_short_context_answer:
+            intent = CampusIntent(pending_intent)
+            details = state.get("pending_details", {}).copy()
+            state["pending_intent"] = None
+            state["pending_details"] = {}
+            logger.info(f"Resuming pending intent '{intent}' with year={state.get('year')}, section={state.get('section')}")
+        else:
+            intent, details = classify_campus_intent(message, user_context=user)
+
+        if details.get("year"):
+            state["year"] = details["year"]
+        elif state.get("year"):
+            details["year"] = state["year"]
+
+        if details.get("section"):
+            state["section"] = details["section"]
+        elif state.get("section"):
+            details["section"] = state["section"]
+
+        logger.info(f"Detected Intent: {intent}, Pending Intent: {pending_intent}, State: year={state.get('year')}, section={state.get('section')}")
+
+        # Coreference / Follow-Up Handling
+        last_res = state.get("last_timetable_result")
+        is_who_teaches_coref = any(p in norm_msg for p in ["who teaches it", "who is the teacher", "who teaches this class", "who is teaching it"])
+        is_where_is_it_coref = (
+            any(p in norm_msg for p in ["where is this class", "what room is it in", "which floor is it on"]) or
+            (re.search(r"\bwhere\s+is\s+it\b", norm_msg) and intent not in [CampusIntent.DEPARTMENT_LOOKUP, CampusIntent.LOCATION_LOOKUP, CampusIntent.OFFICE_LOOKUP, CampusIntent.FACULTY_LOOKUP, CampusIntent.NAVIGATION_REQUEST])
+        )
+        is_how_to_get_coref = any(p in norm_msg for p in ["how do i get there", "how to get there", "directions to it", "take me there", "path to it"])
+
+        if last_res:
+            # "Who teaches it?"
+            if is_who_teaches_coref and intent != CampusIntent.FIRST_CLASS_ON_DAY:
+                subj = last_res.get("subject_code") or last_res.get("subject_name") or "this class"
+                t_info = last_res.get("teacher")
+                if t_info and t_info.get("full_name"):
+                    desig = f" ({t_info['designation']})" if t_info.get("designation") else ""
+                    ans = f"Your class (**{subj}**) is taught by **{t_info['full_name']}**{desig}."
+                else:
+                    ans = f"Verified teacher mapping for **{subj}** is currently unavailable."
+                return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+
+            # "Where is it?"
+            if is_where_is_it_coref and intent != CampusIntent.NAVIGATION_REQUEST:
+                subj = last_res.get("subject_code") or last_res.get("subject_name") or "this class"
+                rm = last_res.get("room") or "designated room"
+                blk = last_res.get("block") or "N Block"
+                flr = last_res.get("floor") or "Main Floor"
+                ans = f"Your class (**{subj}**) is in **Room {rm}**, {blk} ({flr})."
+                return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+
+            # "How do I get there?"
+            if is_how_to_get_coref:
+                blk = last_res.get("block") or "N Block"
+                rm = last_res.get("room") or "N/A"
+                res = execute_tool("get_route", start_location="Main Gate", destination=blk, travel_mode="walking")
+                if res and res.get("found"):
+                    steps_text = "\n".join([f"{s['step']}. {s['instruction']}" for s in res.get("steps", [])])
+                    guidance_text = f"\n\n*Indoor Guidance*: Head to {blk}, take the stairs/elevator, and proceed to Room {rm}."
+                    maps_link = f"\n\n🗺️ [Open in Google Maps]({res['google_maps_url']})"
+                    ans = (
+                        f"**Navigation to your class (Room {rm}, {blk})**:\n"
+                        f"{steps_text}"
+                        f"{guidance_text}"
+                        f"{maps_link}"
+                    )
+                else:
+                    ans = f"Head to {blk} and proceed to Room {rm}."
+                return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+        else:
+            if is_who_teaches_coref or is_where_is_it_coref or is_how_to_get_coref:
+                ans = "I don't have a previous class in this conversation to check. Please specify which class or subject you would like me to check!"
+                return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
 
         # 1. Out of Scope
         if intent == CampusIntent.OUT_OF_SCOPE_REQUEST:
@@ -180,6 +371,7 @@ class CoordinatorAgent:
                 requires_clarification=False,
                 executed_tools=[],
                 tool_calls=[],
+                session_state=state,
             )
 
         # 2. Clarification Required
@@ -190,12 +382,13 @@ class CoordinatorAgent:
                 requires_clarification=True,
                 executed_tools=[],
                 tool_calls=[],
+                session_state=state,
             )
 
         # 3. Counsellor Lookup
         if intent == CampusIntent.COUNSELLOR_LOOKUP:
-            year = details.get("year")
-            section = details.get("section")
+            year = details.get("year") or state.get("year")
+            section = details.get("section") or state.get("section")
             reg_num = details.get("registration_number")
 
             if year and section:
@@ -208,10 +401,10 @@ class CoordinatorAgent:
                         phone_str = f", Phone: {c.get('phone')}" if c.get('phone') else ""
                         range_str = f"\n  - *Roll Range*: {c['registration_range']}" if c.get("registration_range") else ""
                         ans += f"- **{c['counsellor_name']}** ({room_str}{phone_str}){range_str}\n"
-                    return self._build_chat_response(ans, executed_tools, tool_records)
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
                 else:
                     ans = f"No verified counsellor records found for Year {year}, Section {section}."
-                    return self._build_chat_response(ans, executed_tools, tool_records)
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
 
             if reg_num:
                 res = execute_tool("search_counsellor", registration_number=reg_num, year=year)
@@ -222,7 +415,7 @@ class CoordinatorAgent:
                     phone_str = f", Phone: {m.get('phone')}" if m.get('phone') else ""
                     range_str = f" (Roll Range: {m['registration_range']})" if m.get("registration_range") else ""
                     ans = f"For registration number **{reg_num}** (Year {m.get('year')}, Section {m.get('section')}):\n- **Counsellor**: **{m['counsellor_name']}** ({room_str}{phone_str}){range_str}"
-                    return self._build_chat_response(ans, executed_tools, tool_records)
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
 
             if year and not section:
                 return ChatResponse(
@@ -232,6 +425,7 @@ class CoordinatorAgent:
                     tool_used=[],
                     tool_calls=[],
                     sources=[],
+                    session_state=state,
                 )
 
             return ChatResponse(
@@ -241,7 +435,183 @@ class CoordinatorAgent:
                 tool_used=[],
                 tool_calls=[],
                 sources=[],
+                session_state=state,
             )
+
+        # 3b. Timetable Flow
+        def get_tt_params():
+            yr = state.get("year") or details.get("year") or (user.get("year") if user else None)
+            sec = state.get("section") or details.get("section") or (user.get("section") if user else None)
+            try:
+                yr = int(yr) if yr else None
+            except (ValueError, TypeError):
+                yr = None
+            sec = str(sec).strip() if sec else None
+            return yr, sec
+
+        if intent in [
+            CampusIntent.CURRENT_CLASS_LOOKUP,
+            CampusIntent.NEXT_CLASS_LOOKUP,
+            CampusIntent.NEXT_TIMETABLE_EVENT_LOOKUP,
+            CampusIntent.DAILY_TIMETABLE_LOOKUP,
+            CampusIntent.CLASS_AT_TIME_LOOKUP,
+            CampusIntent.CLASS_LOCATION_LOOKUP,
+            CampusIntent.FIRST_CLASS_ON_DAY,
+        ]:
+            yr, sec = get_tt_params()
+            if not yr or not sec:
+                state["pending_intent"] = intent.value
+                state["pending_details"] = details
+                if not yr and not sec:
+                    ask_msg = "To look up your timetable, please specify your **Year** (Year 2 or Year 3) and **Section** (e.g. *Year 3 Section 1*)."
+                elif yr and not sec:
+                    ask_msg = f"Sure! Which section are you in for Year {yr}? (e.g. Section 1, Section 8)"
+                else:
+                    ask_msg = "Which Academic Year are you in? (Year 2 or Year 3)"
+
+                return ChatResponse(
+                    answer=ask_msg,
+                    confidence="high",
+                    requires_clarification=True,
+                    session_state=state,
+                )
+
+            # Year and Section are available! Clear pending intent.
+            state["pending_intent"] = None
+            state["pending_details"] = {}
+
+            if intent == CampusIntent.FIRST_CLASS_ON_DAY:
+                req_date = details.get("day_name") or "tomorrow"
+                res = execute_tool("get_first_class_on_day", year=yr, section=sec, date=req_date)
+                if res.get("status") == "success" and res.get("first_class"):
+                    fc = res["first_class"]
+                    state["last_timetable_result"] = fc
+                    ans = f"Your first class {req_date} ({res.get('day')}) is **{fc['subject_code']}** ({fc.get('class_type', 'Lecture')}).\n\n"
+                    ans += f"🕒 {fc['start_time']}–{fc['end_time']}\n"
+                    ans += f"📍 {fc.get('block') or 'N Block'} · Room {fc.get('room') or 'N/A'}\n"
+                    t_info = fc.get("teacher")
+                    if t_info and t_info.get("full_name"):
+                        desig = f" ({t_info['designation']})" if t_info.get("designation") else ""
+                        ans += f"👨‍🏫 **Taught by**: **{t_info['full_name']}**{desig}\n"
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+                else:
+                    ans = res.get("message", f"No academic classes scheduled for {req_date}.")
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+
+            if intent == CampusIntent.CURRENT_CLASS_LOOKUP:
+                res = execute_tool("get_current_class", year=yr, section=sec)
+                if res.get("status") == "success" and res.get("current_class"):
+                    cc = res["current_class"]
+                    state["last_timetable_result"] = cc
+                    nc = res.get("next_class")
+                    ans = f"Your current class is **{cc['subject_code']}**.\n\n"
+                    ans += f"🕒 {cc['start_time']}–{cc['end_time']}\n"
+                    ans += f"📍 {cc.get('block') or 'N Block'} · Room {cc.get('room') or 'N/A'}\n"
+                    if nc:
+                        ans += f"\nYour next class is **{nc['subject_code']}** at {nc['start_time']}."
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+                elif res.get("status") == "break":
+                    nc = res.get("next_class")
+                    if nc:
+                        state["last_timetable_result"] = nc
+                    ans = res.get("message", "You're currently on a break.")
+                    if nc:
+                        ans += f"\n\nYour next class is **{nc['subject_code']}** at {nc['start_time']} in Room {nc.get('room')}."
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+                else:
+                    nc = res.get("next_class")
+                    if nc:
+                        state["last_timetable_result"] = nc
+                    ans = res.get("message", "You don't have a scheduled class right now.")
+                    if nc:
+                        ans += f"\n\nYour next class is **{nc['subject_code']}** at {nc['start_time']}."
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+
+            if intent == CampusIntent.NEXT_CLASS_LOOKUP:
+                res = execute_tool("get_next_class", year=yr, section=sec)
+                if res.get("status") == "success" and res.get("next_class"):
+                    nc = res["next_class"]
+                    state["last_timetable_result"] = nc
+                    ans = f"Your next class is **{nc['subject_code']}**.\n\n"
+                    ans += f"🕒 {nc['start_time']}–{nc['end_time']}\n"
+                    ans += f"📍 {nc.get('block') or 'N Block'} · Room {nc.get('room') or 'N/A'}\n"
+                    t_info = nc.get("teacher")
+                    if t_info and t_info.get("full_name"):
+                        desig = f" ({t_info['designation']})" if t_info.get("designation") else ""
+                        ans += f"👨‍🏫 **Taught by**: **{t_info['full_name']}**{desig}\n"
+                    elif "who teaches" in norm_msg:
+                        ans += "👨‍🏫 **Faculty**: Verified teacher mapping for this subject is currently unavailable."
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+                else:
+                    ans = res.get("message", "No more classes scheduled for today.")
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+
+            if intent == CampusIntent.NEXT_TIMETABLE_EVENT_LOOKUP:
+                res = execute_tool("get_next_timetable_event", year=yr, section=sec)
+                if res.get("status") == "success":
+                    ne = res["next_event"]
+                    ans = f"Your next timetable event is **{ne['event_name']}** ({ne.get('class_type', 'Event')}).\n\n"
+                    ans += f"🕒 {ne['start_time']}–{ne['end_time']}"
+                    if ne.get("room"):
+                        ans += f"\n📍 Room {ne['room']}"
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+                else:
+                    ans = res.get("message", "No more events scheduled for today.")
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+
+            if intent == CampusIntent.DAILY_TIMETABLE_LOOKUP:
+                from datetime import datetime, timedelta
+                import pytz
+                req_date = details.get("day_name")
+                if not req_date or req_date.lower() == "today":
+                    dt_now = datetime.now(pytz.timezone("Asia/Kolkata"))
+                    req_date = dt_now.strftime("%A")
+                elif req_date.lower() == "tomorrow":
+                    dt_now = datetime.now(pytz.timezone("Asia/Kolkata"))
+                    req_date = (dt_now + timedelta(days=1)).strftime("%A")
+
+                res = execute_tool("get_daily_timetable", year=yr, section=sec, date=req_date)
+                if res.get("status") == "success" and res.get("schedule"):
+                    sched = res["schedule"]
+                    ans = f"**{res['day']} Timetable for Year {yr}, Section {sec}** ({len(sched)} blocks):\n\n"
+                    for item in sched:
+                        r_info = f" · Room {item['room']}" if item.get("room") else ""
+                        ans += f"- **{item['start_time']}–{item['end_time']}**: **{item['subject_code']}** ({item.get('class_type', 'Lecture')}){r_info}\n"
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+                else:
+                    ans = f"No schedule records found for Year {yr}, Section {sec} on {req_date}."
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+
+            if intent == CampusIntent.CLASS_AT_TIME_LOOKUP:
+                req_t = details.get("requested_time", "11:00")
+                res = execute_tool("get_class_at_time", year=yr, section=sec, requested_time=req_t)
+                if res.get("status") == "success":
+                    mc = res["matched_class"]
+                    state["last_timetable_result"] = mc
+                    ans = f"At **{req_t}**, you have **{mc['subject_code']}** ({mc.get('class_type', 'Lecture')}).\n\n"
+                    ans += f"🕒 {mc['start_time']}–{mc['end_time']}\n"
+                    ans += f"📍 {mc.get('block') or 'N Block'} · Room {mc.get('room') or 'N/A'}"
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+                else:
+                    ans = res.get("message", "No class is scheduled for that time according to the current timetable.")
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+
+            if intent == CampusIntent.CLASS_LOCATION_LOOKUP:
+                target = details.get("location_target", "current")
+                res = execute_tool("get_class_location", year=yr, section=sec, target=target)
+                if res.get("status") == "success":
+                    state["last_timetable_result"] = res
+                    ans = f"Your {target} class (**{res.get('subject_code')}**) is in **Room {res.get('room')}**, {res.get('building')}.\n\n"
+                    ans += f"📍 **Location**: {res.get('building')}, {res.get('floor')}\n"
+                    ans += f"ℹ️ {res.get('navigation_guidance')}\n"
+                    if res.get("google_maps_url"):
+                        ans += f"\n🗺️ [Open in Google Maps]({res['google_maps_url']})"
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+                else:
+                    ans = res.get("message", f"No {target} class found to locate.")
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+
+
 
         # 4. Best Service / Shortest Queue Recommendation
         if intent == CampusIntent.BEST_SERVICE_REQUEST:
@@ -501,8 +871,9 @@ class CoordinatorAgent:
         answer: str,
         executed_tools: List[str],
         tool_records: List[ToolCallRecord],
+        session_state: Optional[Dict[str, Any]] = None,
     ) -> ChatResponse:
-        """Construct structured ChatResponse with provenance metadata, location, and route details."""
+        """Construct structured ChatResponse with provenance metadata, location, route details, and session state."""
         all_provenance = []
         has_high_confidence = False
         requires_clarification = False
@@ -574,6 +945,7 @@ class CoordinatorAgent:
             route=route_detail,
             location=location_detail,
             live_status=live_status_detail,
+            session_state=session_state,
         )
 
 

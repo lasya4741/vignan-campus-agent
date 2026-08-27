@@ -215,8 +215,44 @@ def validate_dataset(base_dir: str = "database/extracted") -> Tuple[bool, List[s
         if steps is None or not isinstance(steps, list):
             errors.append(f"routes[{i}]: Missing or non-list 'steps' field.")
 
+    # 10. Validate Timetables
+    y2_tt = load_json_file(os.path.join(base_dir, "timetables", "year2_timetable.json"))
+    y3_tt = load_json_file(os.path.join(base_dir, "timetables", "year3_timetable.json"))
+    all_tt = y2_tt + y3_tt
+    stats["timetables_y2"] = len(y2_tt)
+    stats["timetables_y3"] = len(y3_tt)
+
+    seen_slots = set()
+    for i, tt in enumerate(all_tt):
+        yr = tt.get("year")
+        sec = tt.get("section")
+        day = tt.get("day")
+        st = tt.get("start_time")
+        et = tt.get("end_time")
+        scode = tt.get("subject_code")
+        sid = tt.get("source_id")
+
+        if yr not in [2, 3]:
+            errors.append(f"timetables[{i}]: Invalid year '{yr}'. Must be 2 or 3.")
+        if not sec:
+            errors.append(f"timetables[{i}]: Missing section.")
+        if day not in {'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'}:
+            errors.append(f"timetables[{i}]: Invalid day '{day}'.")
+        if not st or not et or st >= et:
+            errors.append(f"timetables[{i}]: Invalid start_time '{st}' or end_time '{et}'.")
+        if not scode:
+            errors.append(f"timetables[{i}]: Missing subject_code.")
+        if sid and sid not in source_ids:
+            errors.append(f"timetables[{i}]: Broken source_id '{sid}' not found in sources.")
+
+        slot_key = (yr, str(sec), day, st)
+        if slot_key in seen_slots:
+            errors.append(f"timetables[{i}]: Duplicate timetable slot entry for {slot_key}.")
+        seen_slots.add(slot_key)
+
     is_valid = len(errors) == 0
     return is_valid, errors, stats
+
 
 
 def main():

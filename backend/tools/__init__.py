@@ -11,6 +11,15 @@ from backend.tools.locations import get_location
 from backend.tools.live_status import get_live_status, find_best_service
 from backend.tools.navigation import get_route
 from backend.tools.feedback import record_feedback
+from backend.tools.timetable import (
+    get_current_class,
+    get_next_class,
+    get_daily_timetable,
+    get_class_at_time,
+    get_next_timetable_event,
+    get_class_location,
+    get_first_class_on_day,
+)
 
 # Registry of callable tools for the Gemini Coordinator Agent
 ALL_TOOLS = {
@@ -26,6 +35,13 @@ ALL_TOOLS = {
     "find_best_service": find_best_service,
     "get_route": get_route,
     "record_feedback": record_feedback,
+    "get_current_class": get_current_class,
+    "get_next_class": get_next_class,
+    "get_daily_timetable": get_daily_timetable,
+    "get_class_at_time": get_class_at_time,
+    "get_next_timetable_event": get_next_timetable_event,
+    "get_class_location": get_class_location,
+    "get_first_class_on_day": get_first_class_on_day,
 }
 
 TOOL_CALLABLE_LIST = [
@@ -41,6 +57,13 @@ TOOL_CALLABLE_LIST = [
     find_best_service,
     get_route,
     record_feedback,
+    get_current_class,
+    get_next_class,
+    get_daily_timetable,
+    get_class_at_time,
+    get_next_timetable_event,
+    get_class_location,
+    get_first_class_on_day,
 ]
 
 __all__ = [
@@ -56,6 +79,13 @@ __all__ = [
     "find_best_service",
     "get_route",
     "record_feedback",
+    "get_current_class",
+    "get_next_class",
+    "get_daily_timetable",
+    "get_class_at_time",
+    "get_next_timetable_event",
+    "get_class_location",
     "ALL_TOOLS",
     "TOOL_CALLABLE_LIST",
 ]
+

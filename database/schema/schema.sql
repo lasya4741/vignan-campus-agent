@@ -285,6 +285,32 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+-- ============================================================================
+-- 14. TIMETABLES (Personalized Student Timetable Schedule)
+-- ============================================================================
+CREATE TABLE IF NOT EXISTS timetables (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    source_academic_year TEXT NOT NULL DEFAULT '2024-2025',
+    project_target_academic_year TEXT NOT NULL DEFAULT '2026-2027',
+    year INTEGER NOT NULL CHECK (year IN (2, 3)),
+    section TEXT NOT NULL,
+    day_of_week TEXT NOT NULL CHECK (day_of_week IN ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')),
+    start_time TIME NOT NULL,
+    end_time TIME NOT NULL,
+    subject_code TEXT NOT NULL,
+    subject_name TEXT,
+    class_type TEXT NOT NULL DEFAULT 'Lecture',
+    room TEXT,
+    section_default_room TEXT,
+    source_id UUID REFERENCES sources(id) ON DELETE SET NULL,
+    confidence TEXT DEFAULT 'high' CHECK (confidence IN ('high', 'medium', 'low', 'needs_verification')),
+    effective_from TIMESTAMPTZ,
+    effective_to TIMESTAMPTZ,
+    last_verified TIMESTAMPTZ DEFAULT now(),
+    created_at TIMESTAMPTZ DEFAULT now(),
+    updated_at TIMESTAMPTZ DEFAULT now()
+);
+
 -- Attach updated_at triggers
 DROP TRIGGER IF EXISTS trg_sources_updated_at ON sources;
 CREATE TRIGGER trg_sources_updated_at BEFORE UPDATE ON sources FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
@@ -315,3 +341,7 @@ CREATE TRIGGER trg_services_updated_at BEFORE UPDATE ON services FOR EACH ROW EX
 
 DROP TRIGGER IF EXISTS trg_routes_updated_at ON routes;
 CREATE TRIGGER trg_routes_updated_at BEFORE UPDATE ON routes FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+
+DROP TRIGGER IF EXISTS trg_timetables_updated_at ON timetables;
+CREATE TRIGGER trg_timetables_updated_at BEFORE UPDATE ON timetables FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+

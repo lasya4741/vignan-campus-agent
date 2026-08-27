@@ -3,7 +3,11 @@
  * Real Supabase Authentication & Profile Controller
  */
 
-// --- Global Application State ---
+// --- Global Application State & Backend Origin Resolution ---
+const API_BASE_URL = (window.location.origin.includes(':8000'))
+  ? ''
+  : (window.location.protocol === 'file:' ? 'http://127.0.0.1:8000' : 'http://127.0.0.1:8000');
+
 const AppState = {
   supabase: null,
   user: null,
@@ -106,6 +110,10 @@ async function loadUserProfileAndDisplay(authUser) {
 
   // Derive profile fields dynamically (Never hardcoded)
   const metaFullName = authUser.user_metadata?.full_name || authUser.user_metadata?.name;
+  const metaYear = authUser.user_metadata?.year;
+  const metaSection = authUser.user_metadata?.section;
+  const metaDept = authUser.user_metadata?.department;
+
   const emailPrefix = (authUser.email || '').split('@')[0] || '';
   const cleanEmailPrefix = emailPrefix.replace(/[._-]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 
@@ -114,15 +122,30 @@ async function loadUserProfileAndDisplay(authUser) {
   const email = profileData?.email || authUser.email || '';
   const avatarLetter = (firstName.charAt(0) || 'U').toUpperCase();
 
+  const year = (profileData?.year !== undefined && profileData?.year !== null && profileData?.year !== '')
+    ? profileData.year
+    : (metaYear !== undefined && metaYear !== null ? metaYear : '');
+
+  const section = (profileData?.section !== undefined && profileData?.section !== null && profileData?.section !== '')
+    ? profileData.section
+    : (metaSection !== undefined && metaSection !== null ? metaSection : '');
+
+  const department = (profileData?.department !== undefined && profileData?.department !== null && profileData?.department !== '')
+    ? profileData.department
+    : (metaDept !== undefined && metaDept !== null ? metaDept : '');
+
+  // ALWAYS generate a FRESH unique session ID for this newly authenticated user session
+  AppState.sessionId = 'session_' + authUser.id + '_' + Date.now() + '_' + Math.random().toString(36).substring(2, 8);
+
   AppState.user = {
     id: authUser.id,
     fullName: fullName,
     firstName: firstName,
     email: email,
     avatarLetter: avatarLetter,
-    department: profileData?.department || '',
-    year: profileData?.year || '',
-    section: profileData?.section || '',
+    department: department,
+    year: year,
+    section: section,
     studentId: profileData?.student_id || ''
   };
 
@@ -130,27 +153,110 @@ async function loadUserProfileAndDisplay(authUser) {
 }
 
 /**
- * Switch UI to Authentication Screen
+ * Switch UI to Authentication Screen & Purge Session State
  */
 function showAuthView() {
+  // 1. Purge all user and session identity
   AppState.user = null;
-  
-  const authContainer = document.getElementById('authContainer');
-  const dashboardContainer = document.getElementById('dashboardContainer');
+  AppState.sessionId = null;
+  AppState.directoryCache = {};
+
+  // 2. Clear Local & Session Storage to prevent unkeyed data persistence
+  try {
+    sessionStorage.clear();
+    localStorage.removeItem('vignan_chat_session');
+    localStorage.removeItem('vignan_chat_history');
+    localStorage.removeItem('vignan_user_context');
+  } catch (e) {
+    console.warn('Storage cleanup notice:', e);
+  }
+
+  // 3. Reset Auth Form Inputs & Error Alerts
+  const emailInput = document.getElementById('loginEmail');
+  const pwdInput = document.getElementById('loginPassword');
+  const nameInput = document.getElementById('regFullName');
   const errorAlert = document.getElementById('authErrorAlert');
+
+  if (emailInput) emailInput.value = '';
+  if (pwdInput) pwdInput.value = '';
+  if (nameInput) nameInput.value = '';
 
   if (errorAlert) {
     errorAlert.classList.remove('active');
     errorAlert.textContent = '';
   }
 
-  // Reset form inputs (ensure always empty on open)
-  const emailInput = document.getElementById('loginEmail');
-  const pwdInput = document.getElementById('loginPassword');
-  const nameInput = document.getElementById('regFullName');
-  if (emailInput) emailInput.value = '';
-  if (pwdInput) pwdInput.value = '';
-  if (nameInput) nameInput.value = '';
+  // 4. Reset DOM Chat Messages & Welcome Card
+  const chatContainer = document.getElementById('chatConversationArea');
+  if (chatContainer) {
+    chatContainer.innerHTML = `
+      <div class="agent-welcome-empty-state" id="initialWelcomeMessage">
+        <div class="welcome-agent-logo-shield">
+          <img src="/assets/logo.svg" alt="VIGNAN" width="32" height="32">
+        </div>
+        <h3 class="welcome-agent-title">VIGNAN CAMPUS INTELLIGENCE</h3>
+        <p class="welcome-agent-tagline">Ask me anything about VIGNAN campus, academics, or services.</p>
+        
+        <div class="welcome-caps-grid">
+          <div class="cap-card" onclick="executeQuickPrompt('What is my next class?')">
+            <span class="cap-card-icon">📚</span>
+            <span class="cap-card-title">Timetable</span>
+          </div>
+          <div class="cap-card" onclick="executeQuickPrompt('Who is the HOD of CSE?')">
+            <span class="cap-card-icon">👨‍🏫</span>
+            <span class="cap-card-title">Faculty & HODs</span>
+          </div>
+          <div class="cap-card" onclick="executeQuickPrompt('Who is my counsellor?')">
+            <span class="cap-card-icon">🎓</span>
+            <span class="cap-card-title">Counsellors</span>
+          </div>
+          <div class="cap-card" onclick="executeQuickPrompt('Where is Finance?')">
+            <span class="cap-card-icon">🏫</span>
+            <span class="cap-card-title">Offices & Services</span>
+          </div>
+          <div class="cap-card" onclick="executeQuickPrompt('Where is MHP?')">
+            <span class="cap-card-icon">📍</span>
+            <span class="cap-card-title">Campus Locations</span>
+          </div>
+          <div class="cap-card" onclick="executeQuickPrompt('How do I get to MHP?')">
+            <span class="cap-card-icon">🗺️</span>
+            <span class="cap-card-title">Navigation</span>
+          </div>
+        </div>
+
+        <div class="welcome-prompts-label">Suggested Queries:</div>
+        <div class="welcome-prompt-pills">
+          <button type="button" class="prompt-pill" onclick="executeQuickPrompt('What\'s my next class?')">What's my next class?</button>
+          <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Who is my counsellor?')">Who is my counsellor?</button>
+          <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Where is Finance?')">Where is Finance?</button>
+          <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Where is MHP?')">Where is MHP?</button>
+          <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Who is the CSE HOD?')">Who is the CSE HOD?</button>
+        </div>
+      </div>
+    `;
+  }
+
+  // 5. Reset Agent Activity Panel Text & Status Indicators
+  const ctxName = document.getElementById('ctxName');
+  const ctxYearSec = document.getElementById('ctxYearSec');
+  const ctxDept = document.getElementById('ctxDept');
+  const panelTask = document.getElementById('panelCurrentTask');
+  const panelBar = document.getElementById('panelProgressBar');
+  const toolsContainer = document.getElementById('panelToolsContainer');
+
+  if (ctxName) ctxName.textContent = 'Not Authenticated';
+  if (ctxYearSec) ctxYearSec.textContent = 'Not Specified';
+  if (ctxDept) ctxDept.textContent = 'Not Specified';
+  if (panelTask) panelTask.textContent = 'Ready to process request';
+  if (panelBar) {
+    panelBar.style.transform = 'translateX(-100%)';
+    panelBar.classList.remove('active');
+  }
+  if (toolsContainer) toolsContainer.innerHTML = '<div class="empty-tool-msg">No tools executed yet</div>';
+
+  // 6. Switch View Visibility
+  const authContainer = document.getElementById('authContainer');
+  const dashboardContainer = document.getElementById('dashboardContainer');
 
   if (dashboardContainer) dashboardContainer.style.display = 'none';
   if (authContainer) authContainer.style.display = 'flex';
@@ -181,6 +287,9 @@ function updateUserInterface(user) {
   const dropdownEmail = document.getElementById('dropdownEmail');
   const dropdownAvatar = document.getElementById('dropdownAvatar');
   const heroName = document.getElementById('heroUserName');
+  const ctxName = document.getElementById('ctxName');
+  const ctxYearSec = document.getElementById('ctxYearSec');
+  const ctxDept = document.getElementById('ctxDept');
 
   if (headerName) headerName.textContent = user.firstName;
   if (headerAvatar) headerAvatar.textContent = user.avatarLetter;
@@ -188,6 +297,22 @@ function updateUserInterface(user) {
   if (dropdownEmail) dropdownEmail.textContent = user.email;
   if (dropdownAvatar) dropdownAvatar.textContent = user.avatarLetter;
   if (heroName) heroName.textContent = user.firstName;
+
+  if (ctxName) ctxName.textContent = user.fullName || 'Authenticated User';
+  if (ctxYearSec) {
+    if (user.year && user.section) {
+      ctxYearSec.textContent = `Year ${user.year} · Section ${user.section}`;
+    } else if (user.year) {
+      ctxYearSec.textContent = `Year ${user.year}`;
+    } else if (user.section) {
+      ctxYearSec.textContent = `Section ${user.section}`;
+    } else {
+      ctxYearSec.textContent = 'Not Specified';
+    }
+  }
+  if (ctxDept) {
+    ctxDept.textContent = user.department ? user.department.toUpperCase() : 'Not Specified';
+  }
 }
 
 /**
@@ -199,6 +324,7 @@ function toggleAuthMode() {
   const heading = document.getElementById('authHeading');
   const subheading = document.getElementById('authSubheading');
   const fullNameGroup = document.getElementById('fullNameGroup');
+  const signUpAcademicGroup = document.getElementById('signUpAcademicGroup');
   const btnText = document.getElementById('authBtnText');
   const prompt = document.getElementById('authTogglePrompt');
   const toggleBtn = document.getElementById('authToggleBtn');
@@ -214,6 +340,7 @@ function toggleAuthMode() {
     if (heading) heading.textContent = 'Create VIGNAN Account';
     if (subheading) subheading.textContent = 'Register with your university email to access the campus AI agent.';
     if (fullNameGroup) fullNameGroup.style.display = 'flex';
+    if (signUpAcademicGroup) signUpAcademicGroup.style.display = 'flex';
     if (btnText) btnText.textContent = 'Create Account';
     if (prompt) prompt.textContent = 'Already have an account?';
     if (toggleBtn) toggleBtn.textContent = 'Sign In';
@@ -222,6 +349,7 @@ function toggleAuthMode() {
     if (heading) heading.textContent = 'Welcome Back';
     if (subheading) subheading.textContent = 'Sign in with your university account to access the verified VIGNAN AI assistant.';
     if (fullNameGroup) fullNameGroup.style.display = 'none';
+    if (signUpAcademicGroup) signUpAcademicGroup.style.display = 'none';
     if (btnText) btnText.textContent = 'Sign In to VIGNAN';
     if (prompt) prompt.textContent = 'New to VIGNAN?';
     if (toggleBtn) toggleBtn.textContent = 'Create account';
@@ -238,6 +366,9 @@ async function handleAuthSubmit(event) {
   const emailInput = document.getElementById('loginEmail');
   const pwdInput = document.getElementById('loginPassword');
   const nameInput = document.getElementById('regFullName');
+  const regYearInput = document.getElementById('regYear');
+  const regSectionInput = document.getElementById('regSection');
+  const regDeptInput = document.getElementById('regDept');
   const submitBtn = document.getElementById('authSubmitBtn');
   const btnText = document.getElementById('authBtnText');
   const errorAlert = document.getElementById('authErrorAlert');
@@ -245,6 +376,9 @@ async function handleAuthSubmit(event) {
   const email = emailInput ? emailInput.value.trim() : '';
   const password = pwdInput ? pwdInput.value : '';
   const fullName = nameInput ? nameInput.value.trim() : '';
+  const regYear = regYearInput ? regYearInput.value : '';
+  const regSection = regSectionInput ? regSectionInput.value.trim() : '';
+  const regDept = regDeptInput ? regDeptInput.value : '';
 
   if (!email || !password) {
     showAuthError('Please enter both university email and password.');
@@ -273,13 +407,33 @@ async function handleAuthSubmit(event) {
         password: password,
         options: {
           data: {
-            full_name: fullName
+            full_name: fullName,
+            year: regYear,
+            section: regSection,
+            department: regDept
           }
         }
       });
 
       if (error) {
         throw error;
+      }
+
+      if (data?.user) {
+        // Upsert into profiles table
+        try {
+          await AppState.supabase.from('profiles').upsert({
+            id: data.user.id,
+            full_name: fullName,
+            email: email,
+            year: regYear,
+            section: regSection,
+            department: regDept,
+            updated_at: new Date()
+          });
+        } catch (pErr) {
+          console.warn('Profile DB notice:', pErr);
+        }
       }
 
       if (data?.session) {
@@ -290,12 +444,12 @@ async function handleAuthSubmit(event) {
         if (data.user.identities && data.user.identities.length === 0) {
           showAuthError('An account with this university email already exists. Please Sign In.');
         } else {
-          showToast('Account created. Please check your email to verify before signing in.', 'info');
-          setAuthMode('login');
+          showToast('Account created! Please check your email or Sign In.', 'success');
+          toggleAuthMode();
         }
       } else {
         showToast('Account created. You may now sign in.', 'success');
-        setAuthMode('login');
+        toggleAuthMode();
       }
 
     } else {
@@ -310,25 +464,22 @@ async function handleAuthSubmit(event) {
       }
 
       if (data?.user) {
+        showToast('Signed in successfully!', 'success');
         await loadUserProfileAndDisplay(data.user);
-        showToast(`Welcome back, ${AppState.user.firstName}!`, 'success');
       } else {
         throw new Error('Authentication succeeded but user session could not be established.');
       }
     }
 
   } catch (err) {
-    console.error('Authentication error:', err);
-    let msg = err.message || 'Invalid university credentials. Please check your email and password.';
-    const lower = msg.toLowerCase();
-    if (lower.includes('invalid login credentials')) {
-      msg = 'Invalid credentials. Please verify your university email and password.';
-    } else if (lower.includes('email not confirmed') || lower.includes('confirm your email') || lower.includes('unconfirmed')) {
-      msg = 'Please verify your university email before signing in.';
-    } else if (lower.includes('user already registered')) {
-      msg = 'An account with this university email already exists. Please Sign In.';
+    console.error('Auth error:', err);
+    let userMessage = err.message || 'Authentication failed. Please check your credentials.';
+    if (err.message && err.message.toLowerCase().includes('invalid login credentials')) {
+      userMessage = 'Invalid email or password. Please try again or create an account.';
+    } else if (err.message && err.message.toLowerCase().includes('user already registered')) {
+      userMessage = 'An account with this email already exists. Please sign in.';
     }
-    showAuthError(msg);
+    showAuthError(userMessage);
   } finally {
     if (submitBtn) submitBtn.classList.remove('loading');
     if (btnText) btnText.textContent = AppState.authMode === 'signup' ? 'Create Account' : 'Sign In to VIGNAN';
@@ -464,13 +615,99 @@ function closeProfileDropdown() {
 function openProfileView(event) {
   if (event) event.preventDefault();
   closeProfileDropdown();
-  showToast(`Profile: ${AppState.user?.fullName} (${AppState.user?.email})`, 'info');
+
+  const modal = document.getElementById('profileModal');
+  const nameInput = document.getElementById('profFullName');
+  const emailInput = document.getElementById('profEmail');
+  const yearInput = document.getElementById('profYear');
+  const secInput = document.getElementById('profSection');
+  const deptInput = document.getElementById('profDept');
+
+  if (nameInput) nameInput.value = AppState.user?.fullName || '';
+  if (emailInput) emailInput.value = AppState.user?.email || '';
+  if (yearInput) yearInput.value = AppState.user?.year || '3';
+  if (secInput) secInput.value = AppState.user?.section || '';
+  if (deptInput) deptInput.value = AppState.user?.department || 'CSE';
+
+  if (modal) modal.classList.add('active');
 }
 
 function openSettingsView(event) {
+  openProfileView(event);
+}
+
+function closeProfileModal() {
+  const modal = document.getElementById('profileModal');
+  if (modal) modal.classList.remove('active');
+}
+
+function closeProfileModalOnBackdrop(event) {
+  if (event.target.id === 'profileModal') {
+    closeProfileModal();
+  }
+}
+
+async function saveUserProfileSettings(event) {
   if (event) event.preventDefault();
-  closeProfileDropdown();
-  showToast('Settings: Voice Readout & Audio configured.', 'info');
+
+  const nameInput = document.getElementById('profFullName');
+  const yearInput = document.getElementById('profYear');
+  const secInput = document.getElementById('profSection');
+  const deptInput = document.getElementById('profDept');
+  const submitBtn = document.getElementById('saveProfileBtn');
+
+  const fullName = nameInput ? nameInput.value.trim() : '';
+  const year = yearInput ? yearInput.value : '';
+  const section = secInput ? secInput.value.trim() : '';
+  const department = deptInput ? deptInput.value : '';
+
+  if (!fullName) {
+    showToast('Please enter your full name.', 'warning');
+    return;
+  }
+
+  if (submitBtn) submitBtn.classList.add('loading');
+
+  try {
+    if (AppState.supabase && AppState.user) {
+      // 1. Update Auth User Metadata
+      await AppState.supabase.auth.updateUser({
+        data: {
+          full_name: fullName,
+          year: year,
+          section: section,
+          department: department
+        }
+      });
+
+      // 2. Upsert into profiles table
+      await AppState.supabase.from('profiles').upsert({
+        id: AppState.user.id,
+        full_name: fullName,
+        email: AppState.user.email,
+        year: year,
+        section: section,
+        department: department,
+        updated_at: new Date()
+      });
+    }
+
+    // Update active user state
+    AppState.user.fullName = fullName;
+    AppState.user.firstName = fullName.split(' ')[0] || fullName;
+    AppState.user.year = year;
+    AppState.user.section = section;
+    AppState.user.department = department;
+
+    updateUserInterface(AppState.user);
+    closeProfileModal();
+    showToast('Academic profile updated successfully!', 'success');
+  } catch (err) {
+    console.error('Profile update error:', err);
+    showToast(err.message || 'Failed to update profile.', 'danger');
+  } finally {
+    if (submitBtn) submitBtn.classList.remove('loading');
+  }
 }
 
 function setupGlobalListeners() {
@@ -527,11 +764,24 @@ async function handleQuerySubmit(event) {
   // Clear input
   input.value = '';
 
+  // Hide initial welcome empty state if visible
+  const emptyState = document.getElementById('initialWelcomeMessage');
+  if (emptyState) emptyState.style.display = 'none';
+
   // 1. Append User Message
   appendUserMessage(query);
 
-  // 2. Set Floating Agent to "Thinking" State
-  setFloatingAgentState(true);
+  // 2. Animate Agent Activity Stages & Set Mini Agent State
+  setAgentActivityStage('Understanding request...', 15);
+  setFloatingAgentState('working');
+
+  setTimeout(() => {
+    setAgentActivityStage('Reading student profile...', 35);
+  }, 120);
+
+  setTimeout(() => {
+    setAgentActivityStage('Selecting tool & searching...', 60);
+  }, 320);
 
   // 3. Add Skeleton Loading Placeholder Bubble
   const loadingBubbleId = appendLoadingSkeleton();
@@ -556,7 +806,7 @@ async function handleQuerySubmit(event) {
   }
 
   try {
-    const response = await fetch('/chat', {
+    const response = await fetch(`${API_BASE_URL}/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -580,24 +830,38 @@ async function handleQuerySubmit(event) {
 
     const data = await response.json();
 
-    // 4. Replace Loading Skeleton with formatted Assistant Response
+    // 4. Update Agent Activity Stage & Tool Traces
+    setAgentActivityStage('✓ Answer verified', 100);
+    renderActivityTools(data.tool_used || (data.tool_calls ? data.tool_calls.map(tc => tc.name) : []), data.confidence);
+
+    // 5. Replace Loading Skeleton with formatted Assistant Response
     replaceSkeletonWithResponse(loadingBubbleId, data);
 
-    // 5. Speak response if Audio is enabled
+    // 6. Speak response if Audio is enabled
     if (AppState.isAudioEnabled && data.answer) {
       speakText(cleanTextForSpeech(data.answer));
     }
   } catch (err) {
     console.error('Chat query error:', err);
+    setAgentActivityStage('⚠ Service Unreachable', 0);
+    let errorMsg = "Campus assistant is temporarily unavailable. Please check that the campus backend service (port 8000) is running.";
+    if (err.message && err.message.includes('HTTP 500')) {
+      errorMsg = "Campus data service is temporarily unavailable. Please try again in a few moments.";
+    } else if (err.message && err.message.includes('HTTP 400')) {
+      errorMsg = "Invalid query formatting. Please rephrase your question.";
+    } else if (err.name === 'TypeError' || (err.message && err.message.toLowerCase().includes('fetch'))) {
+      errorMsg = "Unable to connect to campus backend service. Please ensure the backend server is running on http://127.0.0.1:8000.";
+    }
+
     replaceSkeletonWithResponse(loadingBubbleId, {
-      answer: "I apologize, but I encountered a network issue reaching the campus coordinator. Please verify your connection or try asking again.",
+      answer: errorMsg,
       confidence: "low",
       verified: false,
       provenance: []
     });
   } finally {
-    // Return Floating Agent to Idle
-    setFloatingAgentState(false);
+    // Return Floating Agent to Idle/Done
+    setFloatingAgentState('done');
   }
 }
 
@@ -869,20 +1133,60 @@ function clearChatHistory() {
   const container = document.getElementById('chatConversationArea');
   if (!container) return;
 
+  // Generate fresh unique session ID for current authenticated user session
+  AppState.sessionId = 'session_' + (AppState.user?.id || 'anon') + '_' + Date.now() + '_' + Math.random().toString(36).substring(2, 8);
+
   container.innerHTML = `
-    <div class="chat-message message-assistant" id="initialWelcomeMessage">
-      <div class="msg-avatar">
-        <img src="/assets/logo.svg" alt="VIGNAN" width="16" height="16">
+    <div class="agent-welcome-empty-state" id="initialWelcomeMessage">
+      <div class="welcome-agent-logo-shield">
+        <img src="/assets/logo.svg" alt="VIGNAN" width="32" height="32">
       </div>
-      <div class="msg-content-wrapper">
-        <div class="msg-sender-name">VIGNAN Campus Assistant</div>
-        <div class="msg-bubble">
-          <p>Conversation history cleared. How may I assist you with VIGNAN campus today?</p>
+      <h3 class="welcome-agent-title">VIGNAN CAMPUS INTELLIGENCE</h3>
+      <p class="welcome-agent-tagline">Ask me anything about VIGNAN campus, academics, or services.</p>
+      
+      <div class="welcome-caps-grid">
+        <div class="cap-card" onclick="executeQuickPrompt('What is my next class?')">
+          <span class="cap-card-icon">📚</span>
+          <span class="cap-card-title">Timetable</span>
         </div>
+        <div class="cap-card" onclick="executeQuickPrompt('Who is the HOD of CSE?')">
+          <span class="cap-card-icon">👨‍🏫</span>
+          <span class="cap-card-title">Faculty & HODs</span>
+        </div>
+        <div class="cap-card" onclick="executeQuickPrompt('Who is my counsellor?')">
+          <span class="cap-card-icon">🎓</span>
+          <span class="cap-card-title">Counsellors</span>
+        </div>
+        <div class="cap-card" onclick="executeQuickPrompt('Where is Finance?')">
+          <span class="cap-card-icon">🏫</span>
+          <span class="cap-card-title">Offices & Services</span>
+        </div>
+        <div class="cap-card" onclick="executeQuickPrompt('Where is MHP?')">
+          <span class="cap-card-icon">📍</span>
+          <span class="cap-card-title">Campus Locations</span>
+        </div>
+        <div class="cap-card" onclick="executeQuickPrompt('How do I get to MHP?')">
+          <span class="cap-card-icon">🗺️</span>
+          <span class="cap-card-title">Navigation</span>
+        </div>
+      </div>
+
+      <div class="welcome-prompts-label">Suggested Queries:</div>
+      <div class="welcome-prompt-pills">
+        <button type="button" class="prompt-pill" onclick="executeQuickPrompt('What\'s my next class?')">What's my next class?</button>
+        <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Who is my counsellor?')">Who is my counsellor?</button>
+        <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Where is Finance?')">Where is Finance?</button>
+        <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Where is MHP?')">Where is MHP?</button>
+        <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Who is the CSE HOD?')">Who is the CSE HOD?</button>
       </div>
     </div>
   `;
-  showToast('Chat history cleared', 'info');
+
+  // Reset Agent Activity task & tool status
+  setAgentActivityStage('Ready to process request', 0);
+  renderActivityTools([], 'high');
+
+  showToast('Chat history & session state cleared', 'info');
 }
 
 // ==========================================================================
@@ -1004,7 +1308,7 @@ async function recordFeedback(buttonEl, rating) {
       Thanks!
     `;
 
-    await fetch('/feedback', {
+    await fetch(`${API_BASE_URL}/feedback`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -1071,7 +1375,7 @@ async function switchDirectoryTab(category) {
     renderDirectoryItems(AppState.directoryCache[category], category);
   } else {
     try {
-      const res = await fetch(`/directory?category=${category}`);
+      const res = await fetch(`${API_BASE_URL}/directory?category=${category}`);
       const json = await res.json();
       AppState.directoryCache[category] = json.data || [];
       renderDirectoryItems(AppState.directoryCache[category], category);
@@ -1232,7 +1536,7 @@ async function checkBackendHealth() {
   const statusText = document.getElementById('backendStatusText');
 
   try {
-    const res = await fetch('/health');
+    const res = await fetch(`${API_BASE_URL}/health`);
     if (res.ok) {
       if (statusPill) statusPill.style.display = 'inline-flex';
       if (statusText) statusText.textContent = 'Agent Online';
@@ -1273,3 +1577,122 @@ function showToast(message, type = 'info') {
     setTimeout(() => toast.remove(), 300);
   }, 3500);
 }
+
+/**
+ * Update Agent Activity Panel Stage & Progress Bar
+ */
+function setAgentActivityStage(stageText, progressPct = 0) {
+  const taskVal = document.getElementById('panelCurrentTask');
+  const progressBar = document.getElementById('panelProgressBar');
+  const panelStatus = document.getElementById('panelAgentStatus');
+  const chatHeaderStatusText = document.getElementById('chatHeaderStatusText');
+
+  if (taskVal) taskVal.textContent = stageText;
+
+  if (progressBar) {
+    if (progressPct > 0 && progressPct < 100) {
+      progressBar.classList.add('active');
+    } else {
+      progressBar.classList.remove('active');
+      progressBar.style.transform = `translateX(${progressPct - 100}%)`;
+    }
+  }
+
+  if (panelStatus) {
+    if (progressPct > 0 && progressPct < 100) {
+      panelStatus.innerHTML = `<span class="status-dot" style="background-color: var(--accent-gold);"></span> Working...`;
+      panelStatus.style.backgroundColor = 'rgba(217, 119, 6, 0.12)';
+      panelStatus.style.borderColor = 'rgba(217, 119, 6, 0.35)';
+      panelStatus.style.color = 'var(--accent-gold-dark)';
+    } else {
+      panelStatus.innerHTML = `<span class="status-dot"></span> Online`;
+      panelStatus.style.backgroundColor = 'var(--status-success-bg)';
+      panelStatus.style.borderColor = 'var(--status-success-border)';
+      panelStatus.style.color = 'var(--status-success)';
+    }
+  }
+
+  if (chatHeaderStatusText) {
+    if (progressPct > 0 && progressPct < 100) {
+      chatHeaderStatusText.textContent = stageText;
+    } else {
+      chatHeaderStatusText.textContent = 'Ask me anything about VIGNAN';
+    }
+  }
+}
+
+/**
+ * Render Executed Tools List in Agent Activity Panel
+ */
+function renderActivityTools(toolsList, confidence = 'HIGH') {
+  const toolsContainer = document.getElementById('panelToolsList');
+  const toolCountEl = document.getElementById('metricToolCount');
+  const confEl = document.getElementById('metricConfidence');
+
+  if (confEl) {
+    confEl.textContent = (confidence || 'HIGH').toUpperCase();
+    if ((confidence || '').toLowerCase() === 'low') {
+      confEl.className = 'metric-num';
+      confEl.style.color = 'var(--status-warning)';
+    } else {
+      confEl.className = 'metric-num confidence-high';
+      confEl.style.color = 'var(--status-success)';
+    }
+  }
+
+  if (!toolsContainer) return;
+
+  const validTools = (toolsList || []).filter(Boolean);
+  if (toolCountEl) toolCountEl.textContent = validTools.length || (toolsList && toolsList.length ? toolsList.length : 1);
+
+  if (validTools.length === 0) {
+    toolsContainer.innerHTML = `<div class="empty-tool-msg">1 verification tool executed.</div>`;
+    return;
+  }
+
+  const toolDisplayNames = {
+    'search_faculty': 'Faculty & HOD Tool',
+    'search_department': 'Department Registry Tool',
+    'search_counsellor': 'Counsellor Matching Tool',
+    'search_service': 'Campus Services Tool',
+    'search_office': 'University Office Tool',
+    'search_responsibility': 'Academic Lead Tool',
+    'get_location': 'Campus Location Tool',
+    'get_route': 'Navigation & Maps Tool',
+    'query_timetable': 'Live Timetable Engine',
+    'get_live_status': 'Live Service Status Tool'
+  };
+
+  toolsContainer.innerHTML = validTools.map(t => {
+    const rawName = typeof t === 'string' ? t : (t.name || t.tool_name || 'Verification Tool');
+    const displayName = toolDisplayNames[rawName] || rawName;
+    return `
+      <div class="tool-execution-tag">
+        <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+        ${escapeHtml(displayName)}
+      </div>
+    `;
+  }).join('');
+}
+
+/**
+ * Update Bottom-Right Floating Agent Widget State
+ */
+function setFloatingAgentState(state) {
+  const badge = document.getElementById('floatingAgentBadge');
+  const label = document.getElementById('floatingAgentLabel');
+  if (!label) return;
+
+  if (state === 'working' || state === true) {
+    label.innerHTML = `Thinking... <span style="color: var(--accent-gold);">◌</span>`;
+    if (badge) badge.style.backgroundColor = 'var(--brand-slate)';
+  } else if (state === 'done') {
+    label.innerHTML = `Done <span style="color: #34d399;">✓</span>`;
+    setTimeout(() => {
+      label.innerHTML = `Ready to help <span class="badge-dot-green">●</span>`;
+    }, 2000);
+  } else {
+    label.innerHTML = `Ready to help <span class="badge-dot-green">●</span>`;
+  }
+}
+

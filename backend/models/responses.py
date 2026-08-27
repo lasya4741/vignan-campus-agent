@@ -70,6 +70,7 @@ class ChatResponse(BaseModel):
     route: Optional[RouteDetail] = Field(None, description="Deterministic navigation path if route was requested")
     live_status: Optional[LiveStatusDetail] = Field(None, description="Dynamic live queue/wait time state if queried")
     requires_clarification: bool = Field(default=False, description="Flag indicating if the agent needs more user input")
+    session_state: Optional[Dict[str, Any]] = Field(None, description="Updated session state dictionary tracking pending intents and active context")
 
 
 class FeedbackResponse(BaseModel):

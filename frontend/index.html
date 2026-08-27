@@ -51,6 +51,33 @@
           </div>
         </div>
 
+        <!-- Academic Year, Section, and Department Fields (Sign Up Mode) -->
+        <div class="form-group-row" id="signUpAcademicGroup" style="display: none; gap: 0.5rem; margin-top: 0.75rem;">
+          <div class="form-group" style="flex: 1;">
+            <label for="regYear" class="form-label">Year</label>
+            <select id="regYear" class="form-input">
+              <option value="2">Year 2</option>
+              <option value="3" selected>Year 3</option>
+              <option value="1">Year 1</option>
+              <option value="4">Year 4</option>
+            </select>
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label for="regSection" class="form-label">Section</label>
+            <input type="text" id="regSection" class="form-input" placeholder="e.g. 8 or 1" value="1">
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label for="regDept" class="form-label">Dept</label>
+            <select id="regDept" class="form-input">
+              <option value="CSE" selected>CSE</option>
+              <option value="IT">IT</option>
+              <option value="ECE">ECE</option>
+              <option value="EEE">EEE</option>
+              <option value="MECH">MECH</option>
+            </select>
+          </div>
+        </div>
+
         <!-- University Email Field -->
         <div class="form-group">
           <label for="loginEmail" class="form-label">University Email</label>
@@ -209,24 +236,32 @@
       </div>
     </header>
 
-    <!-- ================= MAIN WORKSPACE AREA (FIT VIEWPORT) ================= -->
+    <!-- ================= MAIN WORKSPACE AREA ================= -->
     <main class="workspace-main">
 
-      <!-- ================= COMPACT HERO (~110-125px) ================= -->
+      <!-- ================= COMPACT HERO CARD ================= -->
       <section class="hero-compact-section">
         <div class="hero-compact-card">
-          
-          <!-- Left Text Greeting (Driven dynamically by profile) -->
+          <!-- Left Text Greeting & Verification Badges -->
           <div class="hero-text-content">
             <h2 class="hero-compact-title">
               <span id="greetingPrefix">Good evening,</span> <span class="user-first-name" id="heroUserName">Student</span> <span class="wave-icon">👋</span>
             </h2>
             <p class="hero-compact-subtitle">
-              Your intelligent guide to VIGNAN campus.
+              Your intelligent VIGNAN campus companion
             </p>
+            <div class="hero-badges-row">
+              <span class="hero-badge status-online">
+                <span class="status-dot"></span> Agent Online
+              </span>
+              <span class="hero-badge knowledge-verified">
+                <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Knowledge Verified
+              </span>
+            </div>
           </div>
 
-          <!-- Right Subtle Real Building Visual -->
+          <!-- Right Campus Building Visual -->
           <div class="hero-building-container">
             <img 
               src="/assets/vignan-campus-view.png" 
@@ -236,116 +271,232 @@
             >
             <div class="hero-building-mask-overlay"></div>
           </div>
-
         </div>
       </section>
 
-      <!-- ================= LARGE AI CHAT WORKSPACE (PRIMARY COMPONENT) ================= -->
-      <section class="chat-workspace-section">
-        <div class="chat-workspace-box">
+      <!-- ================= CAPABILITY STRIP ================= -->
+      <section class="capability-strip-section">
+        <div class="capability-strip">
+          <button type="button" class="cap-strip-item" onclick="executeQuickPrompt('What is my next class?')">
+            <span class="cap-icon">📚</span>
+            <span class="cap-label">Timetable</span>
+          </button>
+          <button type="button" class="cap-strip-item" onclick="executeQuickPrompt('Who is the CSE HOD?')">
+            <span class="cap-icon">👨‍🏫</span>
+            <span class="cap-label">Faculty & HODs</span>
+          </button>
+          <button type="button" class="cap-strip-item" onclick="executeQuickPrompt('Who is my counsellor?')">
+            <span class="cap-icon">🎓</span>
+            <span class="cap-label">Student Support</span>
+          </button>
+          <button type="button" class="cap-strip-item" onclick="executeQuickPrompt('Where is Finance?')">
+            <span class="cap-icon">🏫</span>
+            <span class="cap-label">Offices & Services</span>
+          </button>
+          <button type="button" class="cap-strip-item" onclick="executeQuickPrompt('Where is MHP?')">
+            <span class="cap-icon">📍</span>
+            <span class="cap-label">Campus Locations</span>
+          </button>
+          <button type="button" class="cap-strip-item" onclick="executeQuickPrompt('How do I get to MHP?')">
+            <span class="cap-icon">🗺️</span>
+            <span class="cap-label">Navigation</span>
+          </button>
+        </div>
+      </section>
 
-          <!-- Chat Header Bar -->
-          <div class="chat-header-bar">
-            <div class="assistant-branding">
-              <div class="assistant-badge-avatar">
-                <img src="/assets/logo.svg" alt="VIGNAN" width="18" height="18">
-                <span class="live-dot-pulse"></span>
+      <!-- ================= AGENT WORKSPACE (2-COLUMN LAYOUT) ================= -->
+      <section class="agent-workspace-section">
+        <div class="agent-workspace-grid">
+
+          <!-- LEFT COLUMN: CONVERSATION WORKSPACE -->
+          <div class="conversation-workspace-card">
+
+            <!-- Chat Header Bar -->
+            <div class="chat-header-bar">
+              <div class="assistant-branding">
+                <div class="assistant-badge-avatar">
+                  <img src="/assets/logo.svg" alt="VIGNAN" width="18" height="18">
+                  <span class="live-dot-pulse" id="chatLiveDot"></span>
+                </div>
+                <div class="assistant-title-block">
+                  <span class="assistant-main-name">VIGNAN Assistant</span>
+                  <span class="assistant-status-text" id="chatHeaderStatusText">Ask me anything about VIGNAN</span>
+                </div>
               </div>
-              <div class="assistant-title-block">
-                <span class="assistant-main-name">VIGNAN Assistant</span>
-                <span class="assistant-status-text">Ask me anything about your campus</span>
-              </div>
+
+              <button class="chat-clear-btn" onclick="clearChatHistory()" title="Clear conversation history">
+                <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                Clear Chat
+              </button>
             </div>
 
-            <button class="chat-clear-btn" onclick="clearChatHistory()" title="Clear conversation history">
-              <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
-              Clear Chat
-            </button>
-          </div>
+            <!-- Internal Scrollable Conversation Stream -->
+            <div class="chat-conversation-area" id="chatConversationArea">
+              <!-- INTENTIONAL INITIAL EMPTY STATE -->
+              <div class="agent-welcome-empty-state" id="initialWelcomeMessage">
+                <div class="welcome-agent-logo-shield">
+                  <img src="/assets/logo.svg" alt="VIGNAN" width="32" height="32">
+                </div>
+                <h3 class="welcome-agent-title">VIGNAN CAMPUS INTELLIGENCE</h3>
+                <p class="welcome-agent-tagline">Ask me anything about VIGNAN campus, academics, or services.</p>
+                
+                <!-- Capabilities Matrix Grid -->
+                <div class="welcome-caps-grid">
+                  <div class="cap-card" onclick="executeQuickPrompt('What is my next class?')">
+                    <span class="cap-card-icon">📚</span>
+                    <span class="cap-card-title">Timetable</span>
+                  </div>
+                  <div class="cap-card" onclick="executeQuickPrompt('Who is the HOD of CSE?')">
+                    <span class="cap-card-icon">👨‍🏫</span>
+                    <span class="cap-card-title">Faculty & HODs</span>
+                  </div>
+                  <div class="cap-card" onclick="executeQuickPrompt('Who is my counsellor?')">
+                    <span class="cap-card-icon">🎓</span>
+                    <span class="cap-card-title">Counsellors</span>
+                  </div>
+                  <div class="cap-card" onclick="executeQuickPrompt('Where is Finance?')">
+                    <span class="cap-card-icon">🏫</span>
+                    <span class="cap-card-title">Offices & Services</span>
+                  </div>
+                  <div class="cap-card" onclick="executeQuickPrompt('Where is MHP?')">
+                    <span class="cap-card-icon">📍</span>
+                    <span class="cap-card-title">Campus Locations</span>
+                  </div>
+                  <div class="cap-card" onclick="executeQuickPrompt('How do I get to MHP?')">
+                    <span class="cap-card-icon">🗺️</span>
+                    <span class="cap-card-title">Navigation</span>
+                  </div>
+                </div>
 
-          <!-- Internal Scrollable Conversation Stream -->
-          <div class="chat-conversation-area" id="chatConversationArea">
-            <div class="chat-message message-assistant" id="initialWelcomeMessage">
-              <div class="msg-avatar">
-                <img src="/assets/logo.svg" alt="VIGNAN" width="16" height="16">
-              </div>
-              <div class="msg-content-wrapper">
-                <div class="msg-sender-name">VIGNAN Campus Assistant</div>
-                <div class="msg-bubble">
-                  <p>Hello! I am your <strong>VIGNAN Campus Intelligence Agent</strong>. How can I assist you today?</p>
-                  <p style="margin-top: 0.35rem; color: var(--text-secondary); font-size: 0.8125rem;">
-                    Ask me about faculty cabins, department venues, counsellors, services, Xerox facilities, placements, or university offices.
-                  </p>
+                <!-- Suggested Quick Prompts Row -->
+                <div class="welcome-prompts-label">Suggested Queries:</div>
+                <div class="welcome-prompt-pills">
+                  <button type="button" class="prompt-pill" onclick="executeQuickPrompt('What is my next class?')">What's my next class?</button>
+                  <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Who is my counsellor?')">Who is my counsellor?</button>
+                  <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Where is Finance?')">Where is Finance?</button>
+                  <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Where is MHP?')">Where is MHP?</button>
+                  <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Who is the CSE HOD?')">Who is the CSE HOD?</button>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- Chat Controls Dock (Always Visible at Bottom) -->
-          <div class="chat-controls-dock">
-
-            <!-- Suggested Quick Question Chips -->
-            <div class="suggested-chips-bar">
-              <span class="chips-label">Suggested:</span>
-              <div class="chips-scroll-row">
-                <button type="button" class="question-chip" onclick="executeQuickPrompt('Where is IT?')">
-                  Where is IT?
-                </button>
-                <button type="button" class="question-chip" onclick="executeQuickPrompt('Who is my counsellor?')">
-                  Who is my counsellor?
-                </button>
-                <button type="button" class="question-chip" onclick="executeQuickPrompt('Where is Finance?')">
-                  Where is Finance?
-                </button>
-                <button type="button" class="question-chip" onclick="executeQuickPrompt('Who handles placements?')">
-                  Who handles placements?
-                </button>
-                <button type="button" class="question-chip" onclick="executeQuickPrompt('Where can I Xerox?')">
-                  Where can I Xerox?
-                </button>
-              </div>
-            </div>
-
-            <!-- Voice Recording Wave Indicator (When active) -->
-            <div class="voice-wave-container" id="voiceWaveIndicator">
-              <div class="voice-wave-text">
-                <span class="recording-red-dot"></span>
-                Listening... Speak your campus question clearly
-              </div>
-              <div class="voice-bars">
-                <div class="voice-bar"></div>
-                <div class="voice-bar"></div>
-                <div class="voice-bar"></div>
-                <div class="voice-bar"></div>
-                <div class="voice-bar"></div>
-              </div>
-            </div>
-
-            <!-- Main Chat Input Form -->
-            <form class="chat-input-form" id="agentQueryForm" onsubmit="handleQuerySubmit(event)">
-              <div class="chat-input-container">
-                <input 
-                  type="text" 
-                  id="agentInput" 
-                  class="chat-input-field" 
-                  placeholder="Ask anything about VIGNAN..." 
-                  autocomplete="off"
-                  required
-                >
-
-                <div class="chat-input-actions">
-                  <!-- Microphone Voice Button -->
-                  <button type="button" class="chat-mic-btn" id="voiceBtn" title="Speak to VIGNAN Agent" onclick="toggleVoiceRecording()">
-                    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
-                  </button>
-
-                  <!-- Send Button -->
-                  <button type="submit" class="chat-send-btn" id="sendBtn" title="Send (Enter)">
-                    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                  </button>
+            <!-- Chat Controls Dock -->
+            <div class="chat-controls-dock">
+              <!-- Suggested Quick Question Chips -->
+              <div class="suggested-chips-bar">
+                <span class="chips-label">Suggested:</span>
+                <div class="chips-scroll-row">
+                  <button type="button" class="question-chip" onclick="executeQuickPrompt('Where is IT?')">Where is IT?</button>
+                  <button type="button" class="question-chip" onclick="executeQuickPrompt('Who is my counsellor?')">Who is my counsellor?</button>
+                  <button type="button" class="question-chip" onclick="executeQuickPrompt('Where is Finance?')">Where is Finance?</button>
+                  <button type="button" class="question-chip" onclick="executeQuickPrompt('Who handles placements?')">Who handles placements?</button>
+                  <button type="button" class="question-chip" onclick="executeQuickPrompt('Where can I Xerox?')">Where can I Xerox?</button>
                 </div>
               </div>
-            </form>
+
+              <!-- Voice Recording Wave Indicator -->
+              <div class="voice-wave-container" id="voiceWaveIndicator">
+                <div class="voice-wave-text">
+                  <span class="recording-red-dot"></span>
+                  Listening... Speak your campus question clearly
+                </div>
+                <div class="voice-bars">
+                  <div class="voice-bar"></div>
+                  <div class="voice-bar"></div>
+                  <div class="voice-bar"></div>
+                  <div class="voice-bar"></div>
+                  <div class="voice-bar"></div>
+                </div>
+              </div>
+
+              <!-- Main Chat Input Form -->
+              <form class="chat-input-form" id="agentQueryForm" onsubmit="handleQuerySubmit(event)">
+                <div class="chat-input-container">
+                  <input 
+                    type="text" 
+                    id="agentInput" 
+                    class="chat-input-field" 
+                    placeholder="Ask anything about VIGNAN..." 
+                    autocomplete="off"
+                    required
+                  >
+
+                  <div class="chat-input-actions">
+                    <button type="button" class="chat-mic-btn" id="voiceBtn" title="Speak to VIGNAN Agent" onclick="toggleVoiceRecording()">
+                      <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+                    </button>
+                    <button type="submit" class="chat-send-btn" id="sendBtn" title="Send (Enter)">
+                      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN: AGENT ACTIVITY / INTELLIGENCE PANEL -->
+          <div class="agent-activity-panel-card">
+            <div class="panel-header">
+              <div class="panel-title-block">
+                <span class="panel-icon">⚡</span>
+                <span class="panel-heading">AGENT ACTIVITY</span>
+              </div>
+              <div class="panel-status-pill" id="panelAgentStatus">
+                <span class="status-dot"></span> Online
+              </div>
+            </div>
+
+            <!-- Current Stage Indicator -->
+            <div class="panel-current-task-block">
+              <span class="task-label">CURRENT STAGE</span>
+              <div class="task-value" id="panelCurrentTask">Ready to process request</div>
+              <div class="task-progress-bar-wrap">
+                <div class="task-progress-bar" id="panelProgressBar"></div>
+              </div>
+            </div>
+
+            <!-- Profile Context -->
+            <div class="panel-context-block">
+              <span class="context-label">STUDENT CONTEXT</span>
+              <div class="context-card" id="panelStudentContext">
+                <div class="context-row">
+                  <span class="ctx-key">Name:</span> <span class="ctx-val" id="ctxName">Authenticated User</span>
+                </div>
+                <div class="context-row">
+                  <span class="ctx-key">Year/Sec:</span> <span class="ctx-val" id="ctxYearSec">Year 3 · Section 1</span>
+                </div>
+                <div class="context-row">
+                  <span class="ctx-key">Dept:</span> <span class="ctx-val" id="ctxDept">CSE</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Executed Tools List -->
+            <div class="panel-tools-block">
+              <span class="tools-label">EXECUTED TOOLS</span>
+              <div class="tools-list" id="panelToolsList">
+                <div class="empty-tool-msg">No tools executed yet.</div>
+              </div>
+            </div>
+
+            <!-- Summary & Confidence Metric -->
+            <div class="panel-footer-metrics">
+              <div class="metric-item">
+                <span class="metric-num" id="metricToolCount">0</span>
+                <span class="metric-txt">Tools Used</span>
+              </div>
+              <div class="metric-divider"></div>
+              <div class="metric-item">
+                <span class="metric-num confidence-high" id="metricConfidence">HIGH</span>
+                <span class="metric-txt">Confidence</span>
+              </div>
+            </div>
+
+            <div class="panel-provenance-tag">
+              <svg width="11" height="11" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+              <span>Grounding: Live Supabase DB</span>
+            </div>
 
           </div>
 
@@ -380,10 +531,10 @@
   <!-- ================= 3. FLOATING AGENT STATUS BADGE ================= -->
   <div class="floating-agent-badge" id="floatingAgentBadge" title="VIGNAN Intelligence Coordinator">
     <div class="floating-agent-icon" id="floatingAgentIcon">
-      <img src="/assets/logo.svg" alt="VIGNAN" width="16" height="16">
+      <span class="agent-emoji">🤖</span>
       <div class="floating-ring"></div>
     </div>
-    <span class="floating-agent-label" id="floatingAgentLabel">VIGNAN Online</span>
+    <span class="floating-agent-label" id="floatingAgentLabel">Ready to help <span class="badge-dot-green">●</span></span>
   </div>
 
   <!-- ================= 4. FORGOT PASSWORD MODAL ================= -->
@@ -457,6 +608,62 @@
             <div class="skeleton-line" style="width: 75%;"></div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 6. USER PROFILE & ACADEMIC SETTINGS MODAL ================= -->
+  <div class="modal-backdrop" id="profileModal" onclick="closeProfileModalOnBackdrop(event)">
+    <div class="modal-window" style="max-width: 480px;">
+      <div class="modal-header">
+        <div class="modal-header-title-group">
+          <img src="/assets/logo.svg" alt="VIGNAN" width="22" height="22">
+          <h3 class="modal-title">Student Profile Settings</h3>
+        </div>
+        <button class="modal-close-btn" onclick="closeProfileModal()" title="Close (Esc)">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="modal-body" style="padding: 1.25rem;">
+        <form id="profileSettingsForm" onsubmit="saveUserProfileSettings(event)">
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="profFullName" class="form-label">Full Name</label>
+            <input type="text" id="profFullName" class="form-input" required>
+          </div>
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label for="profEmail" class="form-label">University Email</label>
+            <input type="email" id="profEmail" class="form-input" disabled style="background-color: var(--bg-subtle);">
+          </div>
+          <div class="form-group-row" style="display: flex; gap: 0.75rem; margin-bottom: 1.25rem;">
+            <div class="form-group" style="flex: 1;">
+              <label for="profYear" class="form-label">Year</label>
+              <select id="profYear" class="form-input" required>
+                <option value="1">Year 1</option>
+                <option value="2">Year 2</option>
+                <option value="3">Year 3</option>
+                <option value="4">Year 4</option>
+              </select>
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label for="profSection" class="form-label">Section</label>
+              <input type="text" id="profSection" class="form-input" placeholder="e.g. 8 or 1" required>
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label for="profDept" class="form-label">Dept</label>
+              <select id="profDept" class="form-input" required>
+                <option value="CSE">CSE</option>
+                <option value="IT">IT</option>
+                <option value="ECE">ECE</option>
+                <option value="EEE">EEE</option>
+                <option value="MECH">MECH</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="auth-submit-btn" id="saveProfileBtn">
+            <span>Save Profile & Update Context</span>
+          </button>
+        </form>
       </div>
     </div>
   </div>

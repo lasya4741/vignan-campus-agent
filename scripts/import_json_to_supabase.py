@@ -145,6 +145,25 @@ def run_import(base_dir: str = "database/extracted", dry_run: bool = False):
     ins, skip, fail = import_table_records("routes", routes, dry_run=dry_run)
     summary["routes"] = {"inserted": ins, "skipped": skip, "failed": fail}
 
+    # 13. Timetables (Year 2 & Year 3)
+    y2_tt = load_json_file(os.path.join(base_dir, "timetables", "year2_timetable.json"))
+    y3_tt = load_json_file(os.path.join(base_dir, "timetables", "year3_timetable.json"))
+    tt_records = []
+    for r in (y2_tt + y3_tt):
+        rec = dict(r)
+        if "day" in rec and "day_of_week" not in rec:
+            rec["day_of_week"] = rec.pop("day")
+        if "academic_year" in rec:
+            rec["source_academic_year"] = rec.pop("academic_year")
+        if "project_target_year" in rec:
+            rec["project_target_academic_year"] = rec.pop("project_target_year")
+        rec.pop("project_usage", None)
+        tt_records.append(rec)
+
+    ins, skip, fail = import_table_records("timetables", tt_records, dry_run=dry_run)
+    summary["timetables"] = {"inserted": ins, "skipped": skip, "failed": fail}
+
+
     print("\n" + "=" * 60)
     print("Import Summary Report:")
     print("=" * 60)

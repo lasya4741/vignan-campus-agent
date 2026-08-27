@@ -68,3 +68,13 @@ CREATE INDEX IF NOT EXISTS idx_feedback_created_at ON feedback(created_at);
 
 -- Sources Indexes
 CREATE INDEX IF NOT EXISTS idx_sources_source_type ON sources(source_type);
+
+-- Timetables Indexes
+CREATE INDEX IF NOT EXISTS idx_timetables_year ON timetables(year);
+CREATE INDEX IF NOT EXISTS idx_timetables_section ON timetables(section);
+CREATE INDEX IF NOT EXISTS idx_timetables_year_section ON timetables(year, section);
+CREATE INDEX IF NOT EXISTS idx_timetables_day ON timetables(day_of_week);
+CREATE INDEX IF NOT EXISTS idx_timetables_year_section_day ON timetables(year, section, day_of_week);
+CREATE INDEX IF NOT EXISTS idx_timetables_time ON timetables(start_time, end_time);
+CREATE INDEX IF NOT EXISTS idx_timetables_subject_code ON timetables(subject_code);
+

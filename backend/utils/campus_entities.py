@@ -22,9 +22,17 @@ class CampusIntent(str, Enum):
     NAVIGATION_REQUEST = "navigation_request"
     LIVE_STATUS_REQUEST = "live_status_request"
     BEST_SERVICE_REQUEST = "best_service_request"
+    CURRENT_CLASS_LOOKUP = "current_class_lookup"
+    NEXT_CLASS_LOOKUP = "next_class_lookup"
+    NEXT_TIMETABLE_EVENT_LOOKUP = "next_timetable_event_lookup"
+    DAILY_TIMETABLE_LOOKUP = "daily_timetable_lookup"
+    CLASS_AT_TIME_LOOKUP = "class_at_time_lookup"
+    CLASS_LOCATION_LOOKUP = "class_location_lookup"
+    FIRST_CLASS_ON_DAY = "first_class_on_day"
     CAMPUS_INFORMATION_REQUEST = "campus_information_request"
     OUT_OF_SCOPE_REQUEST = "out_of_scope_request"
     CLARIFICATION_REQUIRED = "clarification_required"
+
 
 
 # Canonical campus entities with verified aliases and category mappings
@@ -345,7 +353,62 @@ def classify_campus_intent(message: str, user_context: Optional[Dict[str, Any]] 
     if is_out_of_scope(message):
         return CampusIntent.OUT_OF_SCOPE_REQUEST, {"refusal": OUT_OF_SCOPE_REFUSAL}
 
+    # Timetable Context Extraction
+    year_m = re.search(r"\b([23])(?:nd|rd)?\s*year\b", norm) or re.search(r"\byear\s*([23])\b", norm)
+    sec_m = re.search(r"\bsection\s*([0-9]{1,2})\b", norm) or re.search(r"\bsec\s*([0-9]{1,2})\b", norm)
+
+    if year_m:
+        details["year"] = int(year_m.group(1))
+    elif user_context and user_context.get("year"):
+        try:
+            details["year"] = int(user_context["year"])
+        except (ValueError, TypeError):
+            pass
+
+    if sec_m:
+        details["section"] = str(sec_m.group(1))
+    elif user_context and user_context.get("section"):
+        details["section"] = str(user_context["section"])
+
+    # Extract day of week / date if mentioned
+    for d_name in ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "tomorrow", "today"]:
+        if d_name in norm:
+            details["day_name"] = d_name.capitalize()
+            break
+
+    # 1b. Timetable Intent Classification
+    if any(w in norm for w in ["first class", "first period", "first lecture", "first do i have", "first tomorrow", "first on monday", "first on tuesday", "first on wednesday", "first on thursday", "first on friday", "first on saturday", "what do i have first", "what is my first"]):
+        return CampusIntent.FIRST_CLASS_ON_DAY, details
+
+    if any(w in norm for w in ["what class do i have now", "what class am i having", "which period is going on", "do i have a class right now", "what am i studying now", "having right now", "current class"]):
+        return CampusIntent.CURRENT_CLASS_LOOKUP, details
+
+    if any(w in norm for w in ["where is my current class", "what room is my current class", "where should i go now"]):
+        details["location_target"] = "current"
+        return CampusIntent.CLASS_LOCATION_LOOKUP, details
+
+    if any(w in norm for w in ["where is my next class", "how do i get to my next class"]):
+        details["location_target"] = "next"
+        return CampusIntent.CLASS_LOCATION_LOOKUP, details
+
+    if any(w in norm for w in ["what is my next class", "what's my next class", "what's my next period", "what do i have after this", "when is my next class", "what class comes next", "next class", "next period", "comes after this", "who teaches my next class"]):
+        return CampusIntent.NEXT_CLASS_LOOKUP, details
+
+    if any(w in norm for w in ["next timetable event", "next event", "what is the next timetable event"]):
+        return CampusIntent.NEXT_TIMETABLE_EVENT_LOOKUP, details
+
+    if any(w in norm for w in ["timetable today", "what do i have today", "show my monday timetable", "timetable for monday", "what do i have tomorrow", "show my timetable", "timetable"]):
+        return CampusIntent.DAILY_TIMETABLE_LOOKUP, details
+
+    if any(w in norm for w in ["what do i have at", "class is at", "what class is at", "at 2:30", "at 11"]):
+        m_t = re.search(r"\b(\d{1,2}(?::\d{2})?)\b", norm)
+        if m_t:
+            details["requested_time"] = m_t.group(1)
+            return CampusIntent.CLASS_AT_TIME_LOOKUP, details
+
+
     # 2. Navigation / Routes (check before location/department)
+
     is_nav = any(w in norm for w in [
         "how do i get to", "how to reach", "take me to", "directions to", "route to",
         "way to", "navigate to", "path to", "route from", "directions from", "how can i reach",
@@ -360,7 +423,7 @@ def classify_campus_intent(message: str, user_context: Optional[Dict[str, Any]] 
     year_match = re.search(r"\b([1-4])(?:st|nd|rd|th)?\s*year\b", norm) or re.search(r"\byear\s*([1-4])\b", norm)
     sec_match = re.search(r"\bsection\s*([a-zA-Z0-9]+)\b", norm) or re.search(r"\bsec\s*([a-zA-Z0-9]+)\b", norm)
 
-    if is_counsellor or (reg_match and not any(w in norm for w in ["faculty", "cabin", "hod", "dean"])) or (year_match and sec_match and not any(w in norm for w in ["faculty", "subject", "course"])):
+    if is_counsellor or (reg_match and not any(w in norm for w in ["faculty", "cabin", "hod", "dean"])) or (year_match and sec_match and not any(w in norm for w in ["faculty", "subject", "course", "first", "next", "class", "timetable", "period", "today", "tomorrow"])):
         details["year"] = int(year_match.group(1)) if year_match else (user_context.get("year") if user_context else None)
         details["section"] = sec_match.group(1).upper() if sec_match else (user_context.get("section") if user_context else None)
         details["registration_number"] = reg_match.group(0) if reg_match else None

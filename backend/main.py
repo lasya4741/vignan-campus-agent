@@ -40,7 +40,15 @@ app = FastAPI(
 # Configure CORS for frontend access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "http://localhost:8000",
+        "http://127.0.0.1:8000",
+        "http://localhost:5500",
+        "http://127.0.0.1:5500",
+        "*"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -69,7 +77,14 @@ async def chat_endpoint(request: ChatRequest) -> ChatResponse:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Message cannot be empty.")
 
     try:
-        response = coordinator.run(request.message, request.history, request.user)
+        conv_id = request.conversation_id or request.session_id
+        response = coordinator.run(
+            message=request.message,
+            history=request.history,
+            user=request.user,
+            conversation_id=conv_id,
+            session_state=request.session_state,
+        )
         return response
     except Exception as e:
         logger.error(f"Error processing query in /chat endpoint: {e}", exc_info=True)

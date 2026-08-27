@@ -7,8 +7,10 @@ from pydantic import BaseModel, Field
 class ChatRequest(BaseModel):
     message: str = Field(..., description="Student or user natural language query", min_length=1)
     conversation_id: Optional[str] = Field(None, description="Optional conversation session ID")
+    session_id: Optional[str] = Field(None, description="Optional conversation session ID alias")
     history: Optional[List[Dict[str, Any]]] = Field(default_factory=list, description="Optional previous conversation context")
     user: Optional[Dict[str, Any]] = Field(default_factory=dict, description="Optional authenticated user profile context (year, section, name, email)")
+    session_state: Optional[Dict[str, Any]] = Field(default_factory=dict, description="Optional conversational session state dictionary")
 
 
 class FeedbackRequest(BaseModel):
