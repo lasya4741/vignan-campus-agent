@@ -223,15 +223,6 @@ function showAuthView() {
             <span class="cap-card-title">Navigation</span>
           </div>
         </div>
-
-        <div class="welcome-prompts-label">Suggested Queries:</div>
-        <div class="welcome-prompt-pills">
-          <button type="button" class="prompt-pill" onclick="executeQuickPrompt('What\'s my next class?')">What's my next class?</button>
-          <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Who is my counsellor?')">Who is my counsellor?</button>
-          <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Where is Finance?')">Where is Finance?</button>
-          <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Where is MHP?')">Where is MHP?</button>
-          <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Who is the CSE HOD?')">Who is the CSE HOD?</button>
-        </div>
       </div>
     `;
   }
@@ -1169,15 +1160,6 @@ function clearChatHistory() {
           <span class="cap-card-icon">🗺️</span>
           <span class="cap-card-title">Navigation</span>
         </div>
-      </div>
-
-      <div class="welcome-prompts-label">Suggested Queries:</div>
-      <div class="welcome-prompt-pills">
-        <button type="button" class="prompt-pill" onclick="executeQuickPrompt('What\'s my next class?')">What's my next class?</button>
-        <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Who is my counsellor?')">Who is my counsellor?</button>
-        <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Where is Finance?')">Where is Finance?</button>
-        <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Where is MHP?')">Where is MHP?</button>
-        <button type="button" class="prompt-pill" onclick="executeQuickPrompt('Who is the CSE HOD?')">Who is the CSE HOD?</button>
       </div>
     </div>
   `;

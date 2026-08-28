@@ -70,6 +70,19 @@
     "last_verified": "2026-08-26T00:00:00Z"
   },
   {
+    "id": "fa8d9e46-c5db-53e7-98c5-28f0bee403f3",
+    "name": "MHP / Main Canteen",
+    "location_type": "canteen",
+    "block": "near N Block",
+    "floor": null,
+    "room": null,
+    "description": "Main campus dining hall and canteen at MHP, located near N Block.",
+    "parent_location_id": "23942acf-bde6-5239-a722-5860d1c098e3",
+    "source_id": "c2a39e81-1ccd-540b-a677-7ab7781dae3b",
+    "confidence": "high",
+    "last_verified": "2026-08-26T00:00:00Z"
+  },
+  {
     "id": "a2b1cd45-6a21-5ae5-adb6-941b51f1ef0f",
     "name": "Room No. 301",
     "location_type": "room",

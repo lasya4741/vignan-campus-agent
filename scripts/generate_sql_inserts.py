@@ -111,6 +111,33 @@ def generate():
         vals = [sql_escape(s.get(col)) for col in cols]
         sql_statements.append(f"INSERT INTO services ({', '.join(cols)}) VALUES ({', '.join(vals)}) ON CONFLICT (id) DO UPDATE SET {', '.join([f'{col} = EXCLUDED.{col}' for col in cols if col != 'id'])};")
 
+    # 11. Timetables (Year 2 & Year 3)
+    for tt_file in ["timetables/year2_timetable.json", "timetables/year3_timetable.json"]:
+        tt_path = os.path.join(EXTRACTED_DIR, tt_file)
+        if os.path.exists(tt_path):
+            with open(tt_path, "r", encoding="utf-8") as f:
+                records = json.load(f)
+            for r in records:
+                cols = ["year", "section", "day_of_week", "start_time", "end_time", "subject_code", "subject_name", "class_type", "room", "section_default_room", "faculty", "source_id", "confidence", "last_verified"]
+                rec_map = {
+                    "year": r.get("year"),
+                    "section": str(r.get("section")),
+                    "day_of_week": r.get("day"),
+                    "start_time": r.get("start_time"),
+                    "end_time": r.get("end_time"),
+                    "subject_code": r.get("subject_code"),
+                    "subject_name": r.get("subject_name"),
+                    "class_type": r.get("class_type"),
+                    "room": r.get("room"),
+                    "section_default_room": r.get("section_default_room"),
+                    "faculty": r.get("faculty"),
+                    "source_id": r.get("source_id"),
+                    "confidence": r.get("confidence"),
+                    "last_verified": r.get("last_verified")
+                }
+                vals = [sql_escape(rec_map.get(col)) for col in cols]
+                sql_statements.append(f"INSERT INTO timetables ({', '.join(cols)}) VALUES ({', '.join(vals)});")
+
     sql_statements.append("COMMIT;")
 
     os.makedirs(os.path.dirname(OUTPUT_SQL), exist_ok=True)

@@ -51,7 +51,7 @@ CRITICAL GROUNDING & VERIFICATION RULES:
 - For "Where is [Person]": return verified room and block location.
 - For "What does [Person] teach": return only verified teaching engagements.
 - For "What does [Person] research": return only verified research interests.
-- For MHP / Main Canteen questions ("Where is MHP?", "Where can I get lunch?", "Where do students eat?"): resolve to MHP / Main Canteen at Central Campus.
+- For MHP / Main Canteen questions ("Where is MHP?", "Where can I get lunch?", "Where do students eat?"): resolve to MHP / Main Canteen near N Block.
 - For Navigation queries ("How do I get from A to B?", "Take me to Finance", "Show me the route to Xerox"): invoke get_route and provide step-by-step guidance and Google Maps link.
 """
 
@@ -155,6 +155,24 @@ class CoordinatorAgent:
             )
 
         state = self._get_session_state(conversation_id, user, session_state)
+
+        # Classify intent for deterministic timetable routing and verification
+        intent, _ = classify_campus_intent(message, user_context=user)
+        pending_intent = state.get("pending_intent")
+
+        is_timetable_intent = intent in [
+            CampusIntent.CURRENT_CLASS_LOOKUP,
+            CampusIntent.NEXT_CLASS_LOOKUP,
+            CampusIntent.NEXT_TIMETABLE_EVENT_LOOKUP,
+            CampusIntent.DAILY_TIMETABLE_LOOKUP,
+            CampusIntent.CLASS_AT_TIME_LOOKUP,
+            CampusIntent.CLASS_LOCATION_LOOKUP,
+            CampusIntent.FIRST_CLASS_ON_DAY,
+        ] or (pending_intent is not None)
+
+        if is_timetable_intent:
+            logger.info("Executing timetable query via deterministic engine for verified grounding and tool exclusivity.")
+            return self._run_fallback(message, user, state)
 
         if gemini_service.is_configured() and types:
             try:
@@ -440,8 +458,8 @@ class CoordinatorAgent:
 
         # 3b. Timetable Flow
         def get_tt_params():
-            yr = state.get("year") or details.get("year") or (user.get("year") if user else None)
-            sec = state.get("section") or details.get("section") or (user.get("section") if user else None)
+            yr = details.get("year") or state.get("year") or (user.get("year") if user else None)
+            sec = details.get("section") or state.get("section") or (user.get("section") if user else None)
             try:
                 yr = int(yr) if yr else None
             except (ValueError, TypeError):
@@ -583,17 +601,26 @@ class CoordinatorAgent:
                     return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
 
             if intent == CampusIntent.CLASS_AT_TIME_LOOKUP:
-                req_t = details.get("requested_time", "11:00")
-                res = execute_tool("get_class_at_time", year=yr, section=sec, requested_time=req_t)
+                req_t = details.get("requested_time", "13:30")
+                req_date = details.get("day_name")
+                res = execute_tool("get_class_at_time", year=yr, section=sec, date=req_date, requested_time=req_t)
                 if res.get("status") == "success":
                     mc = res["matched_class"]
                     state["last_timetable_result"] = mc
-                    ans = f"At **{req_t}**, you have **{mc['subject_code']}** ({mc.get('class_type', 'Lecture')}).\n\n"
+                    day_str = f" on {res.get('day')}" if res.get("day") else ""
+                    ans = f"At **{mc['start_time']}**{day_str}, you have **{mc['subject_code']}** ({mc.get('class_type', 'Lecture')}).\n\n"
                     ans += f"🕒 {mc['start_time']}–{mc['end_time']}\n"
                     ans += f"📍 {mc.get('block') or 'N Block'} · Room {mc.get('room') or 'N/A'}"
+                    t_info = mc.get("teacher")
+                    if t_info and t_info.get("full_name"):
+                        desig = f" ({t_info['designation']})" if t_info.get("designation") else ""
+                        ans += f"\n👨‍🏫 **Taught by**: **{t_info['full_name']}**{desig}"
+                    return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
+                elif res.get("status") == "break":
+                    ans = res.get("message", "You have a break at that time.")
                     return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
                 else:
-                    ans = res.get("message", "No class is scheduled for that time according to the current timetable.")
+                    ans = res.get("message", f"No class is scheduled for Year {yr} Section {sec} at that time.")
                     return self._build_chat_response(ans, executed_tools, tool_records, session_state=state)
 
             if intent == CampusIntent.CLASS_LOCATION_LOOKUP:
@@ -741,8 +768,19 @@ class CoordinatorAgent:
                 if len(matches) == 1:
                     m = matches[0]
                     loc = m.get("location") or {}
-                    loc_desc = loc.get("name") or loc.get("block") or m.get("description") or "Campus"
-                    ans = f"**{m['name']}**\n- **Location**: {loc_desc} (Block: {loc.get('block') or 'Central Campus'}, Floor: {loc.get('floor') or 'Ground'})\n- **Services**: {', '.join(m.get('services_offered', []))}\n- **Description**: {m.get('description') or 'Campus Facility'}"
+                    loc_block = loc.get("block")
+                    loc_desc = loc.get("name") or (f"near {loc_block}" if loc_block and not loc_block.startswith("near") else loc_block) or m.get("description") or "Campus"
+                    
+                    loc_parts = []
+                    if loc_block:
+                        loc_parts.append(f"Block: {loc_block}")
+                    if loc.get("floor"):
+                        loc_parts.append(f"Floor: {loc['floor']}")
+                    if loc.get("room"):
+                        loc_parts.append(f"Room: {loc['room']}")
+                    
+                    loc_detail_str = f" ({', '.join(loc_parts)})" if loc_parts else ""
+                    ans = f"**{m['name']}**\n- **Location**: {loc_desc}{loc_detail_str}\n- **Services**: {', '.join(m.get('services_offered', []))}\n- **Description**: {m.get('description') or 'Campus Facility'}"
                 else:
                     ans = f"Found {len(matches)} verified campus facility/facilities:\n"
                     for m in matches[:3]:

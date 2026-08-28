@@ -302,6 +302,7 @@ CREATE TABLE IF NOT EXISTS timetables (
     class_type TEXT NOT NULL DEFAULT 'Lecture',
     room TEXT,
     section_default_room TEXT,
+    faculty TEXT,
     source_id UUID REFERENCES sources(id) ON DELETE SET NULL,
     confidence TEXT DEFAULT 'high' CHECK (confidence IN ('high', 'medium', 'low', 'needs_verification')),
     effective_from TIMESTAMPTZ,

@@ -50,8 +50,8 @@
     "id": "a936383f-8216-557e-92d1-91e17a7e93f5",
     "name": "Xerox Facility — Near MHP / Zest Area",
     "category": "xerox",
-    "description": "Xerox and printing facility situated near/between Zest and MHP area",
-    "location_id": null,
+    "description": "Xerox and printing facility situated near/between Zest and MHP area (near N Block)",
+    "location_id": "fa8d9e46-c5db-53e7-98c5-28f0bee403f3",
     "services_offered": [
       "xerox",
       "photocopy",
@@ -116,8 +116,8 @@
     "id": "5992d1dd-7638-5817-b97a-8f98762c244b",
     "name": "MHP / Main Canteen",
     "category": "canteen",
-    "description": "Main campus dining hall and central canteen at MHP",
-    "location_id": null,
+    "description": "Main campus dining hall and canteen at MHP, located near N Block.",
+    "location_id": "fa8d9e46-c5db-53e7-98c5-28f0bee403f3",
     "services_offered": [
       "meals",
       "thali",

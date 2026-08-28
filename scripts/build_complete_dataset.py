@@ -87,6 +87,23 @@ SOURCES = [
         "verified_at": "2026-08-26T00:00:00Z",
         "description": "Project-owner verified on-campus physical locations, offices, canteens, and Xerox facilities",
     },
+    # Official Timetables
+    {
+        "id": "b81a2f45-3129-5f21-a189-9a2c14022a8e",
+        "source_type": "department_verified",
+        "source_name": "Official II Year CSE Timetable",
+        "document_name": "II_Year_CSE_Timetables.xlsx",
+        "verified_at": "2026-08-26T00:00:00Z",
+        "description": "Official Department Timetables for II Year CSE",
+    },
+    {
+        "id": "7c92e104-58ab-590d-b21a-4d1f851003ef",
+        "source_type": "department_verified",
+        "source_name": "Official III Year CSE Timetable",
+        "document_name": "III_Year_CSE_Timetables.xlsx",
+        "verified_at": "2026-08-26T00:00:00Z",
+        "description": "Official Department Timetables for III Year CSE",
+    },
 ]
 
 SRC_MAP = {s["source_name"]: s["id"] for s in SOURCES}
@@ -170,6 +187,19 @@ LOCATIONS = [
         "location_type": "gate",
         "block": "Campus Entrance",
         "description": "Main campus gate and vehicle entrance",
+        "source_id": SRC_CAMPUS,
+        "confidence": "high",
+        "last_verified": "2026-08-26T00:00:00Z",
+    },
+    {
+        "id": gen_uuid("loc-mhp-canteen"),
+        "name": "MHP / Main Canteen",
+        "location_type": "canteen",
+        "block": "near N Block",
+        "floor": None,
+        "room": None,
+        "description": "Main campus dining hall and canteen at MHP, located near N Block.",
+        "parent_location_id": gen_uuid("loc-n-block"),
         "source_id": SRC_CAMPUS,
         "confidence": "high",
         "last_verified": "2026-08-26T00:00:00Z",
@@ -278,8 +308,8 @@ LOCATIONS = [
 # 3. DEPARTMENTS & FACULTY (Merging Website + Poster Data)
 # ============================================================================
 DEPARTMENTS_DATA = [
-    {"key": "dept-cse-core", "name": "Computer Science & Engineering (Core)", "short_name": "CSE {CORE}", "block": "N Block", "floor_information": "3,4,5 Floors", "hod_name": "Dr. Yarlagadda Jyothi", "hod_email": "hod_cse@vignan.ac.in", "desc": "Department of Computer Science & Engineering (Core)", "source_id": SRC_VENUES},
-    {"key": "dept-cse-spec", "name": "Computer Science & Engineering (Specializations)", "short_name": "CSE {SPECIALIZATIONS}", "block": "N Block", "floor_information": "5,6 Floors", "hod_name": "Dr. Yarlagadda Jyothi", "hod_email": "hod_cse@vignan.ac.in", "desc": "CSE Specializations (AI & ML, Cyber Security, Data Science, CSBS)", "source_id": SRC_VENUES},
+    {"key": "dept-cse-core", "name": "Computer Science & Engineering (Core)", "short_name": "CSE {CORE}", "block": "N Block", "floor_information": "3,4,5 Floors", "hod_name": "Dr. S.V. Phani Kumar", "hod_email": "hod_cse@vignan.ac.in", "desc": "Department of Computer Science & Engineering (Core)", "source_id": SRC_VENUES},
+    {"key": "dept-cse-spec", "name": "Computer Science & Engineering (Specializations)", "short_name": "CSE {SPECIALIZATIONS}", "block": "N Block", "floor_information": "5,6 Floors", "hod_name": "Dr. S.V. Phani Kumar", "hod_email": "hod_cse@vignan.ac.in", "desc": "CSE Specializations (AI & ML, Cyber Security, Data Science, CSBS)", "source_id": SRC_VENUES},
     {"key": "dept-it", "name": "Information Technology", "short_name": "IT", "block": "U Block", "floor_information": "3rd Floor", "hod_name": "Dr. Kamepalli Sujatha", "hod_email": "hod_it@vignan.ac.in", "desc": "Department of Information Technology", "source_id": SRC_VENUES},
     {"key": "dept-ece", "name": "Electronics & Communication Engineering", "short_name": "ECE", "block": "H Block", "floor_information": "2nd Floor", "hod_name": "Dr. T. Pitchaiah", "hod_email": "hod_ece@vignan.ac.in", "desc": "Department of Electronics & Communication Engineering", "source_id": SRC_VENUES},
     {"key": "dept-eee", "name": "Electrical & Electronics Engineering", "short_name": "EEE", "block": "H Block", "floor_information": "1st Floor", "hod_name": "Dr. P.V.S. Shobhan", "hod_email": "hod_eee@vignan.ac.in", "desc": "Department of Electrical & Electronics Engineering", "source_id": SRC_VENUES},
@@ -768,8 +798,8 @@ SERVICES = [
         "id": "a936383f-8216-557e-92d1-91e17a7e93f5",
         "name": "Xerox Facility — Near MHP / Zest Area",
         "category": "xerox",
-        "description": "Xerox and printing facility situated near/between Zest and MHP area",
-        "location_id": None,
+        "description": "Xerox and printing facility situated near/between Zest and MHP area (near N Block)",
+        "location_id": gen_uuid("loc-mhp-canteen"),
         "services_offered": ["xerox", "photocopy", "color printing", "spiral binding"],
         "source_id": SRC_CAMPUS,
         "confidence": "high",
@@ -813,8 +843,8 @@ SERVICES = [
         "id": gen_uuid("svc-canteen-mhp-main"),
         "name": "MHP / Main Canteen",
         "category": "canteen",
-        "description": "Main campus dining hall and central canteen at MHP",
-        "location_id": None,
+        "description": "Main campus dining hall and canteen at MHP, located near N Block.",
+        "location_id": gen_uuid("loc-mhp-canteen"),
         "services_offered": ["meals", "thali", "breakfast", "fast food", "beverages", "ice cream"],
         "source_id": SRC_CAMPUS,
         "confidence": "high",

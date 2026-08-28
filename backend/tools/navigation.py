@@ -155,7 +155,7 @@ def get_route(start_location: str, destination: str, travel_mode: str = "walking
     elif "h block" in norm_dest:
         target_block = "H Block"
     elif "mhp" in norm_dest or "canteen" in norm_dest:
-        target_block = "Central Campus"
+        target_block = "near N Block"
 
     if target_room:
         indoor_guidance = (
@@ -240,7 +240,7 @@ def get_route(start_location: str, destination: str, travel_mode: str = "walking
         start_display = start_location.title() if start_location else "Starting Location"
         formatted_steps = [
             {"step": 1, "instruction": f"Start from {start_display}."},
-            {"step": 2, "instruction": f"Follow the central campus walkway toward {target_block or dest_display}."},
+            {"step": 2, "instruction": f"Follow the campus walkway toward {target_block or dest_display}."},
             {"step": 3, "instruction": f"Arrive at {dest_display} ({target_block or 'Campus Building'})."}
         ]
         est_minutes = 3.0

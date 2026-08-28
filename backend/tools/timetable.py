@@ -75,10 +75,20 @@ def query_timetable(year: int, section: str, day_of_week: Optional[str] = None) 
     sec_str = str(section).strip().replace("Section ", "").replace("sec", "")
     
     records = []
-    source_used = "local_fallback"
+    source_used = "local_json"
 
-    # 1. Try Supabase first if connected
-    if db.is_connected():
+    # 1. Load local JSON records first (contains verified merged-cell intervals & section faculty)
+    local_recs = load_local_timetable_records(year)
+    for r in local_recs:
+        r_sec = str(r.get("section", "")).strip().replace("Section ", "").replace("sec", "")
+        r_day = r.get("day") or r.get("day_of_week")
+        if str(r.get("year")) == str(year) and r_sec == sec_str:
+            if day_of_week is None or r_day.lower() == day_of_week.lower():
+                records.append(dict(r))
+                
+    if records:
+        source_used = "local_json"
+    elif db.is_connected():
         try:
             query = db.client.table("timetables").select("*").eq("year", year).eq("section", sec_str)
             if day_of_week:
@@ -98,17 +108,6 @@ def query_timetable(year: int, section: str, day_of_week: Optional[str] = None) 
         except Exception as e:
             logger.warning(f"Supabase timetable query failed: {e}. Falling back to local dataset.")
             records = []
-            
-    # 2. Fallback to local JSON datasets if Supabase returned nothing or failed
-    if not records:
-        local_recs = load_local_timetable_records(year)
-        for r in local_recs:
-            r_sec = str(r.get("section", "")).strip().replace("Section ", "").replace("sec", "")
-            r_day = r.get("day") or r.get("day_of_week")
-            if str(r.get("year")) == str(year) and r_sec == sec_str:
-                if day_of_week is None or r_day.lower() == day_of_week.lower():
-                    records.append(dict(r))
-        source_used = "local_fallback"
                 
     # Sort by start_time
     records.sort(key=lambda x: x.get("start_time", ""))
@@ -271,6 +270,24 @@ def is_academic_class(entry: Dict[str, Any]) -> bool:
         return False
     return True
 
+def resolve_entry_faculty(entry: Dict[str, Any]) -> Optional[Dict[str, Any]]:
+    """
+    Resolve teacher/faculty for a specific timetable entry.
+    Strictly prioritizes the section-specific faculty assigned in the timetable record.
+    Falls back to global get_subject_faculty ONLY if timetable record faculty is empty/None.
+    """
+    if not entry:
+        return None
+    tt_faculty = entry.get("faculty")
+    if tt_faculty and str(tt_faculty).strip() and str(tt_faculty).strip().lower() not in ["none", "null", ""]:
+        return {
+            "full_name": str(tt_faculty).strip(),
+            "designation": "Faculty (Section Assigned)",
+            "room": entry.get("room") or entry.get("section_default_room"),
+            "source": "section_timetable"
+        }
+    return get_subject_faculty(entry.get("subject_code"))
+
 def get_current_class(year: int, section: str, current_datetime: Optional[str] = None) -> Dict[str, Any]:
     """
     Determine the current active class for the student.
@@ -314,7 +331,7 @@ def get_current_class(year: int, section: str, current_datetime: Optional[str] =
         }
         
     room_name, block, floor = resolve_room_and_building(current_entry.get("room"))
-    teacher = get_subject_faculty(current_entry.get("subject_code"))
+    teacher = resolve_entry_faculty(current_entry)
     
     return {
         "status": "success",
@@ -353,7 +370,7 @@ def get_next_class(year: int, section: str, current_datetime: Optional[str] = No
         }
         
     room_name, block, floor = resolve_room_and_building(next_entry.get("room"))
-    teacher = get_subject_faculty(next_entry.get("subject_code"))
+    teacher = resolve_entry_faculty(next_entry)
     
     return {
         "status": "success",
@@ -424,7 +441,8 @@ def get_daily_timetable(year: int, section: str, date: Optional[str] = None) -> 
             "subject_code": r.get("subject_code"),
             "class_type": r.get("class_type"),
             "room": room_name or r.get("section_default_room"),
-            "block": block
+            "block": block,
+            "faculty": r.get("faculty")
         })
         
     return {
@@ -436,31 +454,87 @@ def get_daily_timetable(year: int, section: str, date: Optional[str] = None) -> 
         "schedule": formatted_entries
     }
 
+def parse_time_expression(t_str: str) -> Optional[time]:
+    """Parse time string like '13:30', '1:30 PM', '1:30', 'one thirty' into datetime.time object."""
+    if not t_str:
+        return None
+    s = str(t_str).strip().lower()
+    
+    word_times = {
+        "one thirty": time(13, 30), "half past one": time(13, 30),
+        "two thirty": time(14, 30), "half past two": time(14, 30),
+        "three thirty": time(15, 30), "half past three": time(15, 30),
+        "four thirty": time(16, 30),
+        "eight thirty": time(8, 30), "nine thirty": time(9, 30),
+        "ten thirty": time(10, 30), "eleven thirty": time(11, 30), "twelve thirty": time(12, 30),
+        "eight fifteen": time(8, 15), "nine five": time(9, 5), "nine fifty five": time(9, 55),
+        "ten forty five": time(10, 45), "eleven fifty": time(11, 50), "twelve forty": time(12, 40),
+        "three ten": time(15, 10), "one": time(13, 0), "two": time(14, 0), "three": time(15, 0),
+        "four": time(16, 0), "eleven": time(11, 0), "nine": time(9, 0), "eight": time(8, 0)
+    }
+    for wt, tval in word_times.items():
+        if wt in s:
+            return tval
+            
+    m = re.search(r"\b(\d{1,2})[:\.](\d{2})\s*(am|pm)?\b", s)
+    if m:
+        h = int(m.group(1))
+        mn = int(m.group(2))
+        ampm = m.group(3)
+        if ampm:
+            if ampm == "pm" and h < 12:
+                h += 12
+            elif ampm == "am" and h == 12:
+                h = 0
+        else:
+            if 1 <= h <= 5:
+                h += 12
+        if 0 <= h <= 23 and 0 <= mn <= 59:
+            return time(h, mn)
+
+    m_h = re.search(r"\b(\d{1,2})\s*(am|pm)?\b", s)
+    if m_h:
+        h = int(m_h.group(1))
+        ampm = m_h.group(2)
+        if ampm:
+            if ampm == "pm" and h < 12:
+                h += 12
+            elif ampm == "am" and h == 12:
+                h = 0
+        else:
+            if 1 <= h <= 5:
+                h += 12
+        if 0 <= h <= 23:
+            return time(h, 0)
+
+    return None
+
+
 def get_class_at_time(year: int, section: str, date: Optional[str] = None, requested_time: Optional[str] = None) -> Dict[str, Any]:
     """Find what class is scheduled for a specific time."""
     if not requested_time:
         return {"status": "error", "message": "Please specify a requested_time (e.g. '11:00' or '14:30')."}
         
+    req_t = parse_time_expression(requested_time)
+    if not req_t:
+        return {"status": "error", "message": f"Could not parse requested time '{requested_time}'."}
+        
     if date:
-        try:
-            d_obj = datetime.strptime(date, "%Y-%m-%d")
-            day_name = d_obj.strftime("%A")
-        except Exception:
-            day_name = date.capitalize()
+        d_lower = str(date).lower().strip()
+        dt_now = get_now_kolkata()
+        if d_lower == "today":
+            day_name = dt_now.strftime("%A")
+        elif d_lower == "tomorrow":
+            day_name = (dt_now + timedelta(days=1)).strftime("%A")
+        else:
+            try:
+                d_obj = datetime.strptime(date, "%Y-%m-%d")
+                day_name = d_obj.strftime("%A")
+            except Exception:
+                day_name = date.capitalize()
     else:
         dt = get_now_kolkata()
         day_name = dt.strftime("%A")
-        
-    # Parse requested_time string
-    try:
-        if ":" in requested_time:
-            parts = requested_time.strip().split(":")
-            req_t = time(int(parts[0]), int(parts[1]))
-        else:
-            h = int(requested_time.strip())
-            req_t = time(h, 0)
-    except Exception:
-        return {"status": "error", "message": f"Could not parse time '{requested_time}'."}
         
     records = query_timetable(year, section, day_name)
     matched_entry = None
@@ -474,14 +548,27 @@ def get_class_at_time(year: int, section: str, date: Optional[str] = None, reque
     if not matched_entry:
         return {
             "status": "no_class",
-            "message": "No class is scheduled for that time according to the current timetable.",
-            "requested_time": requested_time,
+            "message": f"No class is scheduled at {req_t.strftime('%H:%M')} for Year {year} Section {section} on {day_name}.",
+            "requested_time": req_t.strftime("%H:%M"),
             "day": day_name
         }
         
+    if matched_entry.get("class_type") == "Break" or str(matched_entry.get("subject_code", "")).upper() == "BREAK":
+        return {
+            "status": "break",
+            "message": f"You have a break at {req_t.strftime('%H:%M')} on {day_name}.",
+            "break_start": matched_entry["start_time"],
+            "break_end": matched_entry["end_time"],
+            "requested_time": req_t.strftime("%H:%M"),
+            "day": day_name
+        }
+
     room_name, block, floor = resolve_room_and_building(matched_entry.get("room"))
+    teacher = resolve_entry_faculty(matched_entry)
     return {
         "status": "success",
+        "day": day_name,
+        "requested_time": req_t.strftime("%H:%M"),
         "matched_class": {
             "subject_code": matched_entry.get("subject_code"),
             "subject_name": matched_entry.get("subject_name"),
@@ -489,7 +576,9 @@ def get_class_at_time(year: int, section: str, date: Optional[str] = None, reque
             "start_time": matched_entry.get("start_time"),
             "end_time": matched_entry.get("end_time"),
             "room": room_name or matched_entry.get("section_default_room"),
-            "block": block
+            "block": block,
+            "floor": floor,
+            "teacher": teacher
         }
     }
 
@@ -562,7 +651,7 @@ def get_first_class_on_day(year: int, section: str, date: Optional[str] = None) 
 
     first_entry = academic_records[0]
     room_name, block, floor = resolve_room_and_building(first_entry.get("room"))
-    teacher = get_subject_faculty(first_entry.get("subject_code"))
+    teacher = resolve_entry_faculty(first_entry)
 
     return {
         "status": "success",

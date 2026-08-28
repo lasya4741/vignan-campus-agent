@@ -48,7 +48,7 @@ CANONICAL_ENTITIES: Dict[str, Dict[str, Any]] = {
             "where do students eat", "where can i get food", "where can i get lunch",
             "get lunch", "get food"
         ],
-        "default_block": "MHP / Zest Area",
+        "default_block": "near N Block",
         "primary_tool": "search_service",
     },
     "xerox_facility": {
@@ -341,12 +341,106 @@ def resolve_campus_entity(query: str) -> Optional[Dict[str, Any]]:
     return matched_meta
 
 
+def normalize_student_text(text: str) -> str:
+    """Normalize natural student phrasings, abbreviations, and shorthand."""
+    if not text:
+        return ""
+    norm = normalize_text(text)
+    
+    # Expand student abbreviations
+    norm = re.sub(r"\bclss?\b", "class", norm)
+    norm = re.sub(r"\bsecs?\b", "section", norm)
+    norm = re.sub(r"\byrs?\b", "year", norm)
+    norm = re.sub(r"\b(tmrw|tmr)\b", "tomorrow", norm)
+    norm = re.sub(r"\btdy\b", "today", norm)
+    norm = re.sub(r"\bsubjs?\b", "subject", norm)
+    norm = re.sub(r"\bsub\b", "subject", norm)
+    norm = re.sub(r"\blecs?\b", "lecture", norm)
+    norm = re.sub(r"\bi'm\b|\bim\b", "i am", norm)
+    
+    # Normalize Year phrases
+    norm = re.sub(r"\b2nd\s*year\b|\bii\s*year\b|\by2\b|\byr\s*2\b", "year 2", norm)
+    norm = re.sub(r"\b3rd\s*year\b|\biii\s*year\b|\by3\b|\byr\s*3\b", "year 3", norm)
+    
+    # Normalize Section phrases
+    norm = re.sub(r"\bsec\s*([0-9]{1,2})\b", r"section \1", norm)
+    norm = re.sub(r"\bs\s*([0-9]{1,2})\b", r"section \1", norm)
+    
+    # Handle shorthand year-section e.g. "3-1", "3-18", "y3 s1", "y2 s8"
+    dash_m = re.search(r"\b([23])\s*[-–]\s*([0-9]{1,2})\b", norm)
+    if dash_m:
+        norm = norm.replace(dash_m.group(0), f"year {dash_m.group(1)} section {dash_m.group(2)}")
+        
+    return norm.strip()
+
+
+def extract_time_from_text(text: str) -> Optional[str]:
+    """Extract and normalize natural time expressions into standard 24-hr HH:MM string."""
+    if not text:
+        return None
+    s = normalize_text(text)
+    
+    # Word numbers mapping
+    word_times = {
+        "one thirty": "13:30", "half past one": "13:30",
+        "two thirty": "14:30", "half past two": "14:30",
+        "three thirty": "15:30", "half past three": "15:30",
+        "four thirty": "16:30",
+        "eight thirty": "08:30", "nine thirty": "09:30",
+        "ten thirty": "10:30", "eleven thirty": "11:30", "twelve thirty": "12:30",
+        "eight fifteen": "08:15", "nine five": "09:05", "nine fifty five": "09:55",
+        "ten forty five": "10:45", "eleven fifty": "11:50", "twelve forty": "12:40",
+        "three ten": "15:10", "one thirty pm": "13:30", "two thirty pm": "14:30",
+        "one pm": "13:00", "two pm": "14:00", "three pm": "15:00", "four pm": "16:00"
+    }
+    for wt, tval in word_times.items():
+        if wt in s:
+            return tval
+
+    # Check HH:MM or HH.MM with optional AM/PM
+    m = re.search(r"\b(\d{1,2})[:\.](\d{2})\s*(am|pm)?\b", s)
+    if m:
+        h = int(m.group(1))
+        mn = int(m.group(2))
+        ampm = m.group(3)
+        if ampm:
+            if ampm == "pm" and h < 12:
+                h += 12
+            elif ampm == "am" and h == 12:
+                h = 0
+        else:
+            if 1 <= h <= 5:
+                h += 12
+        if 0 <= h <= 23 and 0 <= mn <= 59:
+            return f"{h:02d}:{mn:02d}"
+
+    # Check standalone hour e.g. "at 1", "at 13:30", "at 2", "1:30 class"
+    m_h = re.search(r"\b(?:at|class|period|subject|by)?\s*(\d{1,2})\s*(am|pm)?\b", s)
+    if m_h:
+        h_str = m_h.group(1)
+        ampm = m_h.group(2)
+        if len(h_str) <= 2:
+            h = int(h_str)
+            if ampm:
+                if ampm == "pm" and h < 12:
+                    h += 12
+                elif ampm == "am" and h == 12:
+                    h = 0
+            else:
+                if 1 <= h <= 5:
+                    h += 12
+            if 0 <= h <= 23 and (ampm or "at" in s or "class" in s or "period" in s):
+                return f"{h:02d}:00"
+
+    return None
+
+
 def classify_campus_intent(message: str, user_context: Optional[Dict[str, Any]] = None) -> Tuple[CampusIntent, Dict[str, Any]]:
     """
     Lightweight rule-guided natural-language intent classification and entity extraction.
     Works as the offline / verification dispatch layer alongside Gemini's native reasoning.
     """
-    norm = normalize_text(message)
+    norm = normalize_student_text(message)
     details: Dict[str, Any] = {}
 
     # 1. Check Out of Scope
@@ -354,21 +448,26 @@ def classify_campus_intent(message: str, user_context: Optional[Dict[str, Any]] 
         return CampusIntent.OUT_OF_SCOPE_REQUEST, {"refusal": OUT_OF_SCOPE_REFUSAL}
 
     # Timetable Context Extraction
-    year_m = re.search(r"\b([23])(?:nd|rd)?\s*year\b", norm) or re.search(r"\byear\s*([23])\b", norm)
-    sec_m = re.search(r"\bsection\s*([0-9]{1,2})\b", norm) or re.search(r"\bsec\s*([0-9]{1,2})\b", norm)
+    year_m = re.search(r"\b([23])(?:nd|rd)?\s*year\b", norm) or re.search(r"\byear\s*([23])\b", norm) or re.search(r"\by([23])\b", norm)
+    sec_m = re.search(r"\bsection\s*([0-9]{1,2})\b", norm) or re.search(r"\bsec\s*([0-9]{1,2})\b", norm) or re.search(r"\bs\s*([0-9]{1,2})\b", norm)
+    dash_m = re.search(r"\b([23])\s*[-–]\s*([0-9]{1,2})\b", norm)
 
-    if year_m:
-        details["year"] = int(year_m.group(1))
-    elif user_context and user_context.get("year"):
-        try:
-            details["year"] = int(user_context["year"])
-        except (ValueError, TypeError):
-            pass
+    if dash_m:
+        details["year"] = int(dash_m.group(1))
+        details["section"] = str(dash_m.group(2))
+    else:
+        if year_m:
+            details["year"] = int(year_m.group(1))
+        elif user_context and user_context.get("year"):
+            try:
+                details["year"] = int(user_context["year"])
+            except (ValueError, TypeError):
+                pass
 
-    if sec_m:
-        details["section"] = str(sec_m.group(1))
-    elif user_context and user_context.get("section"):
-        details["section"] = str(user_context["section"])
+        if sec_m:
+            details["section"] = str(sec_m.group(1))
+        elif user_context and user_context.get("section"):
+            details["section"] = str(user_context["section"])
 
     # Extract day of week / date if mentioned
     for d_name in ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "tomorrow", "today"]:
@@ -376,11 +475,25 @@ def classify_campus_intent(message: str, user_context: Optional[Dict[str, Any]] 
             details["day_name"] = d_name.capitalize()
             break
 
+    # Extract requested time if mentioned
+    extracted_time = extract_time_from_text(message) or extract_time_from_text(norm)
+    if extracted_time:
+        details["requested_time"] = extracted_time
+
     # 1b. Timetable Intent Classification
+    is_tt_keywords = any(w in norm for w in [
+        "class", "classes", "period", "lecture", "subject", "timetable", "schedule",
+        "what do i have", "what am i having", "what do we have", "what am i studying",
+        "what class", "which class", "what subject", "which subject", "what period", "which period",
+        "what's my next", "where is my next", "who teaches my next", "what do i have next",
+        "first class", "first period", "first lecture", "having tomorrow", "having today",
+        "what's happening in my class"
+    ])
+
     if any(w in norm for w in ["first class", "first period", "first lecture", "first do i have", "first tomorrow", "first on monday", "first on tuesday", "first on wednesday", "first on thursday", "first on friday", "first on saturday", "what do i have first", "what is my first"]):
         return CampusIntent.FIRST_CLASS_ON_DAY, details
 
-    if any(w in norm for w in ["what class do i have now", "what class am i having", "which period is going on", "do i have a class right now", "what am i studying now", "having right now", "current class"]):
+    if any(w in norm for w in ["what class do i have now", "what class am i having now", "which period is going on", "do i have a class right now", "what am i studying now", "having right now", "current class"]):
         return CampusIntent.CURRENT_CLASS_LOOKUP, details
 
     if any(w in norm for w in ["where is my current class", "what room is my current class", "where should i go now"]):
@@ -397,15 +510,17 @@ def classify_campus_intent(message: str, user_context: Optional[Dict[str, Any]] 
     if any(w in norm for w in ["next timetable event", "next event", "what is the next timetable event"]):
         return CampusIntent.NEXT_TIMETABLE_EVENT_LOOKUP, details
 
-    if any(w in norm for w in ["timetable today", "what do i have today", "show my monday timetable", "timetable for monday", "what do i have tomorrow", "show my timetable", "timetable"]):
-        return CampusIntent.DAILY_TIMETABLE_LOOKUP, details
-
-    if any(w in norm for w in ["what do i have at", "class is at", "what class is at", "at 2:30", "at 11"]):
-        m_t = re.search(r"\b(\d{1,2}(?::\d{2})?)\b", norm)
-        if m_t:
-            details["requested_time"] = m_t.group(1)
+    # Timetable lookup at a specific time
+    if extracted_time or any(w in norm for w in [
+        "what do i have at", "class is at", "what class is at", "which class is at", "what subject is at",
+        "which period is at", "what am i having at", "class at", "period at", "subject at",
+        "what do i have tomorrow afternoon", "what's happening in my class at", "what do i have"
+    ]):
+        if is_tt_keywords or extracted_time or ("year" in norm and "section" in norm):
             return CampusIntent.CLASS_AT_TIME_LOOKUP, details
 
+    if any(w in norm for w in ["timetable today", "what do i have today", "show my monday timetable", "timetable for monday", "what do i have tomorrow", "show my timetable", "timetable", "schedule"]):
+        return CampusIntent.DAILY_TIMETABLE_LOOKUP, details
 
     # 2. Navigation / Routes (check before location/department)
 
@@ -421,9 +536,9 @@ def classify_campus_intent(message: str, user_context: Optional[Dict[str, Any]] 
     is_counsellor = any(w in norm for w in ["counsellor", "counselor", "mentor", "advisor", "who is my counsellor", "who is my counselor", "who is my class counsellor"])
     reg_match = re.search(r"\b\d{2,3}[a-zA-Z]{1,3}\d{3,5}\b", message) or re.search(r"\b\d{4}\b", message)
     year_match = re.search(r"\b([1-4])(?:st|nd|rd|th)?\s*year\b", norm) or re.search(r"\byear\s*([1-4])\b", norm)
-    sec_match = re.search(r"\bsection\s*([a-zA-Z0-9]+)\b", norm) or re.search(r"\bsec\s*([a-zA-Z0-9]+)\b", norm)
+    sec_match = re.search(r"\bsection\s*([a-zA-Z0-9]+)\b", norm)
 
-    if is_counsellor or (reg_match and not any(w in norm for w in ["faculty", "cabin", "hod", "dean"])) or (year_match and sec_match and not any(w in norm for w in ["faculty", "subject", "course", "first", "next", "class", "timetable", "period", "today", "tomorrow"])):
+    if is_counsellor or (reg_match and not any(w in norm for w in ["faculty", "cabin", "hod", "dean"])) or (year_match and sec_match and not any(w in norm for w in ["faculty", "subject", "course", "first", "next", "class", "timetable", "period", "today", "tomorrow", "at", "time", "1:30", "2:30", "11:00"])):
         details["year"] = int(year_match.group(1)) if year_match else (user_context.get("year") if user_context else None)
         details["section"] = sec_match.group(1).upper() if sec_match else (user_context.get("section") if user_context else None)
         details["registration_number"] = reg_match.group(0) if reg_match else None

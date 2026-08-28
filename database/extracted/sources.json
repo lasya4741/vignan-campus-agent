@@ -63,6 +63,22 @@
     "description": "Project-owner verified on-campus physical locations, offices, canteens, and Xerox facilities"
   },
   {
+    "id": "b81a2f45-3129-5f21-a189-9a2c14022a8e",
+    "source_type": "department_verified",
+    "source_name": "Official II Year CSE Timetable",
+    "document_name": "II_Year_CSE_Timetables.xlsx",
+    "verified_at": "2026-08-26T00:00:00Z",
+    "description": "Official Department Timetables for II Year CSE"
+  },
+  {
+    "id": "7c92e104-58ab-590d-b21a-4d1f851003ef",
+    "source_type": "department_verified",
+    "source_name": "Official III Year CSE Timetable",
+    "document_name": "III_Year_CSE_Timetables.xlsx",
+    "verified_at": "2026-08-26T00:00:00Z",
+    "description": "Official Department Timetables for III Year CSE"
+  },
+  {
     "id": "5a8d7901-b758-5d20-a612-4c924bc01f89",
     "source_type": "official_website",
     "source_name": "VIGNAN Official Faculty Directory (People Page)",
@@ -77,23 +93,5 @@
     "source_url": "https://www.vignan.ac.in/newvignan/departments/depthome.php?deptid=sch3_dept1&deptnm=CSE&school=sch3",
     "description": "Official CSE department homepage identifying Head of Department Dr. S.V. Phani Kumar",
     "verified_at": "2026-08-27T00:00:00Z"
-  },
-  {
-    "id": "b81a2f45-3129-5f21-a189-9a2c14022a8e",
-    "source_type": "official_document",
-    "source_name": "VIGNAN CSE II Year II Semester Official Timetable Workbook",
-    "document_name": "2nd yt TT (2) (1) (2).xlsx",
-    "source_url": "database/raw/timetables/2nd yt TT (2) (1) (2).xlsx",
-    "verified_at": "2026-08-27T00:00:00Z",
-    "description": "Official section-wise timetable workbook for II B.Tech CSE (Sections 1 to 19)"
-  },
-  {
-    "id": "7c92e104-58ab-590d-b21a-4d1f851003ef",
-    "source_type": "official_document",
-    "source_name": "VIGNAN CSE III Year II Semester Official Timetable Spreadsheet",
-    "document_name": "year3_cse_timetable_2026.xlsx",
-    "source_url": "https://tinyurl.com/3rdyearTT2026",
-    "verified_at": "2026-08-27T00:00:00Z",
-    "description": "Official section-wise timetable spreadsheet for III B.Tech CSE (Sections 1 to 22)"
   }
 ]

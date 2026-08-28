@@ -62,7 +62,7 @@ def test_mhp_and_canteen_queries():
     # 1. Where is MHP?
     resp1 = coordinator.run("Where is MHP?")
     assert "MHP / Main Canteen" in resp1.answer
-    assert "Central Campus" in resp1.answer or "Ground" in resp1.answer
+    assert "near N Block" in resp1.answer or "N Block" in resp1.answer
 
     # 2. Where is the main canteen?
     resp2 = coordinator.run("Where is the main canteen?")

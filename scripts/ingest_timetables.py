@@ -137,91 +137,66 @@ def extract_room_and_code(cell_text, default_room):
     return code_text, final_room, explicit_room
 
 
-def process_y2_workbook(file_path):
-    wb = openpyxl.load_workbook(file_path, data_only=True)
-    records = []
-    
-    for sheet_name in wb.sheetnames:
-        ws = wb[sheet_name]
-        
-        # 1. Detect section number and default room
-        top_text = ""
-        for r in range(1, 6):
-            row_str = " ".join([clean(ws.cell(row=r, column=c).value) for c in range(1, ws.max_column + 1)])
-            top_text += " " + row_str
-            
-        m_sec = re.search(r'SECTION[-:\s]*(\d+)', top_text, re.IGNORECASE)
-        sec_num = m_sec.group(1).strip() if m_sec else sheet_name.replace('sec', '')
-        
-        m_room = re.search(r'\(?(N-[1-9]\d{2}[A-Z]?)\)?|SECTION-\d+-(\d{3})', top_text, re.IGNORECASE)
-        if m_room:
-            default_room = m_room.group(1) or f"N-{m_room.group(2)}"
-        else:
-            default_room = "N-313"
-        
-        # 2. Find time header row and day column
-        time_r = None
-        day_c = None
-        for r in range(1, min(15, ws.max_row + 1)):
-            for c in range(1, min(6, ws.max_column + 1)):
-                val = clean(ws.cell(row=r, column=c).value)
-                if val.lower() == 'day':
-                    time_r = r
-                    day_c = c
-                    break
-            if time_r:
-                break
+def parse_section_legend(ws):
+    fac_map = {}
+    for r in range(9, ws.max_row + 1):
+        c2 = clean(ws.cell(row=r, column=2).value)
+        c_fac = clean(ws.cell(row=r, column=6).value) or clean(ws.cell(row=r, column=5).value) or clean(ws.cell(row=r, column=4).value)
+        if c2 and c_fac:
+            fname = re.sub(r'\(\d+\)', '', c_fac).strip()
+            fname = re.sub(r'\s+', ' ', fname).strip()
+            if not fname:
+                continue
                 
-        if not time_r:
-            continue
+            code_m = re.search(r'\(([A-Z0-9\s\-]+)\)$', c2) or re.search(r'\b([A-Z]{2,6})\b', c2)
+            if code_m:
+                code_key = code_m.group(1).strip().upper()
+                fac_map[code_key] = fname
             
-        time_cols = []
-        for c in range(day_c + 1, ws.max_column + 1):
-            t_val = clean(ws.cell(row=time_r, column=c).value)
-            if t_val:
-                st, et = parse_time_slot(t_val)
-                if st and et:
-                    time_cols.append((c, t_val, st, et))
-                    
-        # 3. Extract Days and Entries
-        for r in range(time_r + 1, time_r + 10):
-            d_val = clean(ws.cell(row=r, column=day_c).value).upper()
-            if d_val in DAY_MAP:
-                day_name = DAY_MAP[d_val]
-                for c_idx, raw_time, start_time, end_time in time_cols:
-                    cell_val = clean(ws.cell(row=r, column=c_idx).value)
-                    if cell_val:
-                        code, room, explicit_room = extract_room_and_code(cell_val, default_room)
-                        class_type = parse_class_type(cell_val)
-                        
-                        rec = {
-                            "academic_year": "2024-2025",
-                            "project_target_academic_year": "2026-2027",
-                            "project_usage": "current_student_timetable",
-                            "year": 2,
-                            "section": sec_num,
-                            "day": day_name,
-                            "start_time": start_time,
-                            "end_time": end_time,
-                            "subject_code": code or cell_val,
-                            "subject_name": code or cell_val,
-                            "class_type": class_type,
-                            "room": room,
-                            "section_default_room": default_room,
-                            "source_id": Y2_SOURCE_ID,
-                            "confidence": "high",
-                            "last_verified": "2026-08-27T00:00:00Z"
-                        }
-                        records.append(rec)
-                        
-    return records
+            c2_u = c2.upper()
+            if 'COMPUTING ETHICS' in c2_u or 'CE' in c2_u:
+                fac_map['CE'] = fname
+                fac_map['CE -'] = fname
+            elif 'MACHINE LEARNING' in c2_u or 'ML' in c2_u:
+                fac_map['ML'] = fname
+                fac_map['ML -'] = fname
+            elif 'COMPUTER NETWORKS' in c2_u or 'CN' in c2_u:
+                fac_map['CN'] = fname
+                fac_map['CN -'] = fname
+            elif 'OPTIMIZATION TECHNIQUES' in c2_u or 'OT' in c2_u:
+                fac_map['OT'] = fname
+            elif 'MODERN FRONT-END' in c2_u or 'MFEF' in c2_u:
+                fac_map['MFEF'] = fname
+            elif 'DATA STRUCTURES' in c2_u or 'DS' in c2_u:
+                fac_map['DS'] = fname
+            elif 'DATABASE' in c2_u or 'DBMS' in c2_u:
+                fac_map['DBMS'] = fname
+            elif 'OBJECT ORIENTED' in c2_u or 'OOPS' in c2_u:
+                fac_map['OOPS'] = fname
+            elif 'DIGITAL LOGIC' in c2_u or 'DLD' in c2_u:
+                fac_map['DLD'] = fname
+            elif 'ARTIFICIAL INTELLIGENCE' in c2_u or 'AI' in c2_u:
+                fac_map['AI'] = fname
+            elif 'DISCRETE' in c2_u or 'DMS' in c2_u:
+                fac_map['DMS'] = fname
+    return fac_map
 
-def process_y3_workbook(file_path):
+
+def process_workbook(file_path, year, source_id):
     wb = openpyxl.load_workbook(file_path, data_only=True)
     records = []
     
     for sheet_name in wb.sheetnames:
         ws = wb[sheet_name]
+        merged_ranges = ws.merged_cells.ranges
+        
+        def get_merged_extent(r, c):
+            for rng in merged_ranges:
+                if rng.min_row <= r <= rng.max_row and rng.min_col <= c <= rng.max_col:
+                    return rng.min_row, rng.max_row, rng.min_col, rng.max_col
+            return r, r, c, c
+
+        fac_map = parse_section_legend(ws)
         
         top_text = ""
         for r in range(1, 6):
@@ -234,7 +209,7 @@ def process_y3_workbook(file_path):
         m_room = re.search(r'\[(N-\d+[A-Z]?)\]', top_text)
         if not m_room:
             m_room = re.search(r'ROOM\s*(?:NO)?[-:\s]*([N|C][-\w\d]+)', top_text, re.IGNORECASE)
-        default_room = m_room.group(1).strip() if m_room else "N-407"
+        default_room = m_room.group(1).strip() if m_room else ("N-313" if year == 2 else "N-407")
         
         time_r = None
         day_c = None
@@ -252,44 +227,79 @@ def process_y3_workbook(file_path):
             continue
             
         time_cols = []
+        col_map = {}
         for c in range(day_c + 1, ws.max_column + 1):
             t_val = clean(ws.cell(row=time_r, column=c).value)
             if t_val:
                 st, et = parse_time_slot(t_val)
                 if st and et:
                     time_cols.append((c, t_val, st, et))
+                    col_map[c] = (st, et)
                     
         for r in range(time_r + 1, time_r + 10):
             d_val = clean(ws.cell(row=r, column=day_c).value).upper()
             if d_val in DAY_MAP:
                 day_name = DAY_MAP[d_val]
+                processed_cols = set()
+                
                 for c_idx, raw_time, start_time, end_time in time_cols:
-                    cell_val = clean(ws.cell(row=r, column=c_idx).value)
-                    if cell_val:
-                        code, room, explicit_room = extract_room_and_code(cell_val, default_room)
-                        class_type = parse_class_type(cell_val)
+                    if c_idx in processed_cols:
+                        continue
                         
-                        rec = {
-                            "academic_year": "2024-2025",
-                            "project_target_academic_year": "2026-2027",
-                            "project_usage": "current_student_timetable",
-                            "year": 3,
-                            "section": sec_num,
-                            "day": day_name,
-                            "start_time": start_time,
-                            "end_time": end_time,
-                            "subject_code": code or cell_val,
-                            "subject_name": code or cell_val,
-                            "class_type": class_type,
-                            "room": room,
-                            "section_default_room": default_room,
-                            "source_id": Y3_SOURCE_ID,
-                            "confidence": "high",
-                            "last_verified": "2026-08-27T00:00:00Z"
-                        }
-                        records.append(rec)
+                    r_min, r_max, c_min, c_max = get_merged_extent(r, c_idx)
+                    cell_val = clean(ws.cell(row=r, column=c_min).value)
+                    
+                    if not cell_val:
+                        processed_cols.add(c_idx)
+                        continue
+
+                    c_start = c_min
+                    c_end = min(c_max, max(col_map.keys()))
+                    while c_end not in col_map and c_end > c_start:
+                        c_end -= 1
+
+                    real_st = col_map[c_start][0] if c_start in col_map else start_time
+                    real_et = col_map[c_end][1] if c_end in col_map else end_time
+
+                    for mark_c in range(c_start, c_max + 1):
+                        processed_cols.add(mark_c)
+
+                    code, room, explicit_room = extract_room_and_code(cell_val, default_room)
+                    class_type = parse_class_type(cell_val)
+                    
+                    code_clean = (code or cell_val).strip().upper()
+                    faculty_name = fac_map.get(code_clean) or fac_map.get(code_clean.replace(" -", "")) or fac_map.get(code_clean.split()[0])
+                    
+                    rec = {
+                        "academic_year": "2024-2025",
+                        "project_target_academic_year": "2026-2027",
+                        "project_usage": "current_student_timetable",
+                        "year": year,
+                        "section": sec_num,
+                        "day": day_name,
+                        "start_time": real_st,
+                        "end_time": real_et,
+                        "subject_code": code or cell_val,
+                        "subject_name": code or cell_val,
+                        "class_type": class_type,
+                        "room": room,
+                        "section_default_room": default_room,
+                        "faculty": faculty_name,
+                        "source_id": source_id,
+                        "confidence": "high",
+                        "last_verified": "2026-08-27T00:00:00Z"
+                    }
+                    records.append(rec)
                         
     return records
+
+
+def process_y2_workbook(file_path):
+    return process_workbook(file_path, 2, Y2_SOURCE_ID)
+
+
+def process_y3_workbook(file_path):
+    return process_workbook(file_path, 3, Y3_SOURCE_ID)
 
 def update_sources_json():
     sources_path = "database/extracted/sources.json"

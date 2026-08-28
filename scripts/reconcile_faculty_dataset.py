@@ -118,12 +118,24 @@ def run_reconciliation():
                 "source_id": a.get("source_id")
             }
 
+    known_hod_names = {
+        "436a0fa6-e470-5f0b-a0c9-01547b9a338b": "Dr. Kamepalli Sujatha",
+        "f5bbac32-5a15-5723-9561-fff47f7ddb07": "Dr. T. Pitchaiah",
+        "0d1ef143-2287-5735-a7b2-c07a3c391783": "Dr. P.V.S. Shobhan",
+        "efb39dc1-6739-5dc3-9492-7c074e9c82a8": "Dr. T. Ch. Anil Kumar",
+        "c065f49e-f00e-5431-b751-689369f64bf5": "Dr. P. Sundara Kumar",
+        "4bf09c00-67ee-5f03-8d0c-2d33454b5dfa": "Dr. M. Ramesh Naidu",
+        "76426462-8924-5d9c-8515-f5beac4461ee": "Dr. T. C. Venkateswarlu",
+        "f5e7f098-b80c-5d99-8cf6-c0d1656f4d22": "Dr. N. Narayana Rao",
+        "2cb212e3-bc1a-555e-9988-db0ee82ebed6": "Dr. Sarita Satpathy",
+    }
     for d in departments:
         fid = d.get("hod_faculty_id")
         if fid and fid not in poster_faculty_refs:
             poster_faculty_refs[fid] = {
                 "id": fid,
-                "full_name": f"HOD of {d['name']}",
+                "full_name": known_hod_names.get(fid, f"HOD of {d['name']}"),
+                "designation": "Professor & Head of Department",
                 "department_id": d["id"],
                 "source_id": d.get("source_id")
             }

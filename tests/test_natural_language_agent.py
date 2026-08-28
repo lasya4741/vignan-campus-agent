@@ -72,7 +72,7 @@ def test_paraphrased_canteen_and_mhp():
     for q in queries:
         res = coordinator.run(q)
         assert res.answer, f"Empty answer for '{q}'"
-        assert any(term in res.answer.lower() for term in ["mhp", "canteen", "cafeteria", "food", "lunch", "h block", "central campus"]), (
+        assert any(term in res.answer.lower() for term in ["mhp", "canteen", "cafeteria", "food", "lunch", "h block", "n block"]), (
             f"Failed for '{q}': {res.answer}"
         )
 

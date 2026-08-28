@@ -158,6 +158,7 @@ def run_import(base_dir: str = "database/extracted", dry_run: bool = False):
         if "project_target_year" in rec:
             rec["project_target_academic_year"] = rec.pop("project_target_year")
         rec.pop("project_usage", None)
+        rec.pop("faculty", None)
         tt_records.append(rec)
 
     ins, skip, fail = import_table_records("timetables", tt_records, dry_run=dry_run)

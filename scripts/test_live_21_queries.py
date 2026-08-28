@@ -8,7 +8,7 @@ BASE_URL = "http://127.0.0.1:8000"
 TEST_QUERIES = [
     ("1. Who is the HOD of CSE?", "Who is the HOD of CSE?", None, lambda r: "Dr. S.V. Phani Kumar" in r["answer"] and "Computer Science" in r["answer"]),
     ("2. Who is the HOD of IT?", "Who is the HOD of IT?", None, lambda r: "Dr. Kamepalli Sujatha" in r["answer"] and "Information Technology" in r["answer"]),
-    ("3. Where is MHP?", "Where is MHP?", None, lambda r: "MHP / Main Canteen" in r["answer"] and ("Central Campus" in r["answer"] or "Ground" in r["answer"])),
+    ("3. Where is MHP?", "Where is MHP?", None, lambda r: "MHP / Main Canteen" in r["answer"] and ("near N Block" in r["answer"] or "N Block" in r["answer"])),
     ("4. Where is the main canteen?", "Where is the main canteen?", None, lambda r: "MHP / Main Canteen" in r["answer"]),
     ("5. Where can I get lunch?", "Where can I get lunch?", None, lambda r: "MHP" in r["answer"] or "Canteen" in r["answer"]),
     ("6. Where is Finance?", "Where is Finance?", None, lambda r: "Finance & Accounts Office" in r["answer"] and "A Block" in r["answer"]),
